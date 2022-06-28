@@ -10,7 +10,7 @@ public class PhoneTabletDetail {
     private Integer PhoneTabletDetailId;
     @Column(nullable = false)
     private Integer productId;
-private String screen;
+    private String screen;
     private String screenTechnology;
     private String resolution;
     private String wideScreen;
@@ -20,20 +20,12 @@ private String screen;
     private String rearCamera;
     private String chip;
     private String chipSpeed;
-    private String chipGraphics;
+    private String chipGraphic;
     private String ram;
     private String material;
     private String release;
     private String sim;
     private String sizeWeight;
-
-    public Integer getPhoneDetailId() {
-        return PhoneTabletDetailId;
-    }
-
-    public void setPhoneDetailId(Integer PhoneTabletDetailId) {
-        this.PhoneTabletDetailId = PhoneTabletDetailId;
-    }
 
     public Integer getProductId() {
         return productId;
@@ -131,12 +123,20 @@ private String screen;
         this.chipSpeed = chipSpeed;
     }
 
-    public String getChipGraphics() {
-        return chipGraphics;
+    public Integer getPhoneTabletDetailId() {
+        return PhoneTabletDetailId;
     }
 
-    public void setChipGraphics(String chipGraphics) {
-        this.chipGraphics = chipGraphics;
+    public void setPhoneTabletDetailId(Integer phoneTabletDetailId) {
+        PhoneTabletDetailId = phoneTabletDetailId;
+    }
+
+    public String getChipGraphic() {
+        return chipGraphic;
+    }
+
+    public void setChipGraphic(String chipGraphic) {
+        this.chipGraphic = chipGraphic;
     }
 
     public String getRam() {

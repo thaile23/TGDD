@@ -1,10 +1,9 @@
 package com.project.TGDD.Model;
 
-import jdk.jfr.Enabled;
 
 import javax.persistence.*;
 
-@Enabled
+@Entity
 @Table(name = "RomProduct")
 public class RomProduct {
     @Id

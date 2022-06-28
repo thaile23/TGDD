@@ -14,7 +14,6 @@ public class Order {
     private Integer numberPhone;
     @Column(nullable = false)
     private String name;
-
     private String address;
     @Column(nullable = false)
     private Integer productId;
