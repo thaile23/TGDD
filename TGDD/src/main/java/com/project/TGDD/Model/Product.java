@@ -14,14 +14,23 @@ public class Product {
     private String name;
     @Column(nullable = false)
     private Integer categoryId;
-private Integer price;
+    private Integer price;
     @Column(nullable = false)
-private Integer manufacturerId;
+    private Integer manufacturerId;
     private String OS;
     private String description;
     private Float star;
     private String createAt;
     private Date dateAdd;
+    private Integer productStatus;
+
+    public Integer getProductStatus() {
+        return productStatus;
+    }
+
+    public void setProductStatus(Integer productStatus) {
+        this.productStatus = productStatus;
+    }
 
     public Integer getProductId() {
         return productId;
