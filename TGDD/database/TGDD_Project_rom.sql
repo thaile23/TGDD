@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `rom`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `rom` (
   `rom_id` int(11) NOT NULL,
-  `rom_detail` int(11) NOT NULL,
+  `rom_detail` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`rom_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -35,6 +35,7 @@ CREATE TABLE `rom` (
 
 LOCK TABLES `rom` WRITE;
 /*!40000 ALTER TABLE `rom` DISABLE KEYS */;
+INSERT INTO `rom` VALUES (1,'32GB'),(2,'64GB'),(3,'128GB'),(4,'256GB'),(5,'512GB'),(6,'1TB');
 /*!40000 ALTER TABLE `rom` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -47,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-29  0:05:04
+-- Dump completed on 2022-06-29  8:16:22

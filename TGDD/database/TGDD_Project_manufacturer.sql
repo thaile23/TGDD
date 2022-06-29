@@ -35,6 +35,7 @@ CREATE TABLE `manufacturer` (
 
 LOCK TABLES `manufacturer` WRITE;
 /*!40000 ALTER TABLE `manufacturer` DISABLE KEYS */;
+INSERT INTO `manufacturer` VALUES (1,'Apple'),(2,'Samsung'),(3,'Xiaomi'),(4,'Oppo'),(5,'Vivo');
 /*!40000 ALTER TABLE `manufacturer` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -47,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-29  0:05:05
+-- Dump completed on 2022-06-29  8:16:23

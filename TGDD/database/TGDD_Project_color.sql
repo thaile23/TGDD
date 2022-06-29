@@ -35,6 +35,7 @@ CREATE TABLE `color` (
 
 LOCK TABLES `color` WRITE;
 /*!40000 ALTER TABLE `color` DISABLE KEYS */;
+INSERT INTO `color` VALUES (1,'Đỏ'),(2,'Xanh'),(3,'Trắng'),(4,'Đen'),(5,'Vàng'),(6,'Tím');
 /*!40000 ALTER TABLE `color` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -47,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-29  0:05:04
+-- Dump completed on 2022-06-29  8:16:22
