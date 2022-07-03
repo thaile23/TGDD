@@ -45,7 +45,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void AddManufacturer(Manufacturer manu) {
-        manufacturerRepository.save(manu);
+    public void AddManufacturer(Manufacturer manufacturer) {
+        manufacturerRepository.save(manufacturer);
     }
 }

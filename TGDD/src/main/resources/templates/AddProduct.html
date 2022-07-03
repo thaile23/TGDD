@@ -185,8 +185,7 @@
 
 
         <!-- User Menu-->
-        <li><a class="app-nav__item" th:href="@{/index.html}"><i class='bx bx-log-out bx-rotate-180'></i> </a>
-
+        <li><a class="app-nav__item" th:href="@{/index.html}"><i class='bx bx-log-out bx-rotate-180'></i></a>
         </li>
     </ul>
 </header>
@@ -254,10 +253,10 @@
                             <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#addrom"><i
                                     class="fas fa-folder-plus"></i> Thêm bộ nhớ trong</a>
                         </div>
-                        <div class="col-sm-2">
+                       <!-- <div class="col-sm-2">
                             <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#addtinhtrang"><i
                                     class="fas fa-folder-plus"></i> Thêm tình trạng</a>
-                        </div>
+                        </div>-->
                     </div>
                     <!-- Navbar-->
                     <!-- Nav tabs -->
@@ -942,28 +941,28 @@ MODAL manufacturer
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <form th:action="@{/Product/AddManu}" th:object="${Manufacturer}" method="get">
-                <div class="row">
-                    <div class="form-group  col-md-12">
+                <form th:action="@{/Product/AddManu}" th:object="${addManufacturer}" method="get">
+                    <div class="row">
+                        <div class="form-group  col-md-12">
                             <span class="thong-tin-thanh-toan">
                                <h5>Thêm mới nhà sản xuất</h5>
                             </span>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="control-label">Nhập tên nhà sản xuất mới</label>
+                            <input class="form-control" type="text" th:field="*{manufacturerName}" required>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="control-label">Danh mục nhà sản xuất hiện đang có</label>
+                            <ul style="padding-left: 20px;" th:each="manu : ${listManufacturer}">
+                                <li>[[${manu.manufacturerName}]]</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="form-group col-md-12">
-                        <label class="control-label">Nhập tên nhà sản xuất mới</label>
-                        <input class="form-control" type="text" th:field="*{manufacturerName}" required>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label class="control-label">Danh mục nhà sản xuất hiện đang có</label>
-                        <ul style="padding-left: 20px;" th:each="manu : ${listManufacturer}">
-                            <li>[[${manu.manufacturerName}]]</li>
-                        </ul>
-                    </div>
-                </div>
-                <BR>
-                <button class="btn btn-save" type="submit" >Lưu lại</button>
-                <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
-                <BR>
+                    <BR>
+                    <button class="btn btn-save" type="submit">Lưu lại</button>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+                    <BR>
                 </form>
             </div>
             <div class="modal-footer">
@@ -979,27 +978,29 @@ MODAL Color
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <div class="row">
-                    <div class="form-group  col-md-12">
+                <form th:action="@{/Product/AddColor}" th:object="${addColor}" method="get">
+                    <div class="row">
+                        <div class="form-group  col-md-12">
                             <span class="thong-tin-thanh-toan">
-<h5>Thêm mới màu</h5>
-</span>
+                                 <h5>Thêm màu mới</h5>
+                            </span>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="control-label">Nhập tên màu mới</label>
+                            <input class="form-control" type="text" th:field="*{colorName}" required>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="control-label">Danh mục màu hiện đang có</label>
+                            <ul style="padding-left: 20px;" th:each="color : ${listColor}">
+                                <li>[[${color.colorName}]]</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="form-group col-md-12">
-                        <label class="control-label">Nhập tên màu mới</label>
-                        <input class="form-control" type="text" required>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label class="control-label">Danh mục màu hiện đang có</label>
-                        <ul style="padding-left: 20px;" th:each="color : ${listColor}">
-                            <li>[[${color.colorName}]]</li>
-                        </ul>
-                    </div>
-                </div>
-                <BR>
-                <button class="btn btn-save" type="submit">Lưu lại</button>
-                <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
-                <BR>
+                    <BR>
+                    <button class="btn btn-save" type="submit">Lưu lại</button>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+                    <BR>
+                </form>
             </div>
             <div class="modal-footer">
             </div>
@@ -1017,27 +1018,29 @@ MODAL ROM
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <div class="row">
-                    <div class="form-group  col-md-12">
+                <form th:action="@{/Product/AddRom}" th:object="${addRom}" method="get">
+                    <div class="row">
+                        <div class="form-group  col-md-12">
                             <span class="thong-tin-thanh-toan">
-          <h5>Thêm mới bộ nhớ trong</h5>
-        </span>
+                               <h5>Thêm mới bộ nhớ trong</h5>
+                            </span>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="control-label">Nhập tên bộ nhớ trong mới</label>
+                            <input class="form-control" type="text" th:field="*{romDetail}" required>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="control-label">Danh mục bộ nhớ trong hiện đang có</label>
+                            <ul style="padding-left: 20px;" th:each="rom : ${listRom}">
+                                <li>[[${rom.romDetail}]]</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="form-group col-md-12">
-                        <label class="control-label">Nhập tên bộ nhớ trong mới</label>
-                        <input class="form-control" type="text" required>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label class="control-label">Danh mục bộ nhớ trong hiện đang có</label>
-                        <ul style="padding-left: 20px;" th:each="rom : ${listRom}">
-                            <li>[[${rom.romDetail}]]</li>
-                        </ul>
-                    </div>
-                </div>
-                <BR>
-                <button class="btn btn-save" type="button">Lưu lại</button>
-                <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
-                <BR>
+                    <BR>
+                    <button class="btn btn-save" type="submit">Lưu lại</button>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+                    <BR>
+                </form>
             </div>
             <div class="modal-footer">
             </div>
@@ -1049,7 +1052,7 @@ MODAL
 -->
 <!--
 MODAL TÌNH TRẠNG
--->
+
 <div class="modal fade" id="addtinhtrang" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
      data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -1076,6 +1079,7 @@ MODAL TÌNH TRẠNG
         </div>
     </div>
 </div>
+-->
 <!--
 MODAL
 -->

@@ -31,23 +31,63 @@ public class ProductController {
         model.addAttribute("listManufacturer", listManufacturer);
         List<Rom> listRom = productService.getAllRom();
         model.addAttribute("listRom", listRom);
-        model.addAttribute("Manufacturer", new Manufacturer());
+        model.addAttribute("addManufacturer", new Manufacturer());
+        model.addAttribute("addRom", new Rom());
+        model.addAttribute("addColor", new Color());
+
         return "AddProduct";
     }
 
     @GetMapping("/Product/AddManu")
     public String AddManufacturer(Manufacturer manu, RedirectAttributes re) {
         List<Manufacturer> listManufacturer = productService.getAllManufacturer();
-        if(manu.getManufacturerName().isEmpty()){
-            re.addFlashAttribute("ErrorNull", "Manufacturer name is null");
-        }
+        String nameManu = manu.getManufacturerName().toLowerCase().trim();
+        boolean check = false;
         for (int i = 0; i < listManufacturer.size(); i++) {
-            if(listManufacturer.get(i).getManufacturerName().equals(manu.getManufacturerName())){
-                re.addFlashAttribute("ErrorNull", "Manufacturer name was existed");
+            if (listManufacturer.get(i).getManufacturerName().toLowerCase().equals(nameManu)) {
+                check=true;
             }
-            else{
-                productService.AddManufacturer(manu);
+        }
+        if(check==false){
+            productService.AddManufacturer(manu);
+        }else{
+            re.addFlashAttribute("ErrorNull", "Manufacturer name was existed");
+        }
+        return "redirect:/Product/Add";
+    }
+
+    @GetMapping("/Product/AddRom")
+    public String AddRom(Rom rom, RedirectAttributes re) {
+        List<Rom> listRom = productService.getAllRom();
+        String nameRom = rom.getRomDetail().toUpperCase().trim();
+        boolean check = false;
+        for (int i = 0; i < listRom.size(); i++) {
+            if (listRom.get(i).getRomDetail().toUpperCase().equals(nameRom)) {
+                check=true;
             }
+        }
+        if(check==false){
+            productService.AddRom(rom);
+        }else{
+            re.addFlashAttribute("ErrorNull", "Rom was existed");
+        }
+        return "redirect:/Product/Add";
+    }
+
+    @GetMapping("/Product/AddColor")
+    public String AddColor(Color color, RedirectAttributes re) {
+        List<Color> listColor = colorservice.getAllColor();
+        String nameColor = color.getColorName().toUpperCase().trim();
+        boolean check = false;
+        for (int i = 0; i < listColor.size(); i++) {
+            if (listColor.get(i).getColorName().toUpperCase().equals(nameColor)) {
+                check=true;
+            }
+        }
+        if(check==false){
+            colorservice.addColor(color);
+        }else{
+            re.addFlashAttribute("ErrorNull", "Color was existed");
         }
         return "redirect:/Product/Add";
     }

@@ -3,12 +3,13 @@ package com.project.TGDD.Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Manufacturer")
+@Table(name = "manufacturer")
 public class Manufacturer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "manufacturer_id")
     private Integer manufacturerId;
-
+    @Column(name = "manufacturer_name", nullable = false)
     private String manufacturerName;
 
     public Integer getManufacturerId() {

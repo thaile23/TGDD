@@ -11,7 +11,5 @@ public interface ProductService {
     List<Manufacturer> getAllManufacturer();
     List<Rom> getAllRom();
     void AddRom(Rom rom);
-    void AddManufacturer(Manufacturer manu);
-
-
+    void AddManufacturer(Manufacturer manufacturer);
 }
