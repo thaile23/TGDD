@@ -1,6 +1,7 @@
 package com.project.TGDD.Model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "SubReview")
@@ -18,6 +19,15 @@ public class SubReview {
     private Integer numberPhone;
     @Column(nullable = false)
     private String SubReviewContent;
+    private Date subReviewDate;
+
+    public Date getSubReviewDate() {
+        return subReviewDate;
+    }
+
+    public void setSubReviewDate(Date subReviewDate) {
+        this.subReviewDate = subReviewDate;
+    }
 
     public Integer getSubReviewId() {
         return subReviewId;

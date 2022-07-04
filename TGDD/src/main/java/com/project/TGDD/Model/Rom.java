@@ -9,7 +9,7 @@ public class Rom {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer romId;
     @Column(nullable = false)
-    private String romDetail;
+    private String romName;
 
     public Integer getRomId() {
         return romId;
@@ -19,11 +19,11 @@ public class Rom {
         this.romId = romId;
     }
 
-    public String getRomDetail() {
-        return romDetail;
+    public String getRomName() {
+        return romName;
     }
 
-    public void setRomDetail(String romDetail) {
-        this.romDetail = romDetail;
+    public void setRomName(String romName) {
+        this.romName = romName;
     }
 }

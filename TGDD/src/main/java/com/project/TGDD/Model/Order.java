@@ -14,17 +14,13 @@ public class Order {
     private Integer numberPhone;
     @Column(nullable = false)
     private String name;
+
     private String address;
     @Column(nullable = false)
-    private Integer productId;
-
-    @Column(nullable = false)
-    private Integer amount;
     private String createAt;
-
     private Date dateOrder;
     @Column(nullable = false)
-    private Integer statusId;
+    private Integer orderStatusId;
 
     public Integer getOrderId() {
         return orderId;
@@ -58,22 +54,6 @@ public class Order {
         this.address = address;
     }
 
-    public Integer getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Integer productId) {
-        this.productId = productId;
-    }
-
-    public Integer getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Integer amount) {
-        this.amount = amount;
-    }
-
     public String getCreateAt() {
         return createAt;
     }
@@ -90,11 +70,11 @@ public class Order {
         this.dateOrder = dateOrder;
     }
 
-    public Integer getStatusId() {
-        return statusId;
+    public Integer getOrderStatusId() {
+        return orderStatusId;
     }
 
-    public void setStatusId(Integer statusId) {
-        this.statusId = statusId;
+    public void setOrderStatusId(Integer orderStatusId) {
+        this.orderStatusId = orderStatusId;
     }
 }

@@ -20,17 +20,10 @@ public class Product {
     private String OS;
     private String description;
     private Float star;
-    private String createAt;
-    private Date dateAdd;
-    private Integer productStatus;
-
-    public Integer getProductStatus() {
-        return productStatus;
-    }
-
-    public void setProductStatus(Integer productStatus) {
-        this.productStatus = productStatus;
-    }
+    private String picture1;
+    private String picture2;
+    private String picture3;
+    private Integer productStatusId;
 
     public Integer getProductId() {
         return productId;
@@ -96,19 +89,35 @@ public class Product {
         this.star = star;
     }
 
-    public String getCreateAt() {
-        return createAt;
+    public String getPicture1() {
+        return picture1;
     }
 
-    public void setCreateAt(String createAt) {
-        this.createAt = createAt;
+    public void setPicture1(String picture1) {
+        this.picture1 = picture1;
     }
 
-    public Date getDateAdd() {
-        return dateAdd;
+    public String getPicture2() {
+        return picture2;
     }
 
-    public void setDateAdd(Date dateAdd) {
-        this.dateAdd = dateAdd;
+    public void setPicture2(String picture2) {
+        this.picture2 = picture2;
+    }
+
+    public String getPicture3() {
+        return picture3;
+    }
+
+    public void setPicture3(String picture3) {
+        this.picture3 = picture3;
+    }
+
+    public Integer getProductStatusId() {
+        return productStatusId;
+    }
+
+    public void setProductStatusId(Integer productStatusId) {
+        this.productStatusId = productStatusId;
     }
 }

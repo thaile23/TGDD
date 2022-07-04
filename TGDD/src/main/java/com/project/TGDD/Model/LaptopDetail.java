@@ -4,38 +4,45 @@ package com.project.TGDD.Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "LaptopDetail")
+@Table(name = "Laptop_detail")
 public class LaptopDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer laptopDetailId;
+    private Integer laptopId;
 
     @Column(nullable = false)
     private Integer productId;
 
-    private String cpu;
     private String core;
     private String thread;
+    private String cpu;
     private String cpuSpeed;
-    private String cpuMaxSpeed;
     private String ram;
-    private String ramType;
-    private String ramSpeed;
     private String ramUpdate;
     private String screen;
     private String graphicCard;
     private String connector;
     private String especially;
+    private String design;
+    private String pin;
     private String sizeWeight;
     private String release;
 
-    public Integer getLaptopDetailId() {
-        return laptopDetailId;
+    public Integer getLaptopId() {
+        return laptopId;
     }
 
-    public void setLaptopDetailId(Integer laptopDetailId) {
-        this.laptopDetailId = laptopDetailId;
+    public String getPin() {
+        return pin;
+    }
+
+    public void setPin(String pin) {
+        this.pin = pin;
+    }
+
+    public void setLaptopId(Integer laptopId) {
+        this.laptopId = laptopId;
     }
 
     public Integer getProductId() {
@@ -44,14 +51,6 @@ public class LaptopDetail {
 
     public void setProductId(Integer productId) {
         this.productId = productId;
-    }
-
-    public String getCpu() {
-        return cpu;
-    }
-
-    public void setCpu(String cpu) {
-        this.cpu = cpu;
     }
 
     public String getCore() {
@@ -70,6 +69,14 @@ public class LaptopDetail {
         this.thread = thread;
     }
 
+    public String getCpu() {
+        return cpu;
+    }
+
+    public void setCpu(String cpu) {
+        this.cpu = cpu;
+    }
+
     public String getCpuSpeed() {
         return cpuSpeed;
     }
@@ -78,36 +85,12 @@ public class LaptopDetail {
         this.cpuSpeed = cpuSpeed;
     }
 
-    public String getCpuMaxSpeed() {
-        return cpuMaxSpeed;
-    }
-
-    public void setCpuMaxSpeed(String cpuMaxSpeed) {
-        this.cpuMaxSpeed = cpuMaxSpeed;
-    }
-
     public String getRam() {
         return ram;
     }
 
     public void setRam(String ram) {
         this.ram = ram;
-    }
-
-    public String getRamType() {
-        return ramType;
-    }
-
-    public void setRamType(String ramType) {
-        this.ramType = ramType;
-    }
-
-    public String getRamSpeed() {
-        return ramSpeed;
-    }
-
-    public void setRamSpeed(String ramSpeed) {
-        this.ramSpeed = ramSpeed;
     }
 
     public String getRamUpdate() {
@@ -148,6 +131,14 @@ public class LaptopDetail {
 
     public void setEspecially(String especially) {
         this.especially = especially;
+    }
+
+    public String getDesign() {
+        return design;
+    }
+
+    public void setDesign(String design) {
+        this.design = design;
     }
 
     public String getSizeWeight() {

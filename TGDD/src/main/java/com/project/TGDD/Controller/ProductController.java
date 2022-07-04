@@ -1,19 +1,17 @@
 package com.project.TGDD.Controller;
 
-import com.project.TGDD.Model.Color;
-import com.project.TGDD.Model.Manufacturer;
-import com.project.TGDD.Model.Rom;
+import com.project.TGDD.Model.*;
 import com.project.TGDD.Service.ColorService;
 import com.project.TGDD.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -34,7 +32,8 @@ public class ProductController {
         model.addAttribute("addManufacturer", new Manufacturer());
         model.addAttribute("addRom", new Rom());
         model.addAttribute("addColor", new Color());
-
+        model.addAttribute("addProduct", new Product());
+        model.addAttribute("addPhone", new PhoneTabletDetail());
         return "AddProduct";
     }
 
@@ -45,12 +44,12 @@ public class ProductController {
         boolean check = false;
         for (int i = 0; i < listManufacturer.size(); i++) {
             if (listManufacturer.get(i).getManufacturerName().toLowerCase().equals(nameManu)) {
-                check=true;
+                check = true;
             }
         }
-        if(check==false){
+        if (check == false) {
             productService.AddManufacturer(manu);
-        }else{
+        } else {
             re.addFlashAttribute("ErrorNull", "Manufacturer name was existed");
         }
         return "redirect:/Product/Add";
@@ -59,16 +58,16 @@ public class ProductController {
     @GetMapping("/Product/AddRom")
     public String AddRom(Rom rom, RedirectAttributes re) {
         List<Rom> listRom = productService.getAllRom();
-        String nameRom = rom.getRomDetail().toUpperCase().trim();
+        String nameRom = rom.getRomName().toUpperCase().trim();
         boolean check = false;
         for (int i = 0; i < listRom.size(); i++) {
-            if (listRom.get(i).getRomDetail().toUpperCase().equals(nameRom)) {
-                check=true;
+            if (listRom.get(i).getRomName().toUpperCase().equals(nameRom)) {
+                check = true;
             }
         }
-        if(check==false){
+        if (check == false) {
             productService.AddRom(rom);
-        }else{
+        } else {
             re.addFlashAttribute("ErrorNull", "Rom was existed");
         }
         return "redirect:/Product/Add";
@@ -81,14 +80,38 @@ public class ProductController {
         boolean check = false;
         for (int i = 0; i < listColor.size(); i++) {
             if (listColor.get(i).getColorName().toUpperCase().equals(nameColor)) {
-                check=true;
+                check = true;
             }
         }
-        if(check==false){
+        if (check == false) {
             colorservice.addColor(color);
-        }else{
+        } else {
             re.addFlashAttribute("ErrorNull", "Color was existed");
         }
+        return "redirect:/Product/Add";
+    }
+
+    @PostMapping("/Product/AddNew")
+    public String AddNewPhone(Product pro, HttpServletRequest request, @RequestParam("ImageUpload") String picPro) {
+        Date currentDate = new Date();
+        String screen = request.getParameter("PhoneScreen");
+        String screenTechnology = request.getParameter("PhoneScreenTechnology");
+        String resolution = request.getParameter("PhoneResolution");
+        String wideScreen = request.getParameter("PhoneWideScreen");
+        String brightness = request.getParameter("PhoneBrightness");
+        String Pin = request.getParameter("");
+        String frontCamera = request.getParameter("PhoneFrontCamera");
+        String rearCamera = request.getParameter("PhoneRearCamera");
+        String chip = request.getParameter("PhoneChip");
+        String chipSpeed = request.getParameter("PhoneChipSpeed");
+        String chipGraphic = request.getParameter("PhoneChipGraphic");
+        String ram = request.getParameter("PhoneRam");
+        String material = request.getParameter("PhoneMaterial");
+        String release = request.getParameter("PhoneRelease");
+        String sim = request.getParameter("PhoneSim");
+        String sizeWeight = request.getParameter("PhoneSizeWeight");
+
+
         return "redirect:/Product/Add";
     }
 }
