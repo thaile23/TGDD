@@ -4,7 +4,6 @@ import com.project.TGDD.Model.*;
 import com.project.TGDD.Service.ColorService;
 import com.project.TGDD.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -92,27 +91,29 @@ public class ProductController {
     }
 
     @PostMapping("/Product/AddNew")
-    public String AddNewPhone(Product pro, HttpServletRequest request) {
-        Date currentDate = new Date();
-        String screen = request.getParameter("PhoneScreen");
-        String resolution = request.getParameter("PhoneResolution");
-        String brightness = request.getParameter("PhoneBrightness");
-        String frontCamera = request.getParameter("PhoneFrontCamera");
-        String rearCamera = request.getParameter("PhoneRearCamera");
-        String chip = request.getParameter("PhoneChip");
-        String ram = request.getParameter("PhoneRam");
-        String sim = request.getParameter("PhoneSim");
-        String pin = request.getParameter("PhonePin");
-        String design = request.getParameter("PhoneDesign");
-        String release = request.getParameter("PhoneRelease");
-        String sizeWeight = request.getParameter("PhoneSizeWeight");
-        pro.setCategoryId(1);
-        //PhoneTabletDetail phone = new PhoneTabletDetail(brightness, chip, design, frontCamera, pin, ram, rearCamera, release, resolution, screen, sim, sizeWeight);
-        PhoneTabletDetail phone1 = new PhoneTabletDetail(5, brightness, chip, design, frontCamera, pin, pro.getProductId(), ram, rearCamera, release, resolution, screen, sim, sizeWeight);
-        Product pro1 = new Product();
-        ColorProduct colPro = new ColorProduct();
-        RomProduct romPro = new RomProduct();
-        productService.addPhoneTablet(pro, phone1, colPro, romPro);
+    public String AddNewPhone(Product pro, HttpServletRequest request, PhoneTabletDetail phone) {
+//        Date currentDate = new Date();
+//        String screen = request.getParameter("PhoneScreen");
+//        String resolution = request.getParameter("PhoneResolution");
+//        String brightness = request.getParameter("PhoneBrightness");
+//        String frontCamera = request.getParameter("PhoneFrontCamera");
+//        String rearCamera = request.getParameter("PhoneRearCamera");
+//        String chip = request.getParameter("PhoneChip");
+//        String ram = request.getParameter("PhoneRam");
+//        String sim = request.getParameter("PhoneSim");
+//        String pin = request.getParameter("PhonePin");
+//        String design = request.getParameter("PhoneDesign");
+//        String release = request.getParameter("PhoneRelease");
+//        String sizeWeight = request.getParameter("PhoneSizeWeight");
+//        pro.setCategoryId(1);
+//        // PhoneTabletDetail phone = new PhoneTabletDetail(brightness, chip, design, frontCamera, pin, ram, rearCamera, release, resolution, screen, sim, sizeWeight);
+//        //PhoneTabletDetail phone1 = new PhoneTabletDetail(5, brightness, chip, design, frontCamera, pin, pro.getProductId(), ram, rearCamera, release, resolution, screen, sim, sizeWeight);
+//        Product pro1 = new Product();
+//        ColorProduct colPro = new ColorProduct();
+//        RomProduct romPro = new RomProduct();
+//        productService.addPhoneTablet(pro, phone, colPro, romPro);
+        phone.setProductId(1);
+        productService.addPhoneDetail(phone);
         return "redirect:/Product/Add";
     }
 }

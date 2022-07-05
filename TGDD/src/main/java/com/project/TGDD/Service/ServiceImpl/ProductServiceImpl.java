@@ -64,6 +64,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void addPhoneDetail(PhoneTabletDetail phone) {
+        phoneTabletRepo.save(phone);
 
     }
 

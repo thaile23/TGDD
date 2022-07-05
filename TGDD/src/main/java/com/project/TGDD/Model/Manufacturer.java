@@ -9,7 +9,7 @@ public class Manufacturer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "manufacturer_id")
     private Integer manufacturerId;
-    @Column(name = "manufacturer_name", nullable = false)
+    @Column(name = "manufacturer_name")
     private String manufacturerName;
 
     public Integer getManufacturerId() {

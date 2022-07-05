@@ -4,7 +4,7 @@ package com.project.TGDD.Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Laptop_detail")
+@Table(name = "LaptopDetail")
 public class LaptopDetail {
 
     @Id

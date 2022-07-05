@@ -15,7 +15,6 @@ public class Product {
     @Column(nullable = false)
     private Integer categoryId;
     private Integer price;
-    @Column(nullable = false)
     private Integer manufacturerId;
     private String OS;
     private String description;
