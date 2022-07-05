@@ -3,25 +3,56 @@ package com.project.TGDD.Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "PhoneTabletDetail")
+@Table(name = "phone_tablet_detail")
 public class PhoneTabletDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer PhoneTabletId;
     @Column(nullable = false)
     private Integer productId;
+    @Column(name = "'screen'")
     private String screen;
+    @Column(name = "'resolution'")
+
     private String resolution;
     private String brightness;
+
     private String frontCamera;
+    @Column(name = "'rear_camera'")
+
     private String rearCamera;
     private String chip;
+    @Column(name = "'ram'")
     private String ram;
+    @Column(name = "'sim'")
     private String sim;
     private String pin;
     private String design;
+    @Column(name = "'size_weight'")
     private String sizeWeight;
+    @Column(name = "'release'")
     private String release;
+
+    public PhoneTabletDetail() {
+    }
+
+    public PhoneTabletDetail(Integer PhoneTabletId, String brightness, String chip, String design, String frontCamera, String pin, Integer productId, String ram, String rearCamera, String release, String resolution, String screen, String sim, String sizeWeight) {
+        this.PhoneTabletId = PhoneTabletId;
+        this.brightness = brightness;
+        this.chip = chip;
+        this.design = design;
+        this.frontCamera = frontCamera;
+        this.pin = pin;
+        this.productId = productId;
+        this.ram = ram;
+        this.rearCamera = rearCamera;
+        this.release = release;
+        this.resolution = resolution;
+        this.screen = screen;
+        this.sim = sim;
+        this.sizeWeight = sizeWeight;
+    }
+
 
     public Integer getPhoneTabletDetailId() {
         return PhoneTabletId;

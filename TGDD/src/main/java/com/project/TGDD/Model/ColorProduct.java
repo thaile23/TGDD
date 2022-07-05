@@ -3,18 +3,27 @@ package com.project.TGDD.Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="ColorProduct")
+@Table(name = "Color_product")
 public class ColorProduct {
-@Id
-@GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer colorProductId;
 
-@Column(nullable = false)
+    @Column(nullable = false)
     private Integer colorId;
 
     @Column(nullable = false)
 
     private Integer productId;
+
+    public ColorProduct() {
+    }
+
+    public ColorProduct(Integer colorProductId, Integer colorId, Integer productId) {
+        this.colorProductId = colorProductId;
+        this.colorId = colorId;
+        this.productId = productId;
+    }
 
     public Integer getColorProductId() {
         return colorProductId;

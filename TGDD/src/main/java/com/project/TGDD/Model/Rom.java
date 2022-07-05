@@ -11,6 +11,14 @@ public class Rom {
     @Column(nullable = false)
     private String romName;
 
+    public Rom() {
+    }
+
+    public Rom(Integer romId, String romName) {
+        this.romId = romId;
+        this.romName = romName;
+    }
+
     public Integer getRomId() {
         return romId;
     }

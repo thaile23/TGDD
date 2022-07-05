@@ -43,15 +43,90 @@
 
         $(document).ready(function () {
             $(".Choicefile").bind('click', function () {
-                $("#uploadfile").click();
+                $("#uploadfilePhone").click();
 
             });
             $(".removeimg").click(function () {
                 $(".thumbimage").attr('src', '').hide();
-                $(".myfileupload").html('<input type="file" class="uploadfile"  onchange="readURL(this);" />');
+                $(".myfileupload").html('<input type="file" class="uploadfile" id="uploadfilePhone" onchange="readURL(this);" />');
                 $(".removeimg").hide();
                 $(".Choicefile").bind('click', function () {
-                    $(".uploadfile").click();
+                    $("#uploadfilePhone").click();
+                });
+                $('.Choicefile').css('background', '#14142B');
+                $('.Choicefile').css('cursor', 'pointer');
+                $(".filename").text("");
+            });
+        })
+
+
+        $(document).ready(function () {
+            $(".Choicefile").bind('click', function () {
+                $("#uploadfileLaptop").click();
+
+            });
+            $(".removeimg").click(function () {
+                $(".thumbimage").attr('src', '').hide();
+                $(".myfileupload").html('<input type="file" class="uploadfile" id="uploadfileLaptop" onchange="readURL(this);" />');
+                $(".removeimg").hide();
+                $(".Choicefile").bind('click', function () {
+                    $("#uploadfileLaptop").click();
+                });
+                $('.Choicefile').css('background', '#14142B');
+                $('.Choicefile').css('cursor', 'pointer');
+                $(".filename").text("");
+            });
+        })
+
+
+        $(document).ready(function () {
+            $(".Choicefile").bind('click', function () {
+                $("#uploadfileTablet").click();
+
+            });
+            $(".removeimg").click(function () {
+                $(".thumbimage").attr('src', '').hide();
+                $(".myfileupload").html('<input type="file" class="uploadfile" id="uploadfileTablet" onchange="readURL(this);" />');
+                $(".removeimg").hide();
+                $(".Choicefile").bind('click', function () {
+                    $("#uploadfileTablet").click();
+                });
+                $('.Choicefile').css('background', '#14142B');
+                $('.Choicefile').css('cursor', 'pointer');
+                $(".filename").text("");
+            });
+        })
+
+
+        $(document).ready(function () {
+            $(".Choicefile").bind('click', function () {
+                $("#uploadfileSmartWatch").click();
+
+            });
+            $(".removeimg").click(function () {
+                $(".thumbimage").attr('src', '').hide();
+                $(".myfileupload").html('<input type="file" class="uploadfile" id="uploadfileSmartWatch" onchange="readURL(this);" />');
+                $(".removeimg").hide();
+                $(".Choicefile").bind('click', function () {
+                    $("#uploadfileSmartWatch").click();
+                });
+                $('.Choicefile').css('background', '#14142B');
+                $('.Choicefile').css('cursor', 'pointer');
+                $(".filename").text("");
+            });
+        })
+
+        $(document).ready(function () {
+            $(".Choicefile").bind('click', function () {
+                $("#uploadfileAccessory").click();
+
+            });
+            $(".removeimg").click(function () {
+                $(".thumbimage").attr('src', '').hide();
+                $(".myfileupload").html('<input type="file" class="uploadfile" id="uploadfileAccessory" onchange="readURL(this);" />');
+                $(".removeimg").hide();
+                $(".Choicefile").bind('click', function () {
+                    $("#uploadfileAccessory").click();
                 });
                 $('.Choicefile').css('background', '#14142B');
                 $('.Choicefile').css('cursor', 'pointer');
@@ -282,7 +357,7 @@
                     <div class="tab-content">
                         <div id="AddPhone" class="container tab-pane active"><br>
                             <h3 style="text-align: center; margin-bottom: 30px;">Thêm điện thoại</h3>
-                            <!--Form phone-->
+                            <!--Form phone
                             <form class="row" method="post" th:action="@{/Product/AddNew}" th:object="${addProduct}">
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Tên sản phẩm</label>
@@ -314,20 +389,12 @@
                                     <input class="form-control" type="text" name="PhoneScreen" required>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label class="control-label">Công nghệ màn hình</label>
-                                    <input class="form-control" type="text" name="PhoneScreenTechnology" required>
-                                </div>
-                                <div class="form-group col-md-3">
                                     <label class="control-label">Độ phân giải</label>
                                     <input class="form-control" type="text" name="PhoneResolution" required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Độ sáng màn hình</label>
                                     <input class="form-control" type="text" name="PhoneBrightness" required>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label class="control-label">Màn hình cảm ứng</label>
-                                    <input class="form-control" type="text" name="PhoneWideScreen" required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Camera trước</label>
@@ -342,14 +409,6 @@
                                     <input class="form-control" type="text" name="PhoneChip" required>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label class="control-label">Tốc độ xử lý</label>
-                                    <input class="form-control" type="text" name="PhoneChipSpeed" required>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label class="control-label">Đồ hoạ</label>
-                                    <input class="form-control" type="text" name="PhoneChipGraphic" required>
-                                </div>
-                                <div class="form-group col-md-3">
                                     <label class="control-label">RAM</label>
                                     <input class="form-control" type="text" name="PhoneRam" required>
                                 </div>
@@ -362,8 +421,8 @@
                                     <input class="form-control" type="text" name="PhonePin" required>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label class="control-label">Cấu tạo</label>
-                                    <input class="form-control" type="text" name="PhoneMaterial" required>
+                                    <label class="control-label">Thiết kế</label>
+                                    <input class="form-control" type="text" name="PhoneDesign" required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Kích thước và cân nặng</label>
@@ -382,15 +441,12 @@
                                         <option value="2">Hết hàng</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-3">
-                                    <label class="control-label">Tạo ở</label>
-                                    <input class="form-control" type="text" name="PhoneCreateAt" required>
-                                </div>
                                 <div class="form-group col-md-12">
                                     <label class="control-label">Ảnh sản phẩm</label>
                                     <div class="myfileupload">
-                                        <input type="file" class="uploadfile" name="ImageUpload"
-                                               onchange="readURL(this);" required/>
+                                        <input type="file" class="uploadfile" id="uploadfile1"
+                                               name="ImageUploadPhone"
+                                               onchange="readURL(this);" th:field="*{picture1}"/>
                                     </div>
                                     <div class="thumbbox">
                                         <img height="450" width="400" alt="Thumb image" class="thumbimage"
@@ -424,6 +480,143 @@
                                     <label class="control-label">Mô tả sản phẩm</label>
                                     <textarea class="form-control" name="PhoneDescription"
                                               id="PhoneDescription" th:field="*{description}"></textarea>
+                                    <script>
+                                        CKEDITOR.replace('PhoneDescription');
+                                    </script>
+                                </div>
+                                <button class="btn btn-save" type="submit">Lưu lại</button>
+                                <a class="btn btn-cancel" href="table-data-product.html">Hủy bỏ</a>
+                            </form>-->
+                            
+                            <!--Form phone-->
+                            <form class="row" method="post" th:action="@{/Product/AddNew}" th:object="${addPhone}">
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Tên sản phẩm</label>
+                                    <input class="form-control" type="text" name="PhoneName">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label"> Giá bán </label>
+                                    <input class="form-control" type="number" name="PhonePrice" min="0"
+                                           required>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Hệ điều hành</label>
+                                    <input class="form-control" type="text" name="PhoneOS" required>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="PhoneManufaturer" class="control-label">Nhà sản xuất</label>
+                                    <select class="form-control" id="PhoneManufaturer" name="PhoneManufaturer">
+                                        <option value="0">-- Chọn danh mục --</option>
+                                        <th:block th:each="manu : ${listManufacturer}">
+                                            <option th:value="${manu.manufacturerId}">[[${manu.manufacturerName}]]
+                                            </option>
+                                        </th:block>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Màn hình</label>
+                                    <input class="form-control" type="text" name="PhoneScreen" th:field="*{screen}"
+                                           required>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Độ phân giải</label>
+                                    <input class="form-control" type="text" name="PhoneResolution"
+                                           th:field="*{resolution}" required>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Độ sáng màn hình</label>
+                                    <input class="form-control" type="text" name="PhoneBrightness"
+                                           th:field="*{brightness}" required>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Camera trước</label>
+                                    <input class="form-control" type="text" name="PhoneFrontCamera"
+                                           th:field="*{frontCamera}" required>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Camera sau</label>
+                                    <input class="form-control" type="text" name="PhoneRearCamera"
+                                           th:field="*{rearCamera}" required>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Chip</label>
+                                    <input class="form-control" type="text" name="PhoneChip" th:field="*{chip}"
+                                           required>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">RAM</label>
+                                    <input class="form-control" type="text" name="PhoneRam" th:field="*{ram}" required>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Sim</label>
+                                    <input class="form-control" type="text" name="PhoneSim" th:field="*{sim}" required>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Pin</label>
+                                    <input class="form-control" type="text" name="PhonePin" th:field="*{pin}" required>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Thiết kế</label>
+                                    <input class="form-control" type="text" name="PhoneDesign" th:field="*{design}"
+                                           required>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Kích thước và cân nặng</label>
+                                    <input class="form-control" type="text" name="PhoneSizeWeight"
+                                           th:field="*{sizeWeight}" required>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Ngày ra mắt</label>
+                                    <input class="form-control" type="text" name="PhoneRelease" th:field="*{release}"
+                                           required>
+                                </div>
+                                <div class="form-group col-md-3 ">
+                                    <label for="selectPhoneStatus" class="control-label">Tình trạng</label>
+                                    <select class="form-control" id="selectPhoneStatus" name="PhoneStatus">
+                                        <option value="0">-- Chọn tình trạng --</option>
+                                        <option value="1">Còn hàng</option>
+                                        <option value="2">Hết hàng</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="control-label">Ảnh sản phẩm</label>
+                                    <div class="myfileupload">
+                                        <input type="file" class="uploadfile" id="uploadfile1"
+                                               name="ImageUploadPhone"
+                                               onchange="readURL(this);"/>
+                                    </div>
+                                    <div class="thumbbox">
+                                        <img height="450" width="400" alt="Thumb image" class="thumbimage"
+                                             style="display: none"/>
+                                        <a class="removeimg" href="javascript:"></a>
+                                    </div>
+                                    <div class="boxchoice">
+                                        <a href="javascript:" class="Choicefile"><i
+                                                class="fas fa-cloud-upload-alt"></i>
+                                            Chọn ảnh</a>
+                                        <p style="clear:both"></p>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="control-label">Màu sản phẩm</label>
+                                    <th:block th:each="color: ${listColor}">
+                                        <input type="checkbox" th:id="PhoneColor+${color.colorId}" name="PhoneColor"
+                                               th:value="${color.colorId}" required>
+                                        <label th:for="PhoneColor+${color.colorId}">[[${color.colorName}]]</label>
+                                    </th:block>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="control-label">Chọn bộ nhớ trong</label>
+                                    <th:block th:each="rom: ${listRom}">
+                                        <input type="checkbox" th:id="PhoneRom+${rom.romId}" name="PhoneRom"
+                                               th:value="${rom.romId}">
+                                        <label th:for="PhoneRom+${rom.romId}">[[${rom.romName}]]</label>
+                                    </th:block>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="control-label">Mô tả sản phẩm</label>
+                                    <textarea class="form-control" name="PhoneDescription"
+                                              id="PhoneDescription"></textarea>
                                     <script>
                                         CKEDITOR.replace('PhoneDescription');
                                     </script>
@@ -471,12 +664,9 @@
                                     <label class="control-label">Tốc độ CPU</label>
                                     <input class="form-control" type="text" name="LaptopCPUSpeed">
                                 </div>
+
                                 <div class="form-group col-md-3">
-                                    <label class="control-label">Tốc độ tối đa</label>
-                                    <input class="form-control" type="text" name="LaptopCPUMaxSpeed">
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label class="control-label">Connector</label>
+                                    <label class="control-label">Cổng kết nối</label>
                                     <input class="form-control" type="text" name="LaptopConnector">
                                 </div>
                                 <div class="form-group col-md-3">
@@ -484,11 +674,11 @@
                                     <input class="form-control" type="text" name="LaptopCore">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label class="control-label">Especially</label>
+                                    <label class="control-label">Tính năng</label>
                                     <input class="form-control" type="text" name="LaptopEspecially">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label class="control-label">Thread</label>
+                                    <label class="control-label">Loại laptop</label>
                                     <input class="form-control" type="text" name="LaptopThread">
                                 </div>
                                 <div class="form-group col-md-3">
@@ -500,13 +690,10 @@
                                     <input class="form-control" type="text" name="LaptopRam">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label class="control-label">Loại RAM</label>
-                                    <input class="form-control" type="text" name="LaptopRamType">
+                                    <label class="control-label">Pin</label>
+                                    <input class="form-control" type="text" name="LaptopPin">
                                 </div>
-                                <div class="form-group col-md-3">
-                                    <label class="control-label">Tốc độ RAM</label>
-                                    <input class="form-control" type="text" name="LaptopRamSpeed">
-                                </div>
+
                                 <div class="form-group col-md-3 ">
                                     <label for="LaptopRamUpdate" class="control-label">Hổ trợ nâng cấp RAM</label>
                                     <select class="form-control" id="LaptopRamUpdate" name="LaptopRamUpdate">
@@ -515,6 +702,11 @@
                                         <option value="2">Không</option>
                                     </select>
                                 </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Thiết kế</label>
+                                    <input class="form-control" type="text" name="LaptopDesign">
+                                </div>
+
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Kích thước và cân nặng</label>
                                     <input class="form-control" type="text" name="LaptopSizeWeight">
@@ -531,15 +723,10 @@
                                         <option value="2">Hết hàng</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-3">
-                                    <label class="control-label">Tạo ở</label>
-                                    <input class="form-control" type="text" name="LaptopCreateAt">
-                                </div>
-
                                 <div class="form-group col-md-12">
                                     <label class="control-label">Ảnh sản phẩm</label>
                                     <div class="myfileupload">
-                                        <input type="file" class="uploadfile" name="ImageUpload"
+                                        <input type="file" class="uploadfile" id="uploadfile1" name="ImageUpload"
                                                onchange="readURL(this);"/>
                                     </div>
                                     <div class="thumbbox">
@@ -597,7 +784,7 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Hệ điều hành</label>
-                                    <input class="form-control" type="text" name="TabletOS">
+                                    <input class="form-control" type="text" name="TabletOS" required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="TabletManufaturer" class="control-label">Nhà sản xuất</label>
@@ -609,23 +796,12 @@
                                         </th:block>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-3 ">
-                                    <label for="TabletRom" class="control-label">Bộ nhớ trong</label>
-                                    <select class="form-control" id="TabletRom" name="TabletRom">
-                                        <option value="0">-- Chọn danh mục --</option>
-                                        <th:block th:each="rom : ${listRom}">
-                                            <option th:value="${rom.romId}">[[${rom.romName}]]</option>
-                                        </th:block>
-                                    </select>
-                                </div>
+
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Màn hình</label>
                                     <input class="form-control" type="text" name="TabletScreen">
                                 </div>
-                                <div class="form-group col-md-3">
-                                    <label class="control-label">Công nghệ màn hình</label>
-                                    <input class="form-control" type="text" name="TabletScreenTechnology">
-                                </div>
+
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Độ phân giải</label>
                                     <input class="form-control" type="text" name="TabletResolution">
@@ -633,10 +809,6 @@
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Độ sáng màn hình</label>
                                     <input class="form-control" type="text" name="TabletBrightness">
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label class="control-label">Màn hình cảm ứng</label>
-                                    <input class="form-control" type="text" name="TabletWideScreen">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Camera trước</label>
@@ -651,14 +823,6 @@
                                     <input class="form-control" type="text" name="TabletChip">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label class="control-label">Tốc độ xử lý</label>
-                                    <input class="form-control" type="text" name="TabletChipSpeed">
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label class="control-label">Đồ hoạ</label>
-                                    <input class="form-control" type="text" name="TabletChipGraphic">
-                                </div>
-                                <div class="form-group col-md-3">
                                     <label class="control-label">RAM</label>
                                     <input class="form-control" type="text" name="TabletRam">
                                 </div>
@@ -671,8 +835,8 @@
                                     <input class="form-control" type="text" name="TabletPin">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label class="control-label">Cấu tạo</label>
-                                    <input class="form-control" type="text" name="TabletMaterial">
+                                    <label class="control-label">Thiết kế</label>
+                                    <input class="form-control" type="text" name="TabletDesign">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Kích thước và cân nặng</label>
@@ -690,15 +854,10 @@
                                         <option value="2">Hết hàng</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-3">
-                                    <label class="control-label">Tạo ở</label>
-                                    <input class="form-control" type="text" name="TabletCreateAt">
-                                </div>
-
                                 <div class="form-group col-md-12">
                                     <label class="control-label">Ảnh sản phẩm</label>
                                     <div class="myfileupload">
-                                        <input type="file" class="uploadfile" name="ImageUpload"
+                                        <input type="file" class="uploadfile" id="uploadfileTablet" name="ImageUpload"
                                                onchange="readURL(this);"/>
                                     </div>
                                     <div class="thumbbox">
@@ -767,42 +926,48 @@
                                         </th:block>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-3 ">
-                                    <label for="SmartWatchRom" class="control-label">Bộ nhớ trong</label>
-                                    <select class="form-control" id="SmartWatchRom" name="SmartWatchRom">
-                                        <option value="0">-- Chọn danh mục --</option>
-                                        <th:block th:each="rom : ${listRom}">
-                                            <option th:value="${rom.romId}">[[${rom.romName}]]</option>
-                                        </th:block>
-                                    </select>
-                                </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Màn hình</label>
-                                    <input class="form-control" type="text" name="SmartWatchScreen">
+                                    <input class="form-control" type="text" name="SmartWatchScreen" required>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label class="control-label">Chip</label>
-                                    <input class="form-control" type="text" name="SmartWatchChip">
+                                    <label class="control-label">Độ phân giải</label>
+                                    <input class="form-control" type="text" name="SmartWatchResolution" required>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label class="control-label">Camera</label>
-                                    <input class="form-control" type="text" name="SmartWatchCamera">
+                                    <label class="control-label">Mặt đồng hồ</label>
+                                    <input class="form-control" type="text" name="SmartWatchMaterialSurface"
+                                           placeholder="Chất liệu" required>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label class="control-label">RAM</label>
-                                    <input class="form-control" type="text" name="SmartWatchRam">
+                                    <label class="control-label">Khung đồng hồ</label>
+                                    <input class="form-control" type="text" name="SmartWatchChipMaterialFrame"
+                                           placeholder="Chất liệu" required>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label class="control-label">Sim</label>
-                                    <input class="form-control" type="text" name="SmartWatchSim">
+                                    <label class="control-label">Dây đeo</label>
+                                    <input class="form-control" type="text" name="SmartWatchChipMaterialStrap"
+                                           placeholder="Chất liệu" required>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Kích thước</label>
+                                    <input class="form-control" type="text" name="SmartWatchSize" required>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Thời lượng sử dụng</label>
+                                    <input class="form-control" type="text" name="SmartWatchPinTime" required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Pin</label>
-                                    <input class="form-control" type="text" name="SmartWatchPin">
+                                    <input class="form-control" type="text" name="SmartWatchPin" required>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Thời gian sạc</label>
+                                    <input class="form-control" type="text" name="SmartWatchCharge" required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Ngày ra mắt</label>
-                                    <input class="form-control" type="text" name="SmartWatchRelease">
+                                    <input class="form-control" type="text" name="SmartWatchRelease" required>
                                 </div>
                                 <div class="form-group col-md-3 ">
                                     <label for="SmartWatchStatus" class="control-label">Tình trạng</label>
@@ -812,15 +977,11 @@
                                         <option value="2">Hết hàng</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-3">
-                                    <label class="control-label">Tạo ở</label>
-                                    <input class="form-control" type="text" name="SmartWatchCreateAt">
-                                </div>
-
                                 <div class="form-group col-md-12">
                                     <label class="control-label">Ảnh sản phẩm</label>
                                     <div class="myfileupload">
-                                        <input type="file" class="uploadfile" name="ImageUpload"
+                                        <input type="file" class="uploadfile" id="uploadfile1"
+                                               name="ImageUpload"
                                                onchange="readURL(this);"/>
                                     </div>
                                     <div class="thumbbox">
@@ -893,14 +1054,11 @@
                                         <option value="2">Hết hàng</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-3">
-                                    <label class="control-label">Tạo ở</label>
-                                    <input class="form-control" type="text" name="AccessoryCreateAt">
-                                </div>
                                 <div class="form-group col-md-12">
                                     <label class="control-label">Ảnh sản phẩm</label>
                                     <div class="myfileupload">
-                                        <input type="file" class="uploadfile" name="ImageUpload"
+                                        <input type="file" class="uploadfile" id="uploadfile1"
+                                               name="ImageUpload"
                                                onchange="readURL(this);"/>
                                     </div>
                                     <div class="thumbbox">

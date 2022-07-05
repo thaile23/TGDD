@@ -1,11 +1,7 @@
 package com.project.TGDD.Service.ServiceImpl;
 
-import com.project.TGDD.Model.Manufacturer;
-import com.project.TGDD.Model.Product;
-import com.project.TGDD.Model.Rom;
-import com.project.TGDD.Repository.ManufacturerRepository;
-import com.project.TGDD.Repository.ProductRepository;
-import com.project.TGDD.Repository.RomRepository;
+import com.project.TGDD.Model.*;
+import com.project.TGDD.Repository.*;
 import com.project.TGDD.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +16,12 @@ public class ProductServiceImpl implements ProductService {
     private ManufacturerRepository manufacturerRepository;
     @Autowired
     private RomRepository romRepository;
+    @Autowired
+    PhoneTabletDetailRepository phoneTabletRepo;
+    @Autowired
+    ColorProductRepository colProRepo;
+    @Autowired
+    RomProductRepository romProRepo;
 
     @Override
     public List<Product> getAllProduct() {
@@ -48,4 +50,22 @@ public class ProductServiceImpl implements ProductService {
     public void AddManufacturer(Manufacturer manufacturer) {
         manufacturerRepository.save(manufacturer);
     }
+
+    @Override
+    public void addPhoneTablet(Product pro, PhoneTabletDetail phonetablet, ColorProduct colPro, RomProduct romPro) {
+        productRepository.save(pro);
+        phonetablet.setProductId(pro.getProductId());
+        colPro.setProductId(pro.getProductId());
+        romPro.setProductId(pro.getProductId());
+        phoneTabletRepo.save(phonetablet);
+        colProRepo.save(colPro);
+        romProRepo.save(romPro);
+    }
+
+    @Override
+    public void addPhoneDetail(PhoneTabletDetail phone) {
+
+    }
+
+
 }
