@@ -10,29 +10,17 @@ public class PhoneTabletDetail {
     private Integer PhoneTabletId;
     @Column(nullable = false)
     private Integer productId;
-    @Column(name = "screen")
     private String screen;
-    @Column(name = "resolution")
     private String resolution;
-    @Column(name = "brightness")
     private String brightness;
-    @Column(name = "front_camera")
     private String frontCamera;
-    @Column(name = "rear_camera")
     private String rearCamera;
-    @Column(name = "chip")
     private String chip;
-    @Column(name = "ram")
     private String ram;
-    @Column(name = "sim")
     private String sim;
-    @Column(name = "pin")
     private String pin;
-    @Column(name = "design")
     private String design;
-    @Column(name = "size_weight")
     private String sizeWeight;
-    @Column(name = "release")
     private String release;
 //
 //    public PhoneTabletDetail() {
