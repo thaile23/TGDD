@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.12, for macos10.13 (x86_64)
 --
--- Host: localhost    Database: TGDD_Project_ver2
+-- Host: localhost    Database: TGDD_Project_ver3
 -- ------------------------------------------------------
 -- Server version	8.0.12
 
@@ -16,26 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `admin`
+-- Table structure for table `color`
 --
 
-DROP TABLE IF EXISTS `admin`;
+DROP TABLE IF EXISTS `color`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `admin` (
-  `admin_name` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
-  `pass_word` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`admin_name`)
+CREATE TABLE `color` (
+  `color_id` int(11) NOT NULL,
+  `color_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`color_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `admin`
+-- Dumping data for table `color`
 --
 
-LOCK TABLES `admin` WRITE;
-/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+LOCK TABLES `color` WRITE;
+/*!40000 ALTER TABLE `color` DISABLE KEYS */;
+INSERT INTO `color` VALUES (2,'Red'),(3,'Yellow');
+/*!40000 ALTER TABLE `color` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -47,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-05  2:32:25
+-- Dump completed on 2022-07-06 16:51:17

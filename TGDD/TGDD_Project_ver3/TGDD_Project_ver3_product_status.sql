@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.12, for macos10.13 (x86_64)
 --
--- Host: localhost    Database: TGDD_Project_ver2
+-- Host: localhost    Database: TGDD_Project_ver3
 -- ------------------------------------------------------
 -- Server version	8.0.12
 
@@ -16,26 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `manufacturer`
+-- Table structure for table `product_status`
 --
 
-DROP TABLE IF EXISTS `manufacturer`;
+DROP TABLE IF EXISTS `product_status`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `manufacturer` (
-  `manufacturer_id` int(11) NOT NULL,
-  `manufacturer_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`manufacturer_id`)
+CREATE TABLE `product_status` (
+  `product_status_id` int(11) NOT NULL,
+  `product_status_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`product_status_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `manufacturer`
+-- Dumping data for table `product_status`
 --
 
-LOCK TABLES `manufacturer` WRITE;
-/*!40000 ALTER TABLE `manufacturer` DISABLE KEYS */;
-/*!40000 ALTER TABLE `manufacturer` ENABLE KEYS */;
+LOCK TABLES `product_status` WRITE;
+/*!40000 ALTER TABLE `product_status` DISABLE KEYS */;
+INSERT INTO `product_status` VALUES (1,'Còn hàng'),(2,'Hết hàng'),(3,'Đã xóa');
+/*!40000 ALTER TABLE `product_status` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -47,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-05  2:32:25
+-- Dump completed on 2022-07-06 16:51:18

@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.12, for macos10.13 (x86_64)
 --
--- Host: localhost    Database: TGDD_Project_ver2
+-- Host: localhost    Database: TGDD_Project_ver3
 -- ------------------------------------------------------
 -- Server version	8.0.12
 
@@ -16,42 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `product`
+-- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `product`;
+DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `product` (
-  `product_id` int(11) NOT NULL,
-  `os` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `category_id` int(11) NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `manufacturer_id` int(11) NOT NULL,
+CREATE TABLE `user` (
+  `number_phone` int(11) NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `gender` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `picture1` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `picture2` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `picture3` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
-  `product_status_id` int(11) DEFAULT NULL,
-  `star` float DEFAULT NULL,
-  PRIMARY KEY (`product_id`),
-  KEY `manufacturerId_idx` (`manufacturer_id`),
-  KEY `categoryId_idx` (`category_id`),
-  KEY `productStatusId_idx` (`product_status_id`),
-  CONSTRAINT `categoryId` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`),
-  CONSTRAINT `manufacturerId` FOREIGN KEY (`manufacturer_id`) REFERENCES `manufacturer` (`manufacturer_id`),
-  CONSTRAINT `productStatusId` FOREIGN KEY (`product_status_id`) REFERENCES `product_status` (`product_status_id`)
+  PRIMARY KEY (`number_phone`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `product`
+-- Dumping data for table `user`
 --
 
-LOCK TABLES `product` WRITE;
-/*!40000 ALTER TABLE `product` DISABLE KEYS */;
-/*!40000 ALTER TABLE `product` ENABLE KEYS */;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -63,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-05  2:32:24
+-- Dump completed on 2022-07-06 16:51:17

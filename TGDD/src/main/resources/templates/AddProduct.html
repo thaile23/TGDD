@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
     <link rel="stylesheet" type="text/css"
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script type="text/javascript" th:src="@{/ckeditor/ckeditor.js}" src="../static/ckeditor/ckeditor.js"></script>
+    <!--    <script type="text/javascript" th:src="@{/ckeditor/ckeditor.js}" src="../static/ckeditor/ckeditor.js"></script>-->
     <script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -48,7 +48,7 @@
             });
             $(".removeimg").click(function () {
                 $(".thumbimage").attr('src', '').hide();
-                $(".myfileupload").html('<input type="file" class="uploadfile" id="uploadfilePhone" onchange="readURL(this);" />');
+                $(".myfileupload").html('<input type="file" class="uploadfile" id="uploadfile1" onchange="readURL(this);" />');
                 $(".removeimg").hide();
                 $(".Choicefile").bind('click', function () {
                     $("#uploadfilePhone").click();
@@ -358,26 +358,27 @@
                         <div id="AddPhone" class="container tab-pane active"><br>
                             <h3 style="text-align: center; margin-bottom: 30px;">Thêm điện thoại</h3>
                             <!--Form phone-->
-                            <form class="row" method="post" th:action="@{/Product/AddNew}" th:object="${addPhone}">
+                            <form class="row" method="post" th:action="@{/Product/AddNewPhone}"
+                                  th:object="${addProduct}" enctype="multipart/form-data">
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Tên sản phẩm</label>
-                                    <input class="form-control" type="text" name="PhoneName"
+                                    <input class="form-control" type="text" name="PhoneName" th:field="*{name}"
                                            required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label"> Giá bán </label>
                                     <input class="form-control" type="number" name="PhonePrice" min="0"
-                                           required>
+                                           th:field="*{price}" required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Hệ điều hành</label>
-                                    <input class="form-control" type="text" name="PhoneOS" required>
+                                    <input class="form-control" type="text" name="PhoneOS" th:field="*{OS}" required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="PhoneManufaturer" class="control-label">Nhà sản xuất</label>
                                     <select class="form-control" id="PhoneManufaturer" name="PhoneManufaturer"
-                                    >
-                                        <option value="0">-- Chọn danh mục --</option>
+                                            th:field="*{manufacturerId}">
+                                        <!--<option value="0">&#45;&#45; Chọn danh mục &#45;&#45;</option>-->
                                         <th:block th:each="manu : ${listManufacturer}">
                                             <option th:value="${manu.manufacturerId}">[[${manu.manufacturerName}]]
                                             </option>
@@ -386,66 +387,57 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Màn hình</label>
-                                    <input class="form-control" type="text" name="PhoneScreen" th:field="*{screen}"
-                                           required>
+                                    <input class="form-control" type="text" name="PhoneScreen" required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Độ phân giải</label>
-                                    <input class="form-control" type="text" name="PhoneResolution"
-                                           th:field="*{resolution}" required>
+                                    <input class="form-control" type="text" name="PhoneResolution" required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Độ sáng màn hình</label>
-                                    <input class="form-control" type="text" name="PhoneBrightness"
-                                           th:field="*{brightness}" required>
+                                    <input class="form-control" type="text" name="PhoneBrightness" required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Camera trước</label>
-                                    <input class="form-control" type="text" name="PhoneFrontCamera"
-                                           th:field="*{frontCamera}" required>
+                                    <input class="form-control" type="text" name="PhoneFrontCamera" required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Camera sau</label>
-                                    <input class="form-control" type="text" name="PhoneRearCamera"
-                                           th:field="*{rearCamera}" required>
+                                    <input class="form-control" type="text" name="PhoneRearCamera" required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Chip</label>
-                                    <input class="form-control" type="text" name="PhoneChip" th:field="*{chip}"
-                                           required>
+                                    <input class="form-control" type="text" name="PhoneChip" required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">RAM</label>
-                                    <input class="form-control" type="text" name="PhoneRam" th:field="*{ram}" required>
+                                    <input class="form-control" type="text" name="PhoneRam" required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Sim</label>
-                                    <input class="form-control" type="text" name="PhoneSim" th:field="*{sim}" required>
+                                    <input class="form-control" type="text" name="PhoneSim" required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Pin</label>
-                                    <input class="form-control" type="text" name="PhonePin" th:field="*{pin}" required>
+                                    <input class="form-control" type="text" name="PhonePin" required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Thiết kế</label>
-                                    <input class="form-control" type="text" name="PhoneDesign" th:field="*{design}"
-                                           required>
+                                    <input class="form-control" type="text" name="PhoneDesign" required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Kích thước và cân nặng</label>
-                                    <input class="form-control" type="text" name="PhoneSizeWeight"
-                                           th:field="*{sizeWeight}" required>
+                                    <input class="form-control" type="text" name="PhoneSizeWeight" required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Ngày ra mắt</label>
-                                    <input class="form-control" type="text" name="PhoneRelease" th:field="*{release}"
-                                           required>
+                                    <input class="form-control" type="text" name="PhoneRelease" required>
                                 </div>
                                 <div class="form-group col-md-3 ">
                                     <label for="selectPhoneStatus" class="control-label">Tình trạng</label>
                                     <select class="form-control" id="selectPhoneStatus" name="PhoneStatus"
-                                    >
-                                        <option value="0">-- Chọn tình trạng --</option>
+                                            th:field="*{productStatusId}">
+                                        <!--<option value="0">&#45;&#45; Chọn tình trạng &#45;&#45;</option>-->
                                         <option value="1">Còn hàng</option>
                                         <option value="2">Hết hàng</option>
                                     </select>
@@ -454,7 +446,7 @@
                                     <label class="control-label">Ảnh sản phẩm</label>
                                     <div class="myfileupload">
                                         <input type="file" class="uploadfile" id="uploadfile1"
-                                               name="ImageUploadPhone"
+                                               name="ImageUploadPhone" th:field="*{picture1}"
                                                onchange="readURL(this);"/>
                                     </div>
                                     <div class="thumbbox">
@@ -473,7 +465,7 @@
                                     <label class="control-label">Màu sản phẩm</label>
                                     <th:block th:each="color: ${listColor}">
                                         <input type="checkbox" th:id="PhoneColor+${color.colorId}" name="PhoneColor"
-                                               th:value="${color.colorId}" required>
+                                               th:value="${color.colorId}">
                                         <label th:for="PhoneColor+${color.colorId}">[[${color.colorName}]]</label>
                                     </th:block>
                                 </div>
@@ -488,10 +480,10 @@
                                 <div class="form-group col-md-12">
                                     <label class="control-label">Mô tả sản phẩm</label>
                                     <textarea class="form-control" name="PhoneDescription"
-                                              id="PhoneDescription"></textarea>
-                                    <script>
-                                        CKEDITOR.replace('PhoneDescription');
-                                    </script>
+                                              id="PhoneDescription" th:field="*{description}" required></textarea>
+                                    <!--                                    <script>-->
+                                    <!--                                        CKEDITOR.replace('PhoneDescription');-->
+                                    <!--                                    </script>-->
                                 </div>
                                 <button class="btn btn-save" type="submit">Lưu lại</button>
                                 <a class="btn btn-cancel" href="table-data-product.html">Hủy bỏ</a>
@@ -501,23 +493,26 @@
                             <h3 style="text-align: center; margin-bottom: 30px;">Thêm laptop</h3>
 
                             <!--Form Laptop-->
-                            <form class="row">
+                            <form class="row" method="post" th:action="@{/Product/AddNewLaptop}"
+                                  th:object="${addProduct}">
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Tên sản phẩm</label>
-                                    <input class="form-control" type="text" name="LaptopName">
+                                    <input class="form-control" type="text" name="LaptopName" th:field="*{name}">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label"> Giá bán </label>
-                                    <input class="form-control" type="number" name="LaptopPrice" min="0">
+                                    <input class="form-control" type="number" name="LaptopPrice" min="0"
+                                           th:field="*{price}">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Hệ điều hành</label>
-                                    <input class="form-control" type="text" name="LaptopOS">
+                                    <input class="form-control" type="text" name="LaptopOS" th:field="*{OS}">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="LaptopManufaturer" class="control-label">Nhà sản xuất</label>
-                                    <select class="form-control" id="LaptopManufaturer" name="LaptopManufaturer">
-                                        <option value="0">-- Chọn danh mục --</option>
+                                    <select class="form-control" id="LaptopManufaturer" name="LaptopManufaturer"
+                                            th:field="*{manufacturerId}">
+                                        <!--<option value="0">&#45;&#45; Chọn danh mục &#45;&#45;</option>-->
                                         <th:block th:each="manu : ${listManufacturer}">
                                             <option th:value="${manu.manufacturerId}">[[${manu.manufacturerName}]]
                                             </option>
@@ -569,7 +564,7 @@
                                 <div class="form-group col-md-3 ">
                                     <label for="LaptopRamUpdate" class="control-label">Hổ trợ nâng cấp RAM</label>
                                     <select class="form-control" id="LaptopRamUpdate" name="LaptopRamUpdate">
-                                        <option value="0">-- Chọn --</option>
+                                        <!--                                        <option value="0">&#45;&#45; Chọn &#45;&#45;</option>-->
                                         <option value="1">Có</option>
                                         <option value="2">Không</option>
                                     </select>
@@ -589,8 +584,9 @@
                                 </div>
                                 <div class="form-group col-md-3 ">
                                     <label for="LaptopStatus" class="control-label">Tình trạng</label>
-                                    <select class="form-control" id="LaptopStatus" name="LaptopStatus">
-                                        <option value="0">-- Chọn tình trạng --</option>
+                                    <select class="form-control" id="LaptopStatus" name="LaptopStatus"
+                                            th:field="*{productStatusId}">
+                                        <!--                                        <option value="0">&#45;&#45; Chọn tình trạng &#45;&#45;</option>-->
                                         <option value="1">Còn hàng</option>
                                         <option value="2">Hết hàng</option>
                                     </select>
@@ -599,7 +595,7 @@
                                     <label class="control-label">Ảnh sản phẩm</label>
                                     <div class="myfileupload">
                                         <input type="file" class="uploadfile" id="uploadfile1" name="ImageUpload"
-                                               onchange="readURL(this);"/>
+                                               onchange="readURL(this);" th:field="*{picture1}"/>
                                     </div>
                                     <div class="thumbbox">
                                         <img height="450" width="400" alt="Thumb image" class="thumbimage"
@@ -633,10 +629,10 @@
                                 <div class="form-group col-md-12">
                                     <label class="control-label">Mô tả sản phẩm</label>
                                     <textarea class="form-control" name="LaptopDescription"
-                                              id="LaptopDescription"></textarea>
-                                    <script>
-                                        CKEDITOR.replace('LaptopDescription');
-                                    </script>
+                                              id="LaptopDescription" th:field="*{description}"></textarea>
+                                    <!--                                    <script>-->
+                                    <!--                                        CKEDITOR.replace('LaptopDescription');-->
+                                    <!--                                    </script>-->
                                 </div>
                                 <button class="btn btn-save" type="submit">Lưu lại</button>
                                 <a class="btn btn-cancel" href="table-data-product.html">Hủy bỏ</a>
@@ -645,23 +641,26 @@
                         <div id="AddTablet" class="container tab-pane fade"><br>
                             <h3 style="text-align: center; margin-bottom: 30px;">Thêm tablet</h3>
                             <!--Form tablet-->
-                            <form class="row">
+                            <form class="row" method="post" th:action="@{/Product/AddNewTablet}"
+                                  th:object="${addProduct}">
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Tên sản phẩm</label>
-                                    <input class="form-control" type="text" name="TabletName">
+                                    <input class="form-control" type="text" name="TabletName" th:field="*{name}">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label"> Giá bán </label>
-                                    <input class="form-control" type="number" name="TabletPrice" min="0">
+                                    <input class="form-control" type="number" name="TabletPrice" min="0"
+                                           th:field="*{price}">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Hệ điều hành</label>
-                                    <input class="form-control" type="text" name="TabletOS" required>
+                                    <input class="form-control" type="text" name="TabletOS" th:field="*{OS}" required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="TabletManufaturer" class="control-label">Nhà sản xuất</label>
-                                    <select class="form-control" id="TabletManufaturer" name="TabletManufaturer">
-                                        <option value="0">-- Chọn danh mục --</option>
+                                    <select class="form-control" id="TabletManufaturer" name="TabletManufaturer"
+                                            th:field="*{manufacturerId}">
+                                        <!--<option value="0">&#45;&#45; Chọn danh mục &#45;&#45;</option>-->
                                         <th:block th:each="manu : ${listManufacturer}">
                                             <option th:value="${manu.manufacturerId}">[[${manu.manufacturerName}]]
                                             </option>
@@ -720,8 +719,9 @@
                                 </div>
                                 <div class="form-group col-md-3 ">
                                     <label for="TabletStatus" class="control-label">Tình trạng</label>
-                                    <select class="form-control" id="TabletStatus" name="TabletStatus">
-                                        <option value="0">-- Chọn tình trạng --</option>
+                                    <select class="form-control" id="TabletStatus" name="TabletStatus"
+                                            th:field="*{productStatusId}">
+                                        <!--<option value="0">&#45;&#45; Chọn tình trạng &#45;&#45;</option>-->
                                         <option value="1">Còn hàng</option>
                                         <option value="2">Hết hàng</option>
                                     </select>
@@ -729,7 +729,8 @@
                                 <div class="form-group col-md-12">
                                     <label class="control-label">Ảnh sản phẩm</label>
                                     <div class="myfileupload">
-                                        <input type="file" class="uploadfile" id="uploadfileTablet" name="ImageUpload"
+                                        <input type="file" class="uploadfile" id="uploadfileTablet"
+                                               th:field="*{picture1}" name="ImageUpload"
                                                onchange="readURL(this);"/>
                                     </div>
                                     <div class="thumbbox">
@@ -762,10 +763,10 @@
                                 <div class="form-group col-md-12">
                                     <label class="control-label">Mô tả sản phẩm</label>
                                     <textarea class="form-control" name="TabletDescription"
-                                              id="TabletDescription"></textarea>
-                                    <script>
-                                        CKEDITOR.replace('TabletDescription');
-                                    </script>
+                                              id="TabletDescription" th:field="*{description}"></textarea>
+                                    <!--                                    <script>-->
+                                    <!--                                        CKEDITOR.replace('TabletDescription');-->
+                                    <!--                                    </script>-->
                                 </div>
                                 <button class="btn btn-save" type="submit">Lưu lại</button>
                                 <a class="btn btn-cancel" href="table-data-product.html">Hủy bỏ</a>
@@ -774,24 +775,26 @@
                         <div id="AddSmartWatch" class="container tab-pane fade"><br>
                             <h3 style="text-align: center; margin-bottom: 30px;">Thêm Đồng hồ</h3>
                             <!--Form smartWatch-->
-                            <form class="row">
+                            <form class="row" method="post" th:action="@{/Product/AddNewSmartWatch}"
+                                  th:object="${addProduct}">
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Tên sản phẩm</label>
-                                    <input class="form-control" type="text" name="SmartWatchName">
+                                    <input class="form-control" type="text" name="SmartWatchName" th:field="*{name}">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label"> Giá bán </label>
-                                    <input class="form-control" type="number" name="SmartWatchPrice" min="0">
+                                    <input class="form-control" type="number" name="SmartWatchPrice" min="0"
+                                           th:field="*{price}">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Hệ điều hành</label>
-                                    <input class="form-control" type="text" name="SmartWatchOS">
+                                    <input class="form-control" type="text" name="SmartWatchOS" th:field="*{OS}">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="SmartWatchManufaturer" class="control-label">Nhà sản xuất</label>
                                     <select class="form-control" id="SmartWatchManufaturer"
-                                            name="SmartWatchManufaturer">
-                                        <option value="0">-- Chọn danh mục --</option>
+                                            name="SmartWatchManufaturer" th:field="*{manufacturerId}">
+                                        <!--                                        <option value="0">&#45;&#45; Chọn danh mục &#45;&#45;</option>-->
                                         <th:block th:each="manu : ${listManufacturer}">
                                             <option th:value="${manu.manufacturerId}">[[${manu.manufacturerName}]]
                                             </option>
@@ -843,8 +846,9 @@
                                 </div>
                                 <div class="form-group col-md-3 ">
                                     <label for="SmartWatchStatus" class="control-label">Tình trạng</label>
-                                    <select class="form-control" id="SmartWatchStatus" name="SmartWatchStatus">
-                                        <option value="0">-- Chọn tình trạng --</option>
+                                    <select class="form-control" id="SmartWatchStatus" name="SmartWatchStatus"
+                                            th:field="*{productStatusId}">
+                                        <!--<option value="0">&#45;&#45; Chọn tình trạng &#45;&#45;</option>-->
                                         <option value="1">Còn hàng</option>
                                         <option value="2">Hết hàng</option>
                                     </select>
@@ -853,7 +857,7 @@
                                     <label class="control-label">Ảnh sản phẩm</label>
                                     <div class="myfileupload">
                                         <input type="file" class="uploadfile" id="uploadfile1"
-                                               name="ImageUpload"
+                                               name="ImageUpload" th:field="*{picture1}"
                                                onchange="readURL(this);"/>
                                     </div>
                                     <div class="thumbbox">
@@ -879,10 +883,7 @@
                                 <div class="form-group col-md-12">
                                     <label class="control-label">Mô tả sản phẩm</label>
                                     <textarea class="form-control" name="SmartWatchdescription"
-                                              id="SmartWatchdescription"></textarea>
-                                    <script>
-                                        CKEDITOR.replace('SmartWatchdescription');
-                                    </script>
+                                              id="SmartWatchdescription" th:field="*{description}"></textarea>
                                 </div>
                                 <button class="btn btn-save" type="submit">Lưu lại</button>
                                 <a class="btn btn-cancel" href="table-data-product.html">Hủy bỏ</a>
@@ -891,37 +892,37 @@
                         <div id="AddAccessory" class="container tab-pane fade"><br>
                             <h3 style="text-align: center; margin-bottom: 30px;">Thêm phụ kiện</h3>
                             <!--Form Accessory-->
-                            <form class="row">
+                            <form class="row" method="post" th:action="@{/Product/AddNewAccessory}"
+                                  th:object="${addProduct}">
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Tên sản phẩm</label>
-                                    <input class="form-control" type="text" name="AccessoryName">
+                                    <input class="form-control" type="text" name="AccessoryName" th:field="*{name}">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label"> Giá bán </label>
-                                    <input class="form-control" type="number" name="AccessoryPrice" min="0">
+                                    <input class="form-control" type="number" name="AccessoryPrice" min="0"
+                                           th:field="*{price}">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="control-label">Loại phụ kiện</label>
-                                    <input class="form-control" type="text" name="AccessoryType">
+                                    <input class="form-control" type="text" name="AccessoryType" th:field="*{OS}">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="AccessoryManufaturer" class="control-label">Nhà sản xuất</label>
-                                    <select class="form-control" id="AccessoryManufaturer" name="AccessoryManufaturer">
-                                        <option value="0">-- Chọn danh mục --</option>
+                                    <select class="form-control" id="AccessoryManufaturer" name="AccessoryManufaturer"
+                                            th:field="*{manufacturerId}">
+                                        <!--                                        <option value="0">&#45;&#45; Chọn danh mục &#45;&#45;</option>-->
                                         <th:block th:each="manu : ${listManufacturer}">
                                             <option th:value="${manu.manufacturerId}">[[${manu.manufacturerName}]]
                                             </option>
                                         </th:block>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-3">
-                                    <label class="control-label">Ngày ra mắt</label>
-                                    <input class="form-control" type="text" name="AccessoryRelease">
-                                </div>
                                 <div class="form-group col-md-3 ">
                                     <label for="exampleSelect1" class="control-label">Tình trạng</label>
-                                    <select class="form-control" id="exampleSelect1" name="AccessoryStatus">
-                                        <option value="0">-- Chọn tình trạng --</option>
+                                    <select class="form-control" id="exampleSelect1" name="AccessoryStatus"
+                                            th:field="*{productStatusId}">
+                                        <!--                                        <option value="0">&#45;&#45; Chọn tình trạng &#45;&#45;</option>-->
                                         <option value="1">Còn hàng</option>
                                         <option value="2">Hết hàng</option>
                                     </select>
@@ -930,7 +931,7 @@
                                     <label class="control-label">Ảnh sản phẩm</label>
                                     <div class="myfileupload">
                                         <input type="file" class="uploadfile" id="uploadfile1"
-                                               name="ImageUpload"
+                                               name="ImageUpload" th:field="*{picture1}"
                                                onchange="readURL(this);"/>
                                     </div>
                                     <div class="thumbbox">
@@ -955,10 +956,8 @@
                                 <div class="form-group col-md-12">
                                     <label class="control-label">Mô tả sản phẩm</label>
                                     <textarea class="form-control" name="AccessoryDescription"
-                                              id="AccessoryDescription"></textarea>
-                                    <script>
-                                        CKEDITOR.replace('AccessoryDescription');
-                                    </script>
+                                              id="AccessoryDescription" th:field="*{description}"></textarea>
+                                    <!--                                    -->
                                 </div>
                                 <button class="btn btn-save" type="submit">Lưu lại</button>
                                 <a class="btn btn-cancel" href="table-data-product.html">Hủy bỏ</a>

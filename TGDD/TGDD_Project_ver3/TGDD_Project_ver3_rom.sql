@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.12, for macos10.13 (x86_64)
 --
--- Host: localhost    Database: TGDD_Project_ver2
+-- Host: localhost    Database: TGDD_Project_ver3
 -- ------------------------------------------------------
 -- Server version	8.0.12
 
@@ -16,38 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `SmartWatchDetail`
+-- Table structure for table `rom`
 --
 
-DROP TABLE IF EXISTS `SmartWatchDetail`;
+DROP TABLE IF EXISTS `rom`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `SmartWatchDetail` (
-  `smart_watch_id` int(11) NOT NULL,
-  `charge` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `material_frame` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `material_strap` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `material_surface` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `pin` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `pin_time` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `product_id` int(11) NOT NULL,
-  `release` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `resolution` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `screen` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `size` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`smart_watch_id`),
-  KEY `SmartWatchProId_idx` (`product_id`),
-  CONSTRAINT `SmartWatchProId` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`)
+CREATE TABLE `rom` (
+  `rom_id` int(11) NOT NULL,
+  `rom_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`rom_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `SmartWatchDetail`
+-- Dumping data for table `rom`
 --
 
-LOCK TABLES `SmartWatchDetail` WRITE;
-/*!40000 ALTER TABLE `SmartWatchDetail` DISABLE KEYS */;
-/*!40000 ALTER TABLE `SmartWatchDetail` ENABLE KEYS */;
+LOCK TABLES `rom` WRITE;
+/*!40000 ALTER TABLE `rom` DISABLE KEYS */;
+INSERT INTO `rom` VALUES (5,'32GB'),(13,'64GB');
+/*!40000 ALTER TABLE `rom` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -59,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-05  2:32:25
+-- Dump completed on 2022-07-06 16:51:16

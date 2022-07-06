@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.12, for macos10.13 (x86_64)
 --
--- Host: localhost    Database: TGDD_Project_ver2
+-- Host: localhost    Database: TGDD_Project_ver3
 -- ------------------------------------------------------
 -- Server version	8.0.12
 
@@ -16,34 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `sub_review`
+-- Table structure for table `smart_watch_detail`
 --
 
-DROP TABLE IF EXISTS `sub_review`;
+DROP TABLE IF EXISTS `smart_watch_detail`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `sub_review` (
-  `sub_review_id` int(11) NOT NULL,
-  `sub_review_content` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `number_phone` int(11) NOT NULL,
-  `review_id` int(11) NOT NULL,
-  `sub_review_date` datetime(6) DEFAULT NULL,
-  PRIMARY KEY (`sub_review_id`),
-  KEY `reId_idx` (`review_id`),
-  KEY `numPhonea_idx` (`number_phone`),
-  CONSTRAINT `numPhonea` FOREIGN KEY (`number_phone`) REFERENCES `user` (`number_phone`),
-  CONSTRAINT `reId` FOREIGN KEY (`review_id`) REFERENCES `review` (`review_id`)
+CREATE TABLE `smart_watch_detail` (
+  `smart_watch_id` int(11) NOT NULL,
+  `charge` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `material_frame` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `material_strap` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `material_surface` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `pin` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `pin_time` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `product_id` int(11) NOT NULL,
+  `release` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `resolution` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `screen` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `size` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`smart_watch_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `sub_review`
+-- Dumping data for table `smart_watch_detail`
 --
 
-LOCK TABLES `sub_review` WRITE;
-/*!40000 ALTER TABLE `sub_review` DISABLE KEYS */;
-/*!40000 ALTER TABLE `sub_review` ENABLE KEYS */;
+LOCK TABLES `smart_watch_detail` WRITE;
+/*!40000 ALTER TABLE `smart_watch_detail` DISABLE KEYS */;
+/*!40000 ALTER TABLE `smart_watch_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -55,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-05  2:32:26
+-- Dump completed on 2022-07-06 16:51:17

@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.12, for macos10.13 (x86_64)
 --
--- Host: localhost    Database: TGDD_Project_ver2
+-- Host: localhost    Database: TGDD_Project_ver3
 -- ------------------------------------------------------
 -- Server version	8.0.12
 
@@ -16,38 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `review`
+-- Table structure for table `order_detail`
 --
 
-DROP TABLE IF EXISTS `review`;
+DROP TABLE IF EXISTS `order_detail`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `review` (
-  `review_id` int(11) NOT NULL,
+CREATE TABLE `order_detail` (
+  `order_detail_id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `review_status` int(11) DEFAULT NULL,
-  `date_review` datetime(6) DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `number_phone` int(11) NOT NULL,
-  `picture_review1` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `picture_review2` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `rate` float DEFAULT NULL,
-  `review_content` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`review_id`),
-  KEY `proIdRe_idx` (`product_id`),
-  KEY `userRe_idx` (`number_phone`),
-  CONSTRAINT `proIdRe` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`),
-  CONSTRAINT `userRe` FOREIGN KEY (`number_phone`) REFERENCES `user` (`number_phone`)
+  `quantity` int(11) NOT NULL,
+  PRIMARY KEY (`order_detail_id`),
+  KEY `orderId_idx` (`order_id`),
+  KEY `productId_idx` (`product_id`),
+  CONSTRAINT `orderId` FOREIGN KEY (`order_id`) REFERENCES `order_user` (`order_id`),
+  CONSTRAINT `productId` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `review`
+-- Dumping data for table `order_detail`
 --
 
-LOCK TABLES `review` WRITE;
-/*!40000 ALTER TABLE `review` DISABLE KEYS */;
-/*!40000 ALTER TABLE `review` ENABLE KEYS */;
+LOCK TABLES `order_detail` WRITE;
+/*!40000 ALTER TABLE `order_detail` DISABLE KEYS */;
+/*!40000 ALTER TABLE `order_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -59,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-05  2:32:26
+-- Dump completed on 2022-07-06 16:51:18

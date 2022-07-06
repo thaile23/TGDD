@@ -17,11 +17,15 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private RomRepository romRepository;
     @Autowired
-    PhoneTabletDetailRepository phoneTabletRepo;
+    private PhoneTabletDetailRepository phoneTabletRepo;
     @Autowired
-    ColorProductRepository colProRepo;
+    private LaptopDetailRepository laptopRepo;
     @Autowired
-    RomProductRepository romProRepo;
+    private SmartWatchDetailRepository smartWatchRepo;
+    @Autowired
+    private ColorProductRepository colProRepo;
+    @Autowired
+    private RomProductRepository romProRepo;
 
     @Override
     public List<Product> getAllProduct() {
@@ -63,10 +67,30 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void addPhoneDetail(PhoneTabletDetail phone) {
-        phoneTabletRepo.save(phone);
-
+    public void addLaptop(Product product, LaptopDetail laptopDetail, ColorProduct colPro, RomProduct romPro) {
+        productRepository.save(product);
+        laptopDetail.setProductId(product.getProductId());
+        colPro.setProductId(product.getProductId());
+        romPro.setProductId(product.getProductId());
+        laptopRepo.save(laptopDetail);
+        colProRepo.save(colPro);
+        romProRepo.save(romPro);
     }
 
+    @Override
+    public void addSmartWatch(Product product, smartWatchDetail smartWatch, ColorProduct colPro) {
+        productRepository.save(product);
+        smartWatch.setProductId(product.getProductId());
+        colPro.setProductId(product.getProductId());
+        smartWatchRepo.save(smartWatch);
+        colProRepo.save(colPro);
+    }
+
+    @Override
+    public void addAccessory(Product product, ColorProduct colPro) {
+        productRepository.save(product);
+        colPro.setProductId(product.getProductId());
+        colProRepo.save(colPro);
+    }
 
 }

@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.12, for macos10.13 (x86_64)
 --
--- Host: localhost    Database: TGDD_Project_ver2
+-- Host: localhost    Database: TGDD_Project_ver3
 -- ------------------------------------------------------
 -- Server version	8.0.12
 
@@ -16,31 +16,25 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `color_product`
+-- Table structure for table `hibernate_sequence`
 --
 
-DROP TABLE IF EXISTS `color_product`;
+DROP TABLE IF EXISTS `hibernate_sequence`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `color_product` (
-  `color_product_id` int(11) NOT NULL,
-  `color_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  PRIMARY KEY (`color_product_id`),
-  KEY `color_id_idx` (`color_id`),
-  KEY `proId_idx` (`product_id`),
-  CONSTRAINT `color_id` FOREIGN KEY (`color_id`) REFERENCES `color` (`color_id`),
-  CONSTRAINT `proId` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`)
+CREATE TABLE `hibernate_sequence` (
+  `next_val` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `color_product`
+-- Dumping data for table `hibernate_sequence`
 --
 
-LOCK TABLES `color_product` WRITE;
-/*!40000 ALTER TABLE `color_product` DISABLE KEYS */;
-/*!40000 ALTER TABLE `color_product` ENABLE KEYS */;
+LOCK TABLES `hibernate_sequence` WRITE;
+/*!40000 ALTER TABLE `hibernate_sequence` DISABLE KEYS */;
+INSERT INTO `hibernate_sequence` VALUES (32);
+/*!40000 ALTER TABLE `hibernate_sequence` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +46,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-05  2:32:25
+-- Dump completed on 2022-07-06 16:51:16

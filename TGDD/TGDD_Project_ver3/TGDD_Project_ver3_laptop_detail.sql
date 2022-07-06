@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.12, for macos10.13 (x86_64)
 --
--- Host: localhost    Database: TGDD_Project_ver2
+-- Host: localhost    Database: TGDD_Project_ver3
 -- ------------------------------------------------------
 -- Server version	8.0.12
 
@@ -16,26 +16,40 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `rom`
+-- Table structure for table `laptop_detail`
 --
 
-DROP TABLE IF EXISTS `rom`;
+DROP TABLE IF EXISTS `laptop_detail`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `rom` (
-  `rom_id` int(11) NOT NULL,
-  `rom_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`rom_id`)
+CREATE TABLE `laptop_detail` (
+  `laptop_id` int(11) NOT NULL,
+  `connector` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `core` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `cpu` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `cpu_speed` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `design` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `especially` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `graphic_card` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `pin` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `product_id` int(11) NOT NULL,
+  `ram` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `ram_update` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `release` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `screen` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `size_weight` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `thread` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`laptop_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `rom`
+-- Dumping data for table `laptop_detail`
 --
 
-LOCK TABLES `rom` WRITE;
-/*!40000 ALTER TABLE `rom` DISABLE KEYS */;
-/*!40000 ALTER TABLE `rom` ENABLE KEYS */;
+LOCK TABLES `laptop_detail` WRITE;
+/*!40000 ALTER TABLE `laptop_detail` DISABLE KEYS */;
+/*!40000 ALTER TABLE `laptop_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -47,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-05  2:32:24
+-- Dump completed on 2022-07-06 16:51:18

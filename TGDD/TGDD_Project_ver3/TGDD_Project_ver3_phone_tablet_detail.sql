@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.12, for macos10.13 (x86_64)
 --
--- Host: localhost    Database: TGDD_Project_ver2
+-- Host: localhost    Database: TGDD_Project_ver3
 -- ------------------------------------------------------
 -- Server version	8.0.12
 
@@ -16,31 +16,38 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `rom_product`
+-- Table structure for table `phone_tablet_detail`
 --
 
-DROP TABLE IF EXISTS `rom_product`;
+DROP TABLE IF EXISTS `phone_tablet_detail`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `rom_product` (
-  `rom_product_id` int(11) NOT NULL,
+CREATE TABLE `phone_tablet_detail` (
+  `phone_tablet_id` int(11) NOT NULL,
+  `brightness` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `chip` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `design` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `front_camera` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `pin` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `product_id` int(11) NOT NULL,
-  `rom_id` int(11) NOT NULL,
-  PRIMARY KEY (`rom_product_id`),
-  KEY `proIdRom_idx` (`product_id`),
-  KEY `RomId_idx` (`rom_id`),
-  CONSTRAINT `RomId` FOREIGN KEY (`rom_id`) REFERENCES `rom` (`rom_id`),
-  CONSTRAINT `proIdRom` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`)
+  `ram` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `rear_camera` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `release` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `resolution` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `screen` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `sim` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `size_weight` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`phone_tablet_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `rom_product`
+-- Dumping data for table `phone_tablet_detail`
 --
 
-LOCK TABLES `rom_product` WRITE;
-/*!40000 ALTER TABLE `rom_product` DISABLE KEYS */;
-/*!40000 ALTER TABLE `rom_product` ENABLE KEYS */;
+LOCK TABLES `phone_tablet_detail` WRITE;
+/*!40000 ALTER TABLE `phone_tablet_detail` DISABLE KEYS */;
+/*!40000 ALTER TABLE `phone_tablet_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-05  2:32:26
+-- Dump completed on 2022-07-06 16:51:18

@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.12, for macos10.13 (x86_64)
 --
--- Host: localhost    Database: TGDD_Project_ver2
+-- Host: localhost    Database: TGDD_Project_ver3
 -- ------------------------------------------------------
 -- Server version	8.0.12
 
@@ -16,27 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `product_status`
+-- Table structure for table `sub_review`
 --
 
-DROP TABLE IF EXISTS `product_status`;
+DROP TABLE IF EXISTS `sub_review`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `product_status` (
-  `product_status_id` int(11) NOT NULL,
-  `product_status_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`product_status_id`)
+CREATE TABLE `sub_review` (
+  `sub_review_id` int(11) NOT NULL,
+  `sub_review_content` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `number_phone` int(11) NOT NULL,
+  `review_id` int(11) NOT NULL,
+  `sub_review_date` datetime(6) DEFAULT NULL,
+  PRIMARY KEY (`sub_review_id`),
+  KEY `ReviewId_idx` (`review_id`),
+  KEY `phone_num_idx` (`number_phone`),
+  CONSTRAINT `ReviewId` FOREIGN KEY (`review_id`) REFERENCES `review` (`review_id`),
+  CONSTRAINT `phone_num` FOREIGN KEY (`number_phone`) REFERENCES `user` (`number_phone`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `product_status`
+-- Dumping data for table `sub_review`
 --
 
-LOCK TABLES `product_status` WRITE;
-/*!40000 ALTER TABLE `product_status` DISABLE KEYS */;
-INSERT INTO `product_status` VALUES (1,'Còn hàng'),(2,'Hết hàng'),(3,'Xóa hàng');
-/*!40000 ALTER TABLE `product_status` ENABLE KEYS */;
+LOCK TABLES `sub_review` WRITE;
+/*!40000 ALTER TABLE `sub_review` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sub_review` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-05  2:32:26
+-- Dump completed on 2022-07-06 16:51:18
