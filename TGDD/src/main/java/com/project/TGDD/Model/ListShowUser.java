@@ -1,31 +1,31 @@
 package com.project.TGDD.Model;
 
-import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
-@Entity
-@Table(name = "User")
-public class User {
-    @Id
-    @Column(nullable = false)
+public class ListShowUser {
+    private Integer id;
     private Integer numberPhone;
-
-    @Column(nullable = false)
     private String name;
-
-    @Column(nullable = false)
-    private Integer gender;
-
-    @Column(nullable = false)
+    private String gender;
     private String address;
 
-    public User() {
+    public ListShowUser() {
     }
-
-    public User(Integer numberPhone, String name, Integer gender, String address) {
+    public ListShowUser(Integer id,Integer numberPhone, String name, String gender, String address) {
+        this.id = id;
         this.numberPhone = numberPhone;
         this.name = name;
         this.gender = gender;
         this.address = address;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getNumberPhone() {
@@ -44,11 +44,11 @@ public class User {
         this.name = name;
     }
 
-    public Integer getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Integer gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
@@ -62,11 +62,13 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "numberPhone=" + numberPhone +
+        return "ListShowUser{" +
+                "id=" + id +
+                ", numberPhone=" + numberPhone +
                 ", name='" + name + '\'' +
-                ", gender=" + gender +
+                ", gender='" + gender + '\'' +
                 ", address='" + address + '\'' +
                 '}';
     }
+
 }
