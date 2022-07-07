@@ -89,7 +89,7 @@ public class Product {
     }
 
     public String getPicture1() {
-        return picture1;
+        return "/img-sanpham/" + picture1;
     }
 
     public void setPicture1(String picture1) {
