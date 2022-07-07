@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Danh sách nhân viên | Quản trị Admin</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="../static/doc/css/main.css" th:href="@{/doc/css/main.css}">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--icon bstrap-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body onload="time()" class="app sidebar-mini rtl">
+<!-- Navbar-->
+<header class="app-header">
+    <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
+                                    aria-label="Hide Sidebar"></a>
+    <!-- Navbar Right Menu-->
+    <ul class="app-nav">
+
+
+        <!-- User Menu-->
+        <li><a class="app-nav__item" href="/index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+
+        </li>
+    </ul>
+</header>
+<!-- Sidebar menu-->
+<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+<aside class="app-sidebar">
+    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="/images/hay.jpg" width="50px"
+                                        alt="User Image">
+        <div>
+            <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
+        </div>
+    </div>
+    <hr>
+    <ul class="app-menu">
+        <li><a class="app-menu__item haha" href="../static/doc/phan-mem-ban-hang.html"><i
+                class='app-menu__icon bx bx-cart-alt'></i>
+            <span class="app-menu__label">POS Bán Hàng</span></a></li>
+        <li><a class="app-menu__item " href="../static/doc/index.html"><i
+                class='app-menu__icon bx bx-tachometer'></i><span
+                class="app-menu__label">Bảng điều khiển</span></a></li>
+        <li><a class="app-menu__item " href="../static/doc/table-data-table.html"><i
+                class='app-menu__icon bx bx-id-card'></i>
+            <span class="app-menu__label">Quản lý nhân viên</span></a></li>
+        <li><a class="app-menu__item " href="#"><i class='app-menu__icon bx bx-user-voice'></i><span
+                class="app-menu__label">Quản lý khách hàng</span></a></li>
+        <li><a class="app-menu__item active" href="table-data-product.html"><i
+                class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a>
+        </li>
+        <li><a class="app-menu__item" href="../static/doc/table-data-oder.html"><i
+                class='app-menu__icon bx bx-task'></i><span
+                class="app-menu__label">Quản lý đơn hàng</span></a></li>
+        <li><a class="app-menu__item" href="../static/doc/table-data-banned.html"><i
+                class='app-menu__icon bx bx-run'></i><span
+                class="app-menu__label">Quản lý nội bộ
+          </span></a></li>
+        <li><a class="app-menu__item" href="../static/doc/table-data-money.html"><i
+                class='app-menu__icon bx bx-dollar'></i><span
+                class="app-menu__label">Bảng kê lương</span></a></li>
+        <li><a class="app-menu__item" href="../static/doc/quan-ly-bao-cao.html"><i
+                class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh thu</span></a>
+        </li>
+        <li><a class="app-menu__item" href="../static/doc/page-calendar.html"><i
+                class='app-menu__icon bx bx-calendar-check'></i><span
+                class="app-menu__label">Lịch công tác </span></a></li>
+        <li><a class="app-menu__item" href="#"><i class='app-menu__icon bx bx-cog'></i><span class="app-menu__label">Cài
+            đặt hệ thống</span></a></li>
+    </ul>
+</aside>
+<!--List sản phẩm-->
+<div class="positiontable">
+    <form th:action="@{/page/1}" class="positionform">
+        <input type="hidden" name="sortField" th:value="${sortField}"/>
+        <input type="hidden" name="sortDir" th:value="${sortDir}"/>
+        <div class="input-group w-75">
+            <input class="form-control" type="text" name="keyword" th:value="${keyword}"
+                   placeholder="Nhập tên điện thoại, máy tính, phụ kiện....cần tìm"
+                   required/>
+            <div class="input-group-append">
+                <button class="btn btn-secondary" type="submit" value="Search"><i class="fa fa-search"></i></button>
+                <!--                   <button class="btn btn-danger" type="button">Xóa mục đã chọn</button>-->
+                <button class="btn btn-danger" type="button" value="Clear" id="btnClear" onclick="clearSearch()">
+                    Clear
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <table class="table-bordered size text-center">
+        <thead>
+        <tr>
+            <th>
+            </th>
+            <th>Photo</th>
+            <th>Tên sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Giá</th>
+            <th>Edit</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${listProducts}">
+            <td></td>
+            <td><img th:src="@{${product.picture1}}" width="100px"></td>
+            <td th:text="${product.name}"></td>
+            <td>1</td>
+            <td th:text="${product.price}"></td>
+            <td>
+                <button class="btn btn-info" type="button">Chi tiết</button>
+                <button class="btn btn-warning" type="button">Sửa</button>
+                <button class="btn btn-danger" type="button">Xóa</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="positionphantrang">
+    <!--    <div><i>Sorted by [[${sortField}]] in [[${sortDir}]] order</i></div>-->
+    <div class="total" th:if="${totalPages > 1}"> Total Items: [[${totalItems}]]</div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+
+            <li class="page-item"><a class="page-link"
+                                     th:href="@{'/page/' + ${currentPage - 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} +${keyword != null ? '&keyword=' + keyword : ''}}"
+                                     th:if="${currentPage > 1}">Previous</a></li>
+            <li class="page-item" aria-current="page">
+            <li class="page-link" th:unless="${currentPage > 1}">Previous</li>
+
+            <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+                    <li class="page-item"><a class="page-link"
+                                             th:href="@{'/page/' + ${i} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} +${keyword != null ? '&keyword=' + keyword : ''}}"
+                                             th:if="${currentPage != i}">[[${i}]]</a></li>
+                    <li class="page-item active" aria-current="page"><a class="page-link"
+                                                                        th:unless="${currentPage != i}">[[${i}]] </a></li>
+                </span>
+
+            <li class="page-item"><a class="page-link"
+                                     th:href="@{'/page/' + ${currentPage + 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} +${keyword != null ? '&keyword=' + keyword : ''}}"
+                                     th:if="${currentPage < totalPages}">Next</a></li>
+            <li class="page-item" aria-current="page">
+            <li class="page-link" th:unless="${currentPage < totalPages}">Next</li>
+        </ul>
+    </nav>
+</div>
+<script type="text/javascript">
+    function clearSearch() {
+        window.location = "[[@{/}]]";
+    }
+</script>
+</body>
+</html>
+
+

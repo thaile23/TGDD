@@ -3,15 +3,27 @@ package com.project.TGDD.Controller;
 import com.project.TGDD.Model.*;
 import com.project.TGDD.Service.ColorService;
 import com.project.TGDD.Service.ProductService;
+import com.project.TGDD.Service.ServiceImpl.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
+import java.io.IOException;
+import java.io.InputStream;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class ProductController {
@@ -19,6 +31,36 @@ public class ProductController {
     ColorService colorservice;
     @Autowired
     ProductService productService;
+
+    @Autowired
+    ProductServiceImpl service;
+
+    @RequestMapping("/Product/Admin")
+    public String viewHomePage(Model model) {
+        String keyword = null;
+        return viewPage(model, 1, "name", "asc", keyword);
+    }
+
+    @RequestMapping("/page/{pageNum}")
+    public String viewPage(Model model,
+                           @PathVariable(name = "pageNum") int pageNum,
+                           @Param("sortField") String sortField,
+                           @Param("sortDir") String sortDir,
+                           @Param("keyword") String keyword) {
+        Page<Product> page = service.listAll(pageNum, sortField, sortDir, keyword);
+        List<Product> listProducts = page.getContent();
+        model.addAttribute("currentPage", pageNum);
+        model.addAttribute("totalPages", page.getTotalPages());
+        model.addAttribute("totalItems", page.getTotalElements());
+        model.addAttribute("listProducts", listProducts);
+        model.addAttribute("sortField", sortField);
+        model.addAttribute("sortDir", sortDir);
+        model.addAttribute("keyword", keyword);
+
+        String reverseSortDir = sortDir.equals("asc") ? "desc" : "asc";
+        model.addAttribute("reverseSortDir", reverseSortDir);
+        return "table-data-product";
+    }
 
     @GetMapping("/Product/Add")
     public String FormAddProduct(Model model) {
@@ -93,7 +135,7 @@ public class ProductController {
     }
 
     @PostMapping("/Product/AddNewPhone")
-    public String AddNewPhone(Product pro, HttpServletRequest request) {
+    public String AddNewPhone(Product pro, @RequestParam("ImageUploadPhone") MultipartFile multipartFile, RedirectAttributes re, HttpServletRequest request) throws IOException {
         //Add phone detail
         String screen = request.getParameter("PhoneScreen");
         String resolution = request.getParameter("PhoneResolution");
@@ -128,14 +170,31 @@ public class ProductController {
         RomProduct romPro = new RomProduct();
         int romId = Integer.parseInt(request.getParameter("PhoneRom"));
         romPro.setRomId(romId);
+        //String pic = request.getParameter("ImageUploadPhone");
         pro.setCategoryId(1);
         pro.setStar((float) 0);
+        //Upload anh
+        String fileName = StringUtils.cleanPath(Objects.requireNonNull(multipartFile.getOriginalFilename()));
+        System.out.println(fileName);
+        pro.setPicture1(fileName);
         productService.addPhoneTablet(pro, phone, colPro, romPro);
+        String uploadDir = "./src/main/resources/static/img-sanpham";
+        Path uploadPath = Paths.get(uploadDir);
+        re.addFlashAttribute("message", "Create product successfully!!!");
+        if (!Files.exists(uploadPath)) {
+            Files.createDirectories(uploadPath);
+        }
+        try (InputStream inputStream = multipartFile.getInputStream()) {
+            Path filePath = uploadPath.resolve(fileName);
+            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException ioe) {
+            throw new IOException("Could not save image file: " + fileName, ioe);
+        }
         return "redirect:/Product/Add";
     }
 
     @PostMapping("/Product/AddNewLaptop")
-    public String AddNewLaptop(Product pro, HttpServletRequest request) {
+    public String AddNewLaptop(Product pro, @RequestParam("ImageUploadLaptop") MultipartFile multipartFile, RedirectAttributes re, HttpServletRequest request) throws IOException {
         //Add phone detail
         String core = request.getParameter("LaptopCore");
         String thread = request.getParameter("LaptopThread");
@@ -178,12 +237,28 @@ public class ProductController {
         romPro.setRomId(romId);
         pro.setCategoryId(2);
         pro.setStar((float) 0);
+
+        //Upload anh
+        String fileName = StringUtils.cleanPath(Objects.requireNonNull(multipartFile.getOriginalFilename()));
+        pro.setPicture1(fileName);
         productService.addLaptop(pro, laptop, colPro, romPro);
+        String uploadDir = "./src/main/resources/static/img-sanpham";
+        Path uploadPath = Paths.get(uploadDir);
+        re.addFlashAttribute("message", "Create product successfully!!!");
+        if (!Files.exists(uploadPath)) {
+            Files.createDirectories(uploadPath);
+        }
+        try (InputStream inputStream = multipartFile.getInputStream()) {
+            Path filePath = uploadPath.resolve(fileName);
+            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException ioe) {
+            throw new IOException("Could not save image file: " + fileName, ioe);
+        }
         return "redirect:/Product/Add";
     }
 
     @PostMapping("/Product/AddNewTablet")
-    public String AddNewTablet(Product pro, HttpServletRequest request) {
+    public String AddNewTablet(Product pro, @RequestParam("ImageUploadTablet") MultipartFile multipartFile, HttpServletRequest request, RedirectAttributes re) throws IOException {
         //Add phone detail
         String screen = request.getParameter("TabletScreen");
         String resolution = request.getParameter("TabletResolution");
@@ -220,12 +295,30 @@ public class ProductController {
         romPro.setRomId(romId);
         pro.setCategoryId(3);
         pro.setStar(Float.valueOf(0));
+
+
+        //Upload anh
+        String fileName = StringUtils.cleanPath(Objects.requireNonNull(multipartFile.getOriginalFilename()));
+        // System.out.println(fileName);
+        pro.setPicture1(fileName);
         productService.addPhoneTablet(pro, tablet, colPro, romPro);
+        String uploadDir = "./src/main/resources/static/img-sanpham";
+        Path uploadPath = Paths.get(uploadDir);
+        re.addFlashAttribute("message", "Create product successfully!!!");
+        if (!Files.exists(uploadPath)) {
+            Files.createDirectories(uploadPath);
+        }
+        try (InputStream inputStream = multipartFile.getInputStream()) {
+            Path filePath = uploadPath.resolve(fileName);
+            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException ioe) {
+            throw new IOException("Could not save image file: " + fileName, ioe);
+        }
         return "redirect:/Product/Add";
     }
 
     @PostMapping("/Product/AddNewSmartWatch")
-    public String AddNewSmartWatch(Product pro, HttpServletRequest request) {
+    public String AddNewSmartWatch(Product pro, @RequestParam("ImageUploadSmartWatch") MultipartFile multipartFile, HttpServletRequest request, RedirectAttributes re) throws IOException {
         //Add phone detail
         String screen = request.getParameter("SmartWatchScreen");
         String resolution = request.getParameter("SmartWatchResolution");
@@ -256,18 +349,54 @@ public class ProductController {
 
         pro.setCategoryId(4);
         pro.setStar((float) 0);
+
+        //Upload anh
+        String fileName = StringUtils.cleanPath(Objects.requireNonNull(multipartFile.getOriginalFilename()));
+        // System.out.println(fileName);
+        pro.setPicture1(fileName);
         productService.addSmartWatch(pro, smartWatch, colPro1);
+        String uploadDir = "./src/main/resources/static/img-sanpham";
+        Path uploadPath = Paths.get(uploadDir);
+
+        re.addFlashAttribute("message", "Create product successfully!!!");
+        if (!Files.exists(uploadPath)) {
+            Files.createDirectories(uploadPath);
+        }
+        try (InputStream inputStream = multipartFile.getInputStream()) {
+            Path filePath = uploadPath.resolve(fileName);
+            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException ioe) {
+            throw new IOException("Could not save image file: " + fileName, ioe);
+        }
+
         return "redirect:/Product/Add";
     }
 
     @PostMapping("/Product/AddNewAccessory")
-    public String AddNewAccessory(Product pro, HttpServletRequest request) {
+    public String AddNewAccessory(Product pro, @RequestParam("ImageUploadAccessory") MultipartFile multipartFile, RedirectAttributes re, HttpServletRequest request) throws IOException {
         ColorProduct colPro1 = new ColorProduct();
         int corlorId = Integer.parseInt(request.getParameter("AccessoryColor"));
         colPro1.setColorId(corlorId);
         pro.setCategoryId(5);
         pro.setStar(Float.valueOf(0));
+
+        //Upload anh
+        String fileName = StringUtils.cleanPath(Objects.requireNonNull(multipartFile.getOriginalFilename()));
+        // System.out.println(fileName);
+        pro.setPicture1(fileName);
         productService.addAccessory(pro, colPro1);
+        String uploadDir = "./src/main/resources/static/img-sanpham";
+        Path uploadPath = Paths.get(uploadDir);
+        re.addFlashAttribute("message", "Create product successfully!!!");
+        if (!Files.exists(uploadPath)) {
+            Files.createDirectories(uploadPath);
+        }
+        try (InputStream inputStream = multipartFile.getInputStream()) {
+            Path filePath = uploadPath.resolve(fileName);
+            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException ioe) {
+            throw new IOException("Could not save image file: " + fileName, ioe);
+        }
         return "redirect:/Product/Add";
     }
 

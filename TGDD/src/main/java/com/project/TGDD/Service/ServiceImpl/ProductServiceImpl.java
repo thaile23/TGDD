@@ -4,12 +4,19 @@ import com.project.TGDD.Model.*;
 import com.project.TGDD.Repository.*;
 import com.project.TGDD.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
+    @Autowired
+    private ProductRepoSortPage ProductRepoSort;
+
     @Autowired
     private ProductRepository productRepository;
     @Autowired
@@ -26,6 +33,19 @@ public class ProductServiceImpl implements ProductService {
     private ColorProductRepository colProRepo;
     @Autowired
     private RomProductRepository romProRepo;
+
+    public Page<Product> listAll(int pageNum, String sortField, String sortDir, String keyword) {
+
+        Pageable pageable = PageRequest.of(pageNum - 1, 3,
+                sortDir.equals("asc") ? Sort.by(sortField).ascending()
+                        : Sort.by(sortField).descending()
+        );
+        if (keyword != null) {
+            return ProductRepoSort.findAll(keyword, pageable);
+        }
+        return ProductRepoSort.findAll(pageable);
+    }
+
 
     @Override
     public List<Product> getAllProduct() {
