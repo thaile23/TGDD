@@ -112,5 +112,18 @@ public class ProductServiceImpl implements ProductService {
         colPro.setProductId(product.getProductId());
         colProRepo.save(colPro);
     }
+    public List<Product> listAll(String keyword) {
+        if (keyword != null) {
+            return tabletRepository.search(keyword);
+        }
+        return tabletRepository.findAll();
+    }
+
+    public Product get(int id) throws ProductNotFoundException {
+        Optional<Product> result = tabletRepository.findById(id);
+        if (result.isPresent()){
+            return result.get();
+        }throw new ProductNotFoundException("Not Found"+id);
+    }
 
 }

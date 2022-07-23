@@ -34,7 +34,28 @@ public class ProductController {
 
     @Autowired
     ProductServiceImpl service;
+    //show tablet
+    @GetMapping("/Tablet/show")
+    public String showProduct(Model model, HttpSession httpSession){
+        String keyword = "1";
+        List<Product> listProducts = service.listAll(keyword);
+        model.addAttribute("listProducts",listProducts);
+        return "Tablet";
+    }
 
+    @GetMapping("/Tablet/show/{id}")
+    public String showDetail(@PathVariable("id") int id, Model model, HttpSession session, RedirectAttributes ra){
+        try {
+            Product product = service.get(id);
+            model.addAttribute("product", product);
+            PhoneTabletDetail phoneTabletDetail = phoneTabletDetailService.get(id);
+            model.addAttribute("phoneTabletDetail", phoneTabletDetail);
+            return "ProductDetail";
+        }catch (ProductNotFoundException e){
+            e.printStackTrace();
+        }
+        return "";
+    }
     @RequestMapping("/Product/Admin")
     public String viewHomePage(Model model) {
         String keyword = null;
