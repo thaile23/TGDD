@@ -39,24 +39,55 @@ public class ProductController {
 
     @Autowired
     PhoneTabletDetailServiceImpl phoneTabletDetailService;
+
+
     //show tablet
     @GetMapping("/Tablet/show")
     public String showProduct(Model model, HttpSession httpSession){
-        String keyword = "2";
+        String keyword = "3";
         List<Product> listProducts = service.listAll(keyword);
         model.addAttribute("listProducts",listProducts);
-        return "Tablet";
+        return "Talet";
     }
-    @GetMapping("/Tablet/showw")
-    public String showProduct1(Model model, @Param("keyword") String keyword){
-        List<Product> listProducts = service.listAll(keyword);
+//Loc theo hang Tablet
+    @GetMapping("/Tablet/show/")
+    public String showHSXTablet(Model model, @Param("categoryId") Integer categoryId, @Param("manufacturerId") Integer manufacturerId){
+        List<Product> listProducts = service.listAll1(categoryId, manufacturerId);
         model.addAttribute("listProducts", listProducts);
-        model.addAttribute("keyword", keyword);
+        model.addAttribute("categoryId", categoryId);
+        model.addAttribute("manufacturerId", manufacturerId);
         return "Tablet";
     }
 
+//show dien thoai
+    @GetMapping("/Phone/show")
+    public String showDienthoai(Model model, HttpSession httpSession){
+        String keyword = "1";
+        List<Product> listProducts = service.listAll3(keyword);
+        model.addAttribute("listProducts",listProducts);
+        return "Phone";
+    }
 
+    //Loc theo hang Tablet
+    @GetMapping("/Phone/show/")
+    public String showHSXPhone(Model model, @Param("categoryId") Integer categoryId, @Param("manufacturerId") Integer manufacturerId){
+        List<Product> listProducts = service.listAll3(categoryId, manufacturerId);
+        model.addAttribute("listProducts", listProducts);
+        model.addAttribute("categoryId", categoryId);
+        model.addAttribute("manufacturerId", manufacturerId);
+        return "Phone";
+    }
 
+    //show phu kien
+    @GetMapping("/Phu_kien/show")
+    public String showPhukien(Model model, HttpSession httpSession){
+        String keyword = "5";
+        List<Product> listProducts = service.listAll2(keyword);
+        model.addAttribute("listProducts",listProducts);
+        return "Accessory";
+    }
+
+    //Show chi tiet sp
     @GetMapping("/Tablet/show/{id}")
     public String showDetail(@PathVariable("id") int id, Model model, HttpSession session, RedirectAttributes ra){
         try {
@@ -70,6 +101,8 @@ public class ProductController {
         }
         return "";
     }
+
+
     @RequestMapping("/Product/Admin")
     public String viewHomePage(Model model) {
         String keyword = null;

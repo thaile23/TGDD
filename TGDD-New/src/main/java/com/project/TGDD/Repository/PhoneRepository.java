@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface TabletRepository extends JpaRepository<Product, Integer> {
+public interface PhoneRepository extends JpaRepository<Product, Integer> {
     @Query("SELECT p FROM Product p  WHERE CONCAT(p.categoryId, '') LIKE %?1%")
     public List<Product> search(String keyword);
 }

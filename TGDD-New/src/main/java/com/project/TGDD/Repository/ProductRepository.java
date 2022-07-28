@@ -12,7 +12,6 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends CrudRepository<Product, Integer> {
-    @Query("SELECT p FROM Product p  WHERE CONCAT(p.categoryId, '') LIKE %?1%")
-    public List<Product> search(String keyword);
+
 }
 

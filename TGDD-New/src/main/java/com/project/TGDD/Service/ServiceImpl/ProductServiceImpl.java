@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,6 +38,15 @@ public class ProductServiceImpl implements ProductService {
     private RomProductRepository romProRepo;
     @Autowired
     private TabletRepository tabletRepository;
+    @Autowired
+    private AccessoryRepository accessoryRepository;
+    @Autowired
+    private TabletFilterHSXRepository tabletFilterHSXRepository;
+    @Autowired
+    private PhoneRepository phoneRepository;
+    @Autowired
+    PhoneFilterHSXRepository phoneFilterHSXRepository;
+
     public Page<Product> listAll(int pageNum, String sortField, String sortDir, String keyword) {
 
         Pageable pageable = PageRequest.of(pageNum - 1, 3,
@@ -115,18 +125,46 @@ public class ProductServiceImpl implements ProductService {
         colPro.setProductId(product.getProductId());
         colProRepo.save(colPro);
     }
+
+    //show tablet
     public List<Product> listAll(String keyword) {
         if (keyword != null) {
-            return productRepository.search(keyword);
+            return tabletRepository.search(keyword);
         }
         return tabletRepository.findAll();
     }
 
     public Product get(int id) throws ProductNotFoundException {
         Optional<Product> result = tabletRepository.findById(id);
-        if (result.isPresent()){
+        if (result.isPresent()) {
             return result.get();
-        }throw new ProductNotFoundException("Not Found"+id);
+        }
+        throw new ProductNotFoundException("Not Found" + id);
     }
 
+    //show hsx tablet
+    public List<Product> listAll1(Integer categoryId, Integer manufacturerId) {
+        return (List<Product>) tabletFilterHSXRepository.findByCateAndManu(categoryId, manufacturerId);
+    }
+
+    //show phu kien
+    public List<Product> listAll2(String keyword) {
+        if (keyword != null) {
+            return accessoryRepository.search(keyword);
+        }
+        return accessoryRepository.findAll();
+    }
+
+    //show dien thoai
+    public List<Product> listAll3(String keyword) {
+        if (keyword != null) {
+            return phoneRepository.search(keyword);
+        }
+        return phoneRepository.findAll();
+    }
+
+    //show hsx dien thoai
+    public List<Product> listAll3(Integer categoryId, Integer manufacturerId) {
+        return (List<Product>) phoneFilterHSXRepository.findByCateAndManu(categoryId, manufacturerId);
+    }
 }
