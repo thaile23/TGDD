@@ -47,7 +47,7 @@ public class ProductController {
         String keyword = "3";
         List<Product> listProducts = service.listAll(keyword);
         model.addAttribute("listProducts",listProducts);
-        return "Talet";
+        return "Tablet";
     }
 //Loc theo hang Tablet
     @GetMapping("/Tablet/show/")
@@ -246,7 +246,7 @@ public class ProductController {
         System.out.println(fileName);
         pro.setPicture1(fileName);
         productService.addPhoneTablet(pro, phone, colPro, romPro);
-        String uploadDir = "./src/main/resources/static/img-sanpham";
+        String uploadDir = "./TGDD-New/src/main/resources/static/img-sanpham";
         Path uploadPath = Paths.get(uploadDir);
         re.addFlashAttribute("message", "Create product successfully!!!");
         if (!Files.exists(uploadPath)) {
@@ -310,7 +310,7 @@ public class ProductController {
         String fileName = StringUtils.cleanPath(Objects.requireNonNull(multipartFile.getOriginalFilename()));
         pro.setPicture1(fileName);
         productService.addLaptop(pro, laptop, colPro, romPro);
-        String uploadDir = "./src/main/resources/static/img-sanpham";
+        String uploadDir = "./TGDD-New/src/main/resources/static/img-sanpham";
         Path uploadPath = Paths.get(uploadDir);
         re.addFlashAttribute("message", "Create product successfully!!!");
         if (!Files.exists(uploadPath)) {
@@ -370,7 +370,7 @@ public class ProductController {
         // System.out.println(fileName);
         pro.setPicture1(fileName);
         productService.addPhoneTablet(pro, tablet, colPro, romPro);
-        String uploadDir = "./src/main/resources/static/img-sanpham";
+        String uploadDir = "./TGDD-New/src/main/resources/static/img-sanpham";
         Path uploadPath = Paths.get(uploadDir);
         re.addFlashAttribute("message", "Create product successfully!!!");
         if (!Files.exists(uploadPath)) {
@@ -423,7 +423,7 @@ public class ProductController {
         // System.out.println(fileName);
         pro.setPicture1(fileName);
         productService.addSmartWatch(pro, smartWatch, colPro1);
-        String uploadDir = "./src/main/resources/static/img-sanpham";
+        String uploadDir = "./TGDD-New/src/main/resources/static/img-sanpham";
         Path uploadPath = Paths.get(uploadDir);
 
         re.addFlashAttribute("message", "Create product successfully!!!");
@@ -453,7 +453,7 @@ public class ProductController {
         // System.out.println(fileName);
         pro.setPicture1(fileName);
         productService.addAccessory(pro, colPro1);
-        String uploadDir = "./src/main/resources/static/img-sanpham";
+        String uploadDir = "./TGDD-New/src/main/resources/static/img-sanpham";
         Path uploadPath = Paths.get(uploadDir);
         re.addFlashAttribute("message", "Create product successfully!!!");
         if (!Files.exists(uploadPath)) {
@@ -466,6 +466,24 @@ public class ProductController {
             throw new IOException("Could not save image file: " + fileName, ioe);
         }
         return "redirect:/Product/Add";
+    }
+    @GetMapping("/SmartWatch/show")
+    public String ShowAllSmartWatch(Model model) {
+        List<Product> listSmartWatch = productService.getAllProductByCategoryId(4);
+        List<Manufacturer> listManufacturer = productService.getAllManufacturer();
+        model.addAttribute("TotalSmartWatch", listSmartWatch.size());
+        model.addAttribute("listSmartWatch", listSmartWatch);
+        model.addAttribute("listManufacturer", listManufacturer);
+        return "SmartWatch";
+    }
+
+    @GetMapping("/SmartWatch/detail/{id}")
+    public String ShowSmartWatchDetail(Model model, @PathVariable("id") Integer productid) {
+        Product smartWatch = productService.findProductById(productid);
+        smartWatchDetail swDetail = productService.findSWByProductId(productid);
+        model.addAttribute("smartWatch", smartWatch);
+        model.addAttribute("swDetail", swDetail);
+        return "SmartWatchDetail";
     }
 
 }

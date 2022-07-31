@@ -167,4 +167,34 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> listAll3(Integer categoryId, Integer manufacturerId) {
         return (List<Product>) phoneFilterHSXRepository.findByCateAndManu(categoryId, manufacturerId);
     }
+
+    @Override
+    public List<Color> getColorByProductId(Integer productId) {
+        List<Color> listColorByProId = productRepository.FindColorbyProductId(productId);
+        return listColorByProId;
+    }
+
+    @Override
+    public List<Rom> getRomByProductId(Integer productId) {
+        List<Rom> listRomByProId = null;
+        return listRomByProId;
+    }
+
+    @Override
+    public List<Product> getAllProductByCategoryId(Integer categoryId) {
+        return productRepository.FindProductByCategory(categoryId);
+    }
+
+    @Override
+    public Product findProductById(Integer productId) {
+        Product product = productRepository.findById(productId).get();
+        return product;
+    }
+
+    @Override
+    public smartWatchDetail findSWByProductId(Integer productId) {
+        smartWatchDetail smartWatchDetail = productRepository.FindSmartWatchByProId(productId);
+        return smartWatchDetail;
+    }
+
 }

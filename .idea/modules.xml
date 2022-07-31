@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Project OJT.iml" filepath="$PROJECT_DIR$/.idea/Project OJT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TGDD-New/TGDD.iml" filepath="$PROJECT_DIR$/TGDD-New/TGDD.iml" />
     </modules>
   </component>
 </project>
