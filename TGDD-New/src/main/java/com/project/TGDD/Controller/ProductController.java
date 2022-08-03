@@ -41,6 +41,12 @@ public class ProductController {
     PhoneTabletDetailServiceImpl phoneTabletDetailService;
 
 
+    @GetMapping("/Home")
+    public String Home(Model model){
+        List<Product> ListPro =productService.getAllProduct();
+        model.addAttribute("ListPro",ListPro);
+        return "Home";
+    }
     //show tablet
     @GetMapping("/Tablet/show")
     public String showProduct(Model model, HttpSession httpSession){

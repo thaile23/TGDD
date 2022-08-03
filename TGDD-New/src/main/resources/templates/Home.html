@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)https://www.thegioididong.com/ -->
+<html lang="vi-VN" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thegioididong.com - Điện thoại, Laptop, Phụ kiện, Đồng hồ chính hãng</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="../static/Giao diện/Home/Home.css" th:href="@{/Giao diện/Home/Home.css}"/>
+    <link href="https://www.thegioididong.com/favicon_TGDD.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="https://www.thegioididong.com/favicon_TGDD.ico" rel="apple-touch-icon">
+    <link href="https://www.thegioididong.com/favicon_TGDD.ico" rel="apple-touch-icon-precomposed">
+    <script type="text/javascript" crossorigin="anonymous" async="" src="../static/Giao diện/Home/index.js.download"
+            th:src="@{/Giao diện/Home/index.js.download}"></script>
+    <script type="text/javascript" async="" src="../static/Giao diện/Home/config.js.download"
+            th:src="@{/Giao diện/Home/config.js.download}"></script>
+    <script charset="utf-8" src="../static/Giao diện/Home/identify.js.download"
+            th:src="@{/Giao diện/Home/identify.js.download}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+
+<body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Lấy tất cả item-child
+        var items = [];
+        $('.item-list .item-child').each(function () {
+            items.push('<div class="animate__zoomOutDown ' + $(this).attr('class') + '" data-group="' + $(this).data('group') + '">' + $(this).html() + '</div>');
+        });
+        // Sự kiện khi bấm vào bộ lọc
+        $('.filter-link a').click(function (e) {
+            e.preventDefault();
+            var group = $(this).data('filter');
+            $('.item-list .item-child').addClass('animate__faster animate__zoomOutDown');
+            $('.item-list .item-child').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+                $('.item-list').html(''); // Làm trống nội dung
+
+                // Lấy kết quả
+                var result = '';
+                for (var i = 0; i < items.length; i++) {
+                    if (items[i].includes('data-group="' + group + '"')) {
+                        result += items[i];
+                    }
+                }
+                ;
+                $('.item-list').html(result);
+                // $('.item-count').html(result);
+                $('.item-list .item-child').removeClass('animate__zoomOutDown').addClass('animate__fadeInUp');
+            });
+        });
+    });
+</script>
+
+<header class="header  " data-sub="0">
+    <div class="header__top">
+        <div>
+            <a href="Home.html" class="header__logo">
+                <i class="iconnewglobal-logo"></i>
+            </a>
+
+            <a href="javascript:void(0)" class="header__address" onclick="OpenLocation()">
+                Xem giá, tồn kho tại:
+                <span data-province="3" data-district="0" data-ward="0">Hồ Chí Minh</span>
+            </a>
+            <form action="https://www.thegioididong.com/tim-kiem" onsubmit="return suggestSearch(event);"
+                  class="header__search">
+                <input id="skw" type="text" class="input-search" onkeyup="suggestSearch(event);"
+                       placeholder="Bạn tìm gì..." name="key" autocomplete="off" maxlength="100">
+                <button type="submit">
+                    <i class="icon-search"></i>
+                </button>
+                <div id="search-result"></div>
+            </form>
+            <a href="" class="name-order">
+                Lịch sử đơn hàng
+            </a>
+            <a href="" class="header__cart menu-info">
+                <div class="box-cart">
+                    <i class="iconnewglobal-cart"></i>
+                    <span class="cart-number"></span>
+                </div>
+                <span>Giỏ hàng</span>
+            </a>
+            <div class="header__listtop">
+                <div class="divitem">
+                    <a href="https://www.thegioididong.com/tin-tuc">24h<br>Công nghệ</a>
+                </div>
+                <div class="bordercol"></div>
+                <div class="divitem">
+                    <a href="https://www.thegioididong.com/hoi-dap">Hỏi Đáp</a>
+                </div>
+                <div class="bordercol"></div>
+                <div class="divitem">
+                    <a href="https://www.thegioididong.com/game-app">Game App</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header__main">
+        <div>
+            <ul class="main-menu">
+                <li class="">
+                    <a th:href="@{/Phone/show}">
+                        <i>
+                            <img src="../static/Giao diện/Home/icon-phone-96x96-2.png"
+                                 th:src="@{/Giao diện/Home/icon-phone-96x96-2.png}">
+                        </i>
+                        <span class="">Điện thoại</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="">
+                        <i>
+                            <img src="../static/Giao diện/Home/icon-laptop-96x96-1.png"
+                                 th:src="@{/Giao diện/Home/icon-laptop-96x96-1.png}">
+                        </i>
+                        <span class="">Laptop</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a th:href="@{/Tablet/show}">
+                        <i>
+                            <img src="../static/Giao diện/Home/icon-tablet-96x96-1.png"
+                                 th:src="@{/Giao diện/Home/icon-tablet-96x96-1.png}">
+                        </i>
+                        <span class="">Tablet</span>
+                    </a>
+                </li>
+                <li class="has-list">
+                    <a th:href="@{/Phu_kien/show}">
+                        <i>
+                            <img src="../static/Giao diện/Home/icon-phu-kien-96x96-1.png"
+                                 th:src="@{/Giao diện/Home/icon-phu-kien-96x96-1.png}">
+                        </i>
+                        <span class="has-child">Phụ kiện</span>
+                    </a>
+                    <div class="navmwg ">
+                        <div class="item-child ">
+                            <strong>
+                                Phụ kiện di động
+                            </strong>
+                            <a href="https://www.thegioididong.com/sac-dtdd">
+                                <h3>Sạc dự phòng</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/sac-cap">
+                                <h3>Sạc, cáp</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/op-lung-flipcover">
+                                <h3>Ốp lưng điện thoại</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/op-lung-may-tinh-bang">
+                                <h3>Ốp lưng máy tính bảng</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/mieng-dan-man-hinh">
+                                <h3>Miếng dán màn hình</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/gay-tu-suong">
+                                <h3>Gậy chụp ảnh, Gimbal</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/gia-do-dien-thoai">
+                                <h3>Giá đỡ điện thoại</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/de-moc-dien-thoai">
+                                <h3>Đế, móc điện thoại</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/tui-chong-nuoc">
+                                <h3>Túi chống nước</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/tui-dung-airpods">
+                                <h3>Túi đựng AirPods</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/airtag">
+                                <h3>AirTag</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/phu-kien-thong-minh">
+                                <h3>Phụ kiện Tablet</h3>
+                            </a>
+                        </div>
+                        <div class="item-child ">
+                            <strong>
+                                Phụ kiện laptop
+                            </strong>
+                            <a href="https://www.thegioididong.com/chuot-ban-phim">
+                                <h3>Chuột, bàn phím</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/thiet-bi-mang">
+                                <h3>Thiết bị mạng</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/camera-giam-sat">
+                                <h3>Camera, webcam</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/tui-chong-soc">
+                                <h3>Balo, túi chống sốc</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/gia-do-dien-thoai?g=de-laptop-macbook">
+                                <h3>Giá đỡ laptop</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/phan-mem">
+                                <h3>Phần mềm</h3>
+                            </a>
+                        </div>
+                        <div class="item-child ">
+                            <strong>
+                                Thiết bị nhà thông minh
+                            </strong>
+                            <a href="https://www.thegioididong.com/khoa-dien-tu">
+                                <h3>Khóa điện tử</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/android-tv-box">
+                                <h3>TV Box</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/o-cam-thong-minh">
+                                <h3>Ổ cắm, bóng đèn thông minh</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/may-chieu">
+                                <h3>Máy chiếu</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/but-trinh-chieu">
+                                <h3>Bút trình chiếu</h3>
+                            </a>
+                        </div>
+                        <div class="item-child ">
+                            <strong>
+                                Thương hiệu hàng đầu
+                            </strong>
+                            <a href="https://www.thegioididong.com/phu-kien/apple">
+                                <h3>Apple</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/phu-kien/samsung">
+                                <h3>Samsung</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/phu-kien/sony">
+                                <h3>Sony</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/phu-kien/jbl">
+                                <h3>JBL</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/phu-kien/xiaomi">
+                                <h3>Xiaomi</h3>
+                            </a>
+                        </div>
+                        <div class="item-child ">
+                            <strong>
+                                Thiết bị âm thanh
+                            </strong>
+                            <a href="https://www.thegioididong.com/tai-nghe">
+                                <h3>Tai nghe</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/loa-laptop">
+                                <h3>Loa</h3>
+                            </a>
+                        </div>
+                        <div class="item-child ">
+                            <strong>
+                                Thiết bị lưu trữ
+                            </strong>
+                            <a href="https://www.thegioididong.com/o-cung-di-dong">
+                                <h3>Ổ cứng di động</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/the-nho-dien-thoai">
+                                <h3>Thẻ nhớ</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/usb">
+                                <h3>USB</h3>
+                            </a>
+                        </div>
+                        <div class="item-child ">
+                            <strong>
+                                Phụ kiện khác
+                            </strong>
+                            <a href="https://www.thegioididong.com/phu-kien-oto">
+                                <h3>Phụ kiện ô tô</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/may-tinh-cam-tay">
+                                <h3>Máy tính cầm tay</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/quat-mini">
+                                <h3>Quạt mini</h3>
+                            </a>
+                            <a href="https://www.thegioididong.com/pin">
+                                <h3>Pin tiểu</h3>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+                    <a th:href="@{/SmartWatch/show}">
+                        <i>
+                            <img src="../static/Giao diện/Home/icon-smartwatch-96x96-1.png"
+                                 th:src="@{/Giao diện/Home/icon-smartwatch-96x96-1.png}">
+                        </i>
+                        <span class="">Smartwatch</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="Watch.html">
+                        <i>
+                            <img src="../static/Giao diện/Home/watch-icon-96x96.png"
+                                 th:src="@{/Giao diện/Home/watch-icon-96x96.png}">
+                        </i>
+                        <span class="">Đồng hồ</span>
+                    </a>
+                </li>
+                <li class="has-list">
+                    <a href="https://www.thegioididong.com/pc-may-in">
+                        <i>
+                            <img src="../static/Giao%20diện/Home/icon-pc-96x96.png"
+                                 th:src="@{/Giao%20diện/Home/icon-pc-96x96.png}">
+                        </i>
+                        <span class="has-child">PC, Máy in</span>
+                    </a>
+                    <div class="navmwg limit-width">
+                        <div class="item-child no-child-final">
+                            <a href="https://www.thegioididong.com/may-in">
+                                <h3>Máy in</h3>
+                            </a>
+                        </div>
+                        <div class="item-child no-child-final">
+                            <a href="https://www.thegioididong.com/muc-in">
+                                <h3>Mực in</h3>
+                            </a>
+                        </div>
+                        <div class="item-child no-child-final">
+                            <a href="https://www.thegioididong.com/man-hinh-may-tinh">
+                                <h3>Màn hình máy tính</h3>
+                            </a>
+                        </div>
+                        <div class="item-child no-child-final">
+                            <a href="https://www.thegioididong.com/may-tinh-de-ban">
+                                <h3>Máy tính để bàn</h3>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+                    <a href="https://www.thegioididong.com/may-doi-tra">
+                        <i>
+                            <img>
+                        </i>
+                        <span class="">Máy cũ giá rẻ</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="https://www.thegioididong.com/sim-so-dep">
+                        <i>
+                            <img>
+                        </i>
+                        <span class="">Sim, Thẻ cào</span>
+                    </a>
+                </li>
+                <li class="has-list">
+                    <a href="https://www.thegioididong.com/tien-ich">
+                        <i>
+                            <img>
+                        </i>
+                        <span class="has-child">Dịch vụ tiện ích</span>
+                    </a>
+                    <div class="navmwg limit-width">
+                        <div class="item-child no-child-final">
+                            <a href="https://www.thegioididong.com/tien-ich/thanh-toan-tra-gop">
+                                <h3>Đóng tiền trả góp</h3>
+                            </a>
+                        </div>
+                        <div class="item-child no-child-final">
+                            <a href="https://www.thegioididong.com/tien-ich/thanh-toan-tien-dien">
+                                <h3>Đóng tiền điện</h3>
+                            </a>
+                        </div>
+                        <div class="item-child no-child-final">
+                            <a href="https://www.thegioididong.com/tien-ich/thanh-toan-tien-nuoc">
+                                <h3>Đóng tiền nước</h3>
+                            </a>
+                        </div>
+                        <div class="item-child no-child-final">
+                            <a href="https://www.thegioididong.com/tien-ich/thanh-toan-internet-fpt">
+                                <h3>Đóng tiền net FPT</h3>
+                            </a>
+                        </div>
+                        <div class="item-child no-child-final">
+                            <a href="https://www.thegioididong.com/tien-ich/thanh-toan-internet-vnpt">
+                                <h3>Đóng tiền net, cáp VNPT</h3>
+                            </a>
+                        </div>
+                        <div class="item-child no-child-final">
+                            <a href="https://www.thegioididong.com/tien-ich/thanh-toan-bao-hiem">
+                                <h3>Đóng tiền bảo hiểm</h3>
+                            </a>
+                        </div>
+                        <div class="item-child no-child-final">
+                            <a href="https://www.thegioididong.com/tien-ich/thanh-toan-ve-tau-xe">
+                                <h3>Đóng tiền vé tàu, xe, máy bay</h3>
+                            </a>
+                        </div>
+                        <div class="item-child no-child-final">
+                            <a href="https://www.thegioididong.com/tien-ich/thanh-toan-vien-phi">
+                                <h3>Đóng viện phí ĐH Y Dược TP. HCM</h3>
+                            </a>
+                        </div>
+                        <div class="item-child no-child-final">
+                            <a href="https://www.thegioididong.com/tien-ich/nap-tien-dien-thoai-tra-sau">
+                                <h3>Đóng cước điện thoại trả sau</h3>
+                            </a>
+                        </div>
+                        <div class="item-child no-child-final">
+                            <a href="https://www.thegioididong.com/tien-ich/bao-hiem-o-to-xe-may">
+                                <h3>Mua bảo hiểm xe máy, ô tô</h3>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<div class="bg-ellipse"></div>
+<div class="locationbox__overlay"></div>
+<div class="locationbox-v2">
+    <div class="locationbox__item locationbox__item--right">
+        <div class="top-location">
+            <p class="default-title ">Quý khách vui lòng cho biết <b>Địa Chỉ Nhận Hàng</b> để biết chính xác thời gian
+                giao hàng</p>
+            <p class="full-location hide">
+                <span class="choose-text">Địa chỉ đã chọn: </span>
+                <span class="fulladdress-v2"></span>
+            </p>
+            <a onclick="OpenLocation()" class="cls-location" href="javascript:void(0)"><i class="close-symbol"></i>Đóng</a>
+        </div>
+        <div class="location-title hide">
+            <a href="javascript:;" class="back-ic" onclick="backLocation()">
+            </a>
+            <div class="location-title-text">
+                <span class="choose-text">Chọn </span>
+                <span class="ward-name-default"></span>
+                <span class="district-name-default"></span>
+                <span class="province-name-default"></span>
+            </div>
+            <a onclick="OpenLocation()" class="cls-location" href="javascript:void(0)">
+                <i class="close-symbol"></i>Đóng
+            </a>
+        </div>
+
+        <div class="location-search">
+            <i class="icon-search"></i>
+            <input class="" onkeyup="suggestLocation(event);" id="locationSearch" name="locationSearch"
+                   placeholder="Tìm nhanh tỉnh thành, quận huyện, phường xã">
+            <a href="javascript:;" class="clear-searchbox" onclick="clearSearchBox()">
+                    <span class="box-relative">
+                    <i class="close-symbol"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <strong class="choose-province">Hoặc chọn tỉnh, thành phố</strong>
+    <div class="listing-location">
+        <div id="suggest-location"></div>
+        <div id="lst-prov">
+
+            <div class="listing-locale">
+                <ul>
+                    <li>
+                        <a class="" data-value="3" href="javascript:void(0)" onclick="changePoupProvinceV2(3, this)">
+                            Hồ Chí Minh
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="5" href="javascript:void(0)" onclick="changePoupProvinceV2(5, this)">
+                            Hà Nội
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="9" href="javascript:void(0)" onclick="changePoupProvinceV2(9, this)">
+                            Đà Nẵng
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="82" href="javascript:void(0)" onclick="changePoupProvinceV2(82, this)">
+                            An Giang
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="102" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(102, this)">
+                            Bà Rịa - Vũng Tàu
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="103" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(103, this)">
+                            Bắc Giang
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="104" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(104, this)">
+                            Bắc Kạn
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="105" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(105, this)">
+                            Bạc Liêu
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="106" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(106, this)">
+                            Bắc Ninh
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="107" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(107, this)">
+                            Bến Tre
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="108" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(108, this)">
+                            Bình Định
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="109" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(109, this)">
+                            Bình Dương
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="110" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(110, this)">
+                            Bình Phước
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="111" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(111, this)">
+                            Bình Thuận
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="81" href="javascript:void(0)" onclick="changePoupProvinceV2(81, this)">
+                            Cà Mau
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="7" href="javascript:void(0)" onclick="changePoupProvinceV2(7, this)">
+                            Cần Thơ
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="112" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(112, this)">
+                            Cao Bằng
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="6" href="javascript:void(0)" onclick="changePoupProvinceV2(6, this)">
+                            Đắk Lắk
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="113" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(113, this)">
+                            Đắk Nông
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="114" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(114, this)">
+                            Điện Biên
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="8" href="javascript:void(0)" onclick="changePoupProvinceV2(8, this)">
+                            Đồng Nai
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="115" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(115, this)">
+                            Đồng Tháp
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="116" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(116, this)">
+                            Gia Lai
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="117" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(117, this)">
+                            Hà Giang
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="118" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(118, this)">
+                            Hà Nam
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="120" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(120, this)">
+                            Hà Tĩnh
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="121" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(121, this)">
+                            Hải Dương
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="101" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(101, this)">
+                            Hải Phòng
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="122" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(122, this)">
+                            Hậu Giang
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="123" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(123, this)">
+                            Hòa Bình
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="124" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(124, this)">
+                            Hưng Yên
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="125" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(125, this)">
+                            Khánh Hòa
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="126" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(126, this)">
+                            Kiên Giang
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="127" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(127, this)">
+                            Kon Tum
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="128" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(128, this)">
+                            Lai Châu
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="129" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(129, this)">
+                            Lâm Đồng
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="130" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(130, this)">
+                            Lạng Sơn
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="131" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(131, this)">
+                            Lào Cai
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="132" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(132, this)">
+                            Long An
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="133" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(133, this)">
+                            Nam Định
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="134" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(134, this)">
+                            Nghệ An
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="135" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(135, this)">
+                            Ninh Bình
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="136" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(136, this)">
+                            Ninh Thuận
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="137" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(137, this)">
+                            Phú Thọ
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="138" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(138, this)">
+                            Phú Yên
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="139" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(139, this)">
+                            Quảng Bình
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="140" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(140, this)">
+                            Quảng Nam
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="141" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(141, this)">
+                            Quảng Ngãi
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="142" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(142, this)">
+                            Quảng Ninh
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="143" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(143, this)">
+                            Quảng Trị
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="144" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(144, this)">
+                            Sóc Trăng
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="145" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(145, this)">
+                            Sơn La
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="146" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(146, this)">
+                            Tây Ninh
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="147" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(147, this)">
+                            Thái Bình
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="148" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(148, this)">
+                            Thái Nguyên
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="149" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(149, this)">
+                            Thanh Hóa
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="150" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(150, this)">
+                            Thừa Thiên Huế
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="151" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(151, this)">
+                            Tiền Giang
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="152" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(152, this)">
+                            Trà Vinh
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="153" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(153, this)">
+                            Tuyên Quang
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="154" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(154, this)">
+                            Vĩnh Long
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="155" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(155, this)">
+                            Vĩnh Phúc
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-value="156" href="javascript:void(0)"
+                           onclick="changePoupProvinceV2(156, this)">
+                            Yên Bái
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="lst-dis" class="hide">
+        </div>
+        <div id="lst-ward" class="hide">
+        </div>
+    </div>
+    <input type="hidden" id="hdLocationProvinceId" value="0">
+    <input type="hidden" id="hdLocationDisId" value="0">
+    <input type="hidden" id="hdLocationWardId" value="0">
+    <input type="hidden" id="hdLocationAddress" value="">
+    <b id="h-provincename" style="display:none!important" data-provinceid="0"></b>
+</div>
+<div class="locationbox__popup new-popup hide" id="lc_pop--sugg">
+    <div class="locationbox__popup--cnt locationbox__popup--suggestion new-locale">
+        <div class="flex-block">
+            <i class="icon-location"></i>
+            <p>Hãy chọn <b>địa chỉ cụ thể</b> để chúng tôi cung cấp <b>chính xác</b> giá và khuyến mãi</p>
+        </div>
+        <div class="btn-block">
+            <a href="javascript:;" class="btn-location" onclick="OpenLocation()"><b>Chọn địa chỉ</b></a>
+            <a href="javascript:;" class="btn-location gray" onclick="SkipLocation()"><b>Đóng</b></a>
+        </div>
+    </div>
+</div>
+
+
+<div class="big-banner">
+    <a aria-label="slide" data-cate="0" data-place="1998"
+       href="https://www.thegioididong.com/uu-dai-soc?itm_source=home_page&amp;itm_medium=&amp;itm_campaign=xa_hang_ton-kho&amp;itm_content="
+       onclick="jQuery.ajax({ url: &#39;/bannertracking?bid=55886&amp;r=&#39;+ (new Date).getTime(), async: true, cache: false });"><img
+            width="1920" height="920" src="../static/Giao%20diện/Home/Banner-Big-1920x450-1920x450.jpg"
+            th:src="@{/Giao%20diện/Home/Banner-Big-1920x450-1920x450.jpg}"
+            alt="Banner Big Campaign"></a>
+</div>
+<section class="main-container">
+    <div class="bg-tophome">
+        <div class="home-slider big-campaign" id="owl-home">
+            <div class="slider-banner home-top owl-carousel owl-loaded owl-drag">
+                <div class="owl-stage-outer">
+                    <div class="owl-stage"
+                         style="transform: translate3d(-3630px, 0px, 0px); transition: all 0.5s ease 0s; width: 5445px;">
+                        <div class="owl-item" style="width: 595px; margin-right: 10px;">
+                            <a aria-label="slide" data-cate="0" data-place="2053"
+                               href="https://www.thegioididong.com/dtdd/poco-c40"
+                               onclick="jQuery.ajax({ url: &#39;/bannertracking?bid=55957&amp;r=&#39;+ (new Date).getTime(), async: true, cache: false });"><img
+                                    width="600" height="180"
+                                    src="../static/Giao%20diện/Home/poco40-720-220-720x220-3.png"
+                                    th:src="@{/Giao%20diện/Home/poco40-720-220-720x220-3.png}" alt="POCO"></a>
+                        </div>
+                        <div class="owl-item" style="width: 595px; margin-right: 10px;">
+                            <a aria-label="slide" data-cate="0" data-place="2053"
+                               href="https://www.thegioididong.com/dtdd-samsung-galaxy-a"
+                               onclick="jQuery.ajax({ url: &#39;/bannertracking?bid=55246&amp;r=&#39;+ (new Date).getTime(), async: true, cache: false });"><img
+                                    width="600" height="180"
+                                    src="../static/Giao%20diện/Home/xk-aseri-720-220-720x220-1.png"
+                                    th:src="@{/Giao%20diện/Home/xk-aseri-720-220-720x220-1.png}" alt="SS Week"></a>
+                        </div>
+                        <div class="owl-item" style="width: 595px; margin-right: 10px;">
+                            <a aria-label="slide" data-cate="0" data-place="2053"
+                               href="https://www.thegioididong.com/dtdd-apple-iphone-13-series"
+                               onclick="jQuery.ajax({ url: &#39;/bannertracking?bid=55470&amp;r=&#39;+ (new Date).getTime(), async: true, cache: false });"><img
+                                    width="600" height="180" loading="lazy" class="owl-lazy lazyloaded"
+                                    data-src="//cdn.tgdd.vn/2022/06/banner/xk-13proxanh-720-220-720x220-2.png"
+                                    alt="iPhone 13 Pro"
+                                    src="../static/Giao%20diện/Home/xk-13proxanh-720-220-720x220-2.png"
+                                    th:src="@{/Giao%20diện/Home/xk-13proxanh-720-220-720x220-2.png}"></a>
+                        </div>
+                        <div class="owl-item" style="width: 595px; margin-right: 10px;">
+                            <a aria-label="slide" data-cate="0" data-place="2053"
+                               href="https://www.thegioididong.com/dtdd/oppo-reno7-z"
+                               onclick="jQuery.ajax({ url: &#39;/bannertracking?bid=55268&amp;r=&#39;+ (new Date).getTime(), async: true, cache: false });"><img
+                                    width="600" height="180" loading="lazy" class="owl-lazy lazyloaded"
+                                    data-src="//cdn.tgdd.vn/2022/05/banner/720-220-720x220-255.png" alt="Reno7"
+                                    src="../static/Giao%20diện/Home/720-220-720x220-255.png"
+                                    th:src="@{/Giao%20diện/Home/720-220-720x220-255.png}"></a>
+                        </div>
+                        <div class="owl-item" style="width: 595px; margin-right: 10px;">
+                            <a aria-label="slide" data-cate="0" data-place="2053"
+                               href="https://www.thegioididong.com/dong-ho-gia-soc"
+                               onclick="jQuery.ajax({ url: &#39;/bannertracking?bid=55183&amp;r=&#39;+ (new Date).getTime(), async: true, cache: false });"><img
+                                    width="600" height="180" loading="lazy" class="owl-lazy lazyloaded"
+                                    data-src="//cdn.tgdd.vn/2022/06/banner/720-220-720x220-23.png"
+                                    alt="đồng hồ thời trang"
+                                    src="../static/Giao%20diện/Home/720-220-720x220-23.png"
+                                    th:src="@{/Giao%20diện/Home/720-220-720x220-23.png}"></a>
+                        </div>
+                        <div class="owl-item" style="width: 595px; margin-right: 10px;">
+                            <a aria-label="slide" data-cate="0" data-place="2053"
+                               href="https://www.thegioididong.com/lenovo"
+                               onclick="jQuery.ajax({ url: &#39;/bannertracking?bid=55790&amp;r=&#39;+ (new Date).getTime(), async: true, cache: false });"><img
+                                    width="600" height="180" loading="lazy" class="owl-lazy lazyloaded"
+                                    data-src="//cdn.tgdd.vn/2022/06/banner/720-220-720x220-106.png" alt="Laptop Lenovo"
+                                    src="../static/Giao%20diện/Home/720-220-720x220-106.png"
+                                    th:src="@{/Giao%20diện/Home/720-220-720x220-106.pngv}"></a>
+                        </div>
+                        <div class="owl-item active" style="width: 595px; margin-right: 10px;">
+                            <a aria-label="slide" data-cate="0" data-place="2053"
+                               href="https://www.thegioididong.com/dong-ho-thong-minh-samsung-galaxy-watch-4"
+                               onclick="jQuery.ajax({ url: &#39;/bannertracking?bid=55384&amp;r=&#39;+ (new Date).getTime(), async: true, cache: false });"><img
+                                    width="600" height="180" loading="lazy" class="owl-lazy lazyloaded"
+                                    data-src="//cdn.tgdd.vn/2022/06/banner/w4-720-220-720x220-3.png" alt="đh"
+                                    src="../static/Giao%20diện/Home/w4-720-220-720x220-3.png"
+                                    th:src="@{/Giao%20diện/Home/w4-720-220-720x220-3.png}"></a>
+                        </div>
+                        <div class="owl-item active" style="width: 595px; margin-right: 10px;">
+                            <a aria-label="slide" data-cate="0" data-place="2053"
+                               href="https://www.thegioididong.com/tai-nghe/bluetooth-true-wireless-jbl-t115tws?src=osp"
+                               onclick="jQuery.ajax({ url: &#39;/bannertracking?bid=53484&amp;r=&#39;+ (new Date).getTime(), async: true, cache: false });"><img
+                                    width="600" height="180" loading="lazy" class="owl-lazy lazyloaded"
+                                    data-src="//cdn.tgdd.vn/2022/05/banner/720x220-720x220-5.png"
+                                    alt="Phụ Kiện Đón Lễ To[break]Giảm Đến 50%++"
+                                    src="../static/Giao%20diện/Home/720x220-720x220-5.png"
+                                    th:src="@{/Giao%20diện/Home/720x220-720x220-5.png}"></a>
+                        </div>
+                        <div class="owl-item" style="width: 595px; margin-right: 10px;">
+                            <a aria-label="slide" data-cate="0" data-place="2053"
+                               href="https://www.thegioididong.com/hoi-dap/chuong-trinh-khuyen-mai-tap-trung-mua-mua-sam-shopping-1439988"
+                               onclick="jQuery.ajax({ url: &#39;/bannertracking?bid=55928&amp;r=&#39;+ (new Date).getTime(), async: true, cache: false });"><img
+                                    width="600" height="180" loading="lazy" class=" owl-lazy lazyloading"
+                                    data-src="//cdn.tgdd.vn/2022/06/banner/720-220-720x220-123.png"
+                                    alt="ngày hội shopping"
+                                    src="https://cdn.tgdd.vn/2022/06/banner/720-220-720x220-123.png"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="owl-nav">
+                    <button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span>
+                    </button>
+                    <button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button>
+                </div>
+                <div class="owl-dots disabled"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- End -->
+
+    <!-- Gợi ý hôm nay -->
+    <div class="daily-sg">
+        <strong class="name-box">Gợi ý hôm nay</strong>
+        <div class="option-sg filter-link">
+
+            <a href="#" data-filter="1">
+                <i>
+                    <img src="../static/Giao diện/Home/icon-phone-96x96-2.png"
+                         th:src="@{/Giao diện/Home/icon-phone-96x96-2.png}" alt="Cho bạn" width="50" height="50">
+                    <span class="">Điện thoại</span>
+                </i>
+            </a>
+
+            <a href="#" data-filter="2">
+                <i>
+                    <img src="../static/Giao diện/Home/icon-laptop-96x96-1.png"
+                         th:src="@{/Giao diện/Home/icon-laptop-96x96-1.png}" alt="Cho bạn" width="50" height="50">
+                </i>
+                <span class="">Laptop</span>
+            </a>
+            <a href="#" data-filter="3">
+                <i>
+                    <img src="../static/Giao diện/Home/icon-tablet-96x96-1.png"
+                         th:src="@{/Giao diện/Home/icon-tablet-96x96-1.png}" alt="Cho bạn" width="50" height="50">
+                </i>
+                <span class="">Tablet</span>
+            </a>
+            <a href="#" data-filter="5">
+                <i>
+                    <img src="../static/Giao diện/Home/icon-phu-kien-96x96-1.png"
+                         th:src="@{/Giao diện/Home/icon-phu-kien-96x96-1.png}" alt="Cho bạn" width="50" height="50">
+                </i>
+                <span class="has-child">Phụ kiện</span>
+            </a>
+            <a href="#" data-filter="4">
+                <i>
+                    <img src="../static/Giao diện/Home/icon-smartwatch-96x96-1.png"
+                         th:src="@{/Giao diện/Home/icon-smartwatch-96x96-1.png}" alt="Cho bạn" width="50" height="50">
+                </i>
+                <span class="">Smart Watch</span>
+            </a>
+        </div>
+        <div class="block-product relative">
+            <div class="preloader">
+                <div class="loaderweb"></div>
+            </div>
+            <div class="block-product__content" data-is-recommend-tab="true">
+                <ul class="listproduct item-list" data-total="5">
+                    <th:block th:each="pro : ${ListPro}">
+                        <li data-id="274360" data-pos="2" class="item item-child ajaxed __cate_42 animate__animated" th:data-group="${pro.categoryId}">
+                            <th:block th:if="${pro.categoryId == 1}">
+                                <a th:href="@{'/Tablet/show/'+${pro.productId}}" class=" main-contain"
+                                   data-s="Nomal" data-site="1" data-pro="3" data-cache="False"
+                                   th:data-name="${pro.name}" data-id="274360" data-price="5190000.0"
+                                   data-brand="Samsung"
+                                   data-cate="Điện thoại" data-box="BoxHomeV2">
+                                    <div class="item-label">
+                                        <span class="lb-tragop">Trả góp 0%</span>
+                                    </div>
+                                    <div class="item-img">
+                                        <img data-src="https://cdn.tgdd.vn/Products/Images/42/274360/samsung-galaxy-a13-xanh-thumb-1-600x600.jpg"
+                                             class="lazyload" alt="Samsung Galaxy A13 6GB" width="207" height="207">
+                                        <img th:src="@{${pro.picture1}}" width="40" height="40"
+                                             class="lazyload lbliconimg lbliconimg_42 tgdd">
+                                    </div>
+                                    <h3>[[${pro.name}]]</h3>
+                                    <strong class="price">[[${#numbers.formatCurrency(pro.price)}]]</strong>
+                                    <p class="vote-txt">
+                                        <b>[[${pro.star}]]</b><i class="iconnewglobal-vote"></i>(69)
+                                    </p>
+                                </a>
+                            </th:block>
+                            <th:block th:if="${pro.categoryId == 3}">
+                                <a th:href="@{'/Tablet/show/'+${pro.productId}}" class=" main-contain"
+                                   data-s="Nomal" data-site="1" data-pro="3" data-cache="False"
+                                   th:data-name="${pro.name}" data-id="274360" data-price="5190000.0"
+                                   data-brand="Samsung"
+                                   data-cate="Điện thoại" data-box="BoxHomeV2">
+                                    <div class="item-label">
+                                        <span class="lb-tragop">Trả góp 0%</span>
+                                    </div>
+                                    <div class="item-img">
+                                        <img data-src="https://cdn.tgdd.vn/Products/Images/42/274360/samsung-galaxy-a13-xanh-thumb-1-600x600.jpg"
+                                             class="lazyload" alt="Samsung Galaxy A13 6GB" width="207" height="207">
+                                        <img th:src="@{${pro.picture1}}" width="40" height="40"
+                                             class="lazyload lbliconimg lbliconimg_42 tgdd">
+                                    </div>
+                                    <h3>[[${pro.name}]]</h3>
+                                    <strong class="price">[[${#numbers.formatCurrency(pro.price)}]]</strong>
+                                    <p class="vote-txt">
+                                        <b>[[${pro.star}]]</b><i class="iconnewglobal-vote"></i>(69)
+                                    </p>
+                                </a>
+                            </th:block>
+                            <th:block th:if="${pro.categoryId == 4}">
+                                <a th:href="@{'/SmartWatch/detail/'+${pro.productId}}" class=" main-contain"
+                                   data-s="Nomal" data-site="1" data-pro="3" data-cache="False"
+                                   th:data-name="${pro.name}" data-id="274360" data-price="5190000.0"
+                                   data-brand="Samsung"
+                                   data-cate="Điện thoại" data-box="BoxHomeV2">
+                                    <div class="item-label">
+                                        <span class="lb-tragop">Trả góp 0%</span>
+                                    </div>
+                                    <div class="item-img">
+                                        <img data-src="https://cdn.tgdd.vn/Products/Images/42/274360/samsung-galaxy-a13-xanh-thumb-1-600x600.jpg"
+                                             class="lazyload" alt="Samsung Galaxy A13 6GB" width="207" height="207">
+                                        <img th:src="@{${pro.picture1}}" width="40" height="40"
+                                             class="lazyload lbliconimg lbliconimg_42 tgdd">
+                                    </div>
+                                    <h3>[[${pro.name}]]</h3>
+                                    <strong class="price">[[${#numbers.formatCurrency(pro.price)}]]</strong>
+                                    <p class="vote-txt">
+                                        <b>[[${pro.star}]]</b><i class="iconnewglobal-vote"></i>(69)
+                                    </p>
+                                </a>
+                            </th:block>
+                        </li>
+                    </th:block>
+                </ul>
+                <a href="javascript:;" data-page-index="1" data-page-size="20"
+                   class="readmore-btn"><span>Xem thêm</span></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- End -->
+</section>
+
+
+<section class="page1 prmotebannerbhx">
+    <div class="prmotebanner-bhx">
+    </div>
+
+</section>
+<div class="preloader preall">
+    <div class="loaderweb"></div>
+</div>
+<p id="gb-top-page" class="hide">↑</p>
+
+<div id="showPromoteBHX">
+</div>
+<div id="dldingtext">Bạn vui lòng chờ trong giây lát...</div>
+<footer class="footer">
+    <section class="clearfix footer__top">
+        <div class="footer__col">
+            <ul class="f-listmenu">
+                <li><a rel="nofollow"
+                       href="https://www.thegioididong.com/tin-tuc/chuong-trinh-tich-diem-danh-cho-khach-hang-than-thiet-1434806">Tích
+                    điểm Quà tặng VIP</a></li>
+                <li><a rel="nofollow" href="https://www.thegioididong.com/lich-su-mua-hang">Lịch sử mua hàng</a></li>
+                <li><a rel="nofollow" href="https://www.thegioididong.com/daily">Cộng tác bán hàng cùng TGDĐ</a></li>
+                <li><a rel="nofollow" href="https://www.thegioididong.com/tra-gop">Tìm hiểu về mua trả góp</a></li>
+                <li><a rel="nofollow" href="https://www.thegioididong.com/bao-hanh">Chính sách bảo hành</a></li>
+                <li><a href="javascript:void(0)" class="arrow showtaga">Xem thêm</a></li>
+                <li class="hidden"><a rel="nofollow" href="https://www.thegioididong.com/chinh-sach-bao-hanh-san-pham">Chính
+                    sách đổi trả</a></li>
+                <li class="hidden"><a rel="nofollow" href="https://www.thegioididong.com/giao-hang">Giao hàng &amp;
+                    Thanh toán</a></li>
+                <li class="hidden"><a rel="nofollow" href="https://www.thegioididong.com/huong-dan-mua-hang">Hướng dẫn
+                    mua online</a></li>
+                <li class="hidden"><a rel="nofollow" href="https://www.thegioididong.com/b2b">Bán hàng doanh nghiệp</a>
+                </li>
+                <li class="hidden"><a rel="nofollow" href="https://www.thegioididong.com/phieu-mua-hang">Phiếu mua
+                    hàng</a></li>
+                <li class="hidden"><a rel="nofollow" href="https://hddt.thegioididong.com/">In hóa đơn điện tử</a></li>
+                <li class="hidden"><a rel="nofollow" href="https://www.thegioididong.com/tos">Quy chế hoạt động</a></li>
+                <li class="hidden"><a rel="nofollow" href="https://www.thegioididong.com/noi-quy-cua-hang">Nội quy cửa
+                    hàng</a></li>
+                <li class="hidden"><a rel="nofollow" href="https://www.thegioididong.com/chat-luong-phuc-vu">Chất lượng
+                    phục vụ</a></li>
+                <li class="hidden"><a rel="nofollow"
+                                      href="https://www.thegioididong.com/tin-tuc/can-trong-voi-nhung-sieu-thi-thegioididong-khong-chinh-chu--683321">Cảnh
+                    báo giả mạo</a></li>
+                <li class="hidden"><a rel="nofollow" href="https://www.thegioididong.com/chinh-sach-khui-hop-apple">Chính
+                    sách khui hộp sản phẩm Apple</a></li>
+            </ul>
+        </div>
+        <div class="footer__col">
+            <ul class="f-listmenu">
+                <li><a rel="nofollow" href="https://mwg.vn/">Giới thiệu công ty (MWG.vn)</a></li>
+                <li><a rel="nofollow" href="https://vieclam.thegioididong.com/">Tuyển dụng</a></li>
+                <li><a rel="nofollow" href="https://www.thegioididong.com/lien-he">Gửi góp ý, khiếu nại</a></li>
+                <li><a rel="nofollow" href="https://www.thegioididong.com/he-thong-sieu-thi-the-gioi-di-dong">Tìm siêu
+                    thị (3.164 shop)</a></li>
+                <li><a rel="nofollow" class="linkversion" href="https://www.thegioididong.com/?sclient=mobile">Xem bản
+                    mobile</a></li>
+            </ul>
+        </div>
+        <div class="footer__col">
+            <div class="f-listtel">
+                <p class="f-listtel__title">
+                    <strong>Tổng đài hỗ trợ</strong> (Miễn phí gọi) </p>
+                <p class="f-listtel__content"><span>Gọi mua:</span> <a href="tel:18001060">1800.1060</a> (7:30 - 22:00)
+                </p>
+                <p class="f-listtel__content"><span>Kỹ thuật:</span> <a href="tel:18001763">1800.1763</a> (7:30 - 22:00)
+                </p>
+                <p class="f-listtel__content"><span>Khiếu nại:</span> <a href="tel:18001062">1800.1062</a> (8:00 -
+                    21:30)</p>
+                <p class="f-listtel__content"><span>Bảo hành:</span> <a href="tel:18001064">1800.1064</a> (8:00 - 21:00)
+                </p>
+            </div>
+        </div>
+        <div class="footer__col">
+            <div class="f-social">
+                <a href="https://www.facebook.com/thegioididongcom" class="link-fb">
+                    <i class="icon-facebook"></i> 3737.1k Fan
+                </a>
+                <a href="https://www.youtube.com/user/TGDDVideoReviews" class="link-ytb">
+                    <i class="icon-youtube"></i> 845k Đăng ký
+                </a>
+            </div>
+            <div class="f-certify">
+                <a rel="nofollow" href="http://online.gov.vn/Home/WebDetails/20090" target="_blank">
+                    <i class="icon-congthuong"></i>
+                </a>
+                <a rel="nofollow" href="https://www.thegioididong.com/tos#giai-quyet-khieu-nai" target="_blank">
+                    <i class="icon-khieunai"></i>
+                </a>
+                <a rel="nofollow" class="dmca-badge"
+                   href="https://www.dmca.com/Protection/Status.aspx?ID=5b62e759-2a0c-4d86-b972-af903bfbc89d&amp;refurl=https://www.thegioididong.com/"
+                   target="_blank">
+                    <i class="icon-protected"></i>
+                </a>
+                <a class="_ncsc" rel="nofollow"
+                   href="https://tinnhiemmang.vn/danh-ba-tin-nhiem/thegioididongcom-1632835473"
+                   title="Chung nhan Tin Nhiem Mang" target="_blank">
+                    <img class="lazy lazyload" data-original="https://tinnhiemmang.vn/handle_cert?id=thegioididong.com"
+                         data-src="https://tinnhiemmang.vn/handle_cert?id=thegioididong.com" width="150"
+                         alt="Chung nhan Tin Nhiem Mang">
+                </a>
+            </div>
+            <div class="f-website">
+                <div class="footer__logo">
+                    <p class="footer__logo-hd">Website cùng tập đoàn</p>
+                    <ul class="footer__logo-list">
+                        <li>
+                            <a rel="nofollow" href="https://www.topzone.vn/" target="_blank"
+                               title="Chuỗi cửa hàng cao cấp Apple">
+                                <i class="iconlogo-topzone"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="https://www.dienmayxanh.com/" target="_blank">
+                                <i class="iconlogo-dienmayxanh"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="https://www.bachhoaxanh.com/" target="_blank">
+                                <i class="iconlogo-bachhoaxanh"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="https://www.nhathuocankhang.com/" target="_blank"
+                               title="Chuỗi nhà thuốc chuẩn GPP">
+                                <i class="iconlogo-ankhang"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="https://www.avakids.com/" target="_blank"
+                               title="Chuỗi cửa hàng mẹ và bé">
+                                <i class="iconlogo-kids"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="https://www.avasport.com/" target="_blank"
+                               title="Chuỗi cửa hàng thể thao">
+                                <i class="iconlogo-sport"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="https://www.dichvutantam.com/" target="_blank"
+                               title="Dịch vụ vệ sinh máy lạnh, sửa chữa điện nước, lắp đặt máy lạnh, máy giặt, tivi">
+                                <i class="iconlogo-tantam"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="https://www.4kfarm.com/" target="_blank" title="Nông trại rau sạch">
+                                <i class="iconlogo-4kfarm"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="https://vieclam.thegioididong.com/" target="_blank"
+                               title="Trang tuyển dụng của tập đoàn Thế Giới Di Động">
+                                <i class="iconlogo-vieclam"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="copyright">
+        <section>
+            <p>
+                © 2018. Công ty cổ phần Thế Giới Di Động. GPDKKD: 0303217354 do sở KH &amp; ĐT TP.HCM cấp ngày
+                02/01/2007. GPMXH: 238/GP-BTTTT do Bộ Thông Tin và Truyền Thông cấp ngày 04/06/2020.<br> Địa chỉ: 128
+                Trần Quang Khải, P. Tân Định, Q.1,
+                TP.Hồ Chí Minh. Điện thoại: 028 38125960. Email: cskh@thegioididong.com. Chịu trách nhiệm nội dung:
+                Huỳnh Văn Tốt. <a rel="nofollow" href="https://www.thegioididong.com/thoa-thuan-su-dung-trang-mxh">Xem
+                chính sách sử dụng</a>
+            </p>
+        </section>
+    </div>
+</footer>
+<script src="../static/Giao%20diện/Home/11.1.447.js.download" th:src="@{/Giao%20diện/Home/11.1.447.js.download}"
+        type="text/javascript" async=""></script>
+<script type="text/javascript" async="" src="../static/Giao%20diện/Home/events.js.download"
+        th:src="@{/Giao%20diện/Home/events.js.download}"></script>
+<script src="../static/Giao%20diện/Home/1634413043451608" th:src="@{/Giao%20diện/Home/1634413043451608}"
+        async=""></script>
+<script async="" src="../static/Giao%20diện/Home/fbevents.js.download"
+        th:src="@{/Giao%20diện/Home/fbevents.js.download}"></script>
+<script type="text/javascript" async="" src="../static/Giao%20diện/Home/analytics.js.download"
+        th:src="@{/Giao%20diện/Home/analytics.js.download}"></script>
+<script type="text/javascript" async="" src="../static/Giao%20diện/Home/3880.js.download"
+        th:src="@{/Giao%20diện/Home/3880.js.download}"></script>
+<script type="text/javascript" async="" src="../static/Giao%20diện/Home/f.txt"
+        th:src="@{/Giao%20diện/Home/f.txt}"></script>
+<script type="text/javascript" async="" src="../static/Giao%20diện/Home/js" th:src="@{/Giao%20diện/Home/js}"></script>
+<script async="" src="../static/Giao%20diện/Home/gtm.js.download"
+        th:src="@{/Giao%20diện/Home/gtm.js.download}"></script>
+<script src="../static/Giao%20diện/Home/globalTGDD_V2.min.v202206210130.js.download"
+        th:src="@{/Giao%20diện/Home/globalTGDD_V2.min.v202206210130.js.download}" type="text/javascript"></script>
+<script>
+    var rooturl = '.thegioididong.com';
+</script>
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    dataLayer.push({
+        'pageType': 'Home',
+        'pagePlatform': 'Web',
+        'pageStatus': 'Kinh doanh'
+    })
+</script>
+
+
+<script async="async" defer="defer" src="../static/Giao%20diện/Home/homeTGDD_v2.min.v202206211020.js.download"
+        th:src="@{/Giao%20diện/Home/homeTGDD_v2.min.v202206211020.js.download}" type="text/javascript"></script>
+<script async="async" defer="defer" src="../static/Giao%20diện/Home/homeGTM_V2.min.v202205200450.js.download"
+        th:src="@{/Giao%20diện/Home/homeGTM_V2.min.v202205200450.js.download}" type="text/javascript"></script>
+
+
+<!-- Google Tag Manager -->
+<script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WKQZL8');
+</script>
+<!-- End Google Tag Manager -->
+
+
+<div style="display: none; visibility: hidden;">
+    <script>
+        !function (b, e, f, g, a, c, d) {
+            b.fbq || (a = b.fbq = function () {
+                a.callMethod ? a.callMethod.apply(a, arguments) : a.queue.push(arguments)
+            }, b._fbq || (b._fbq = a), a.push = a, a.loaded = !0, a.version = "2.0", a.queue = [], c = e.createElement(f), c.async = !0, c.src = g, d = e.getElementsByTagName(f)[0], d.parentNode.insertBefore(c, d))
+        }(window, document, "script", "//connect.facebook.net/en_US/fbevents.js");
+        fbq("init", "1634413043451608");
+        fbq("track", "PageView");
+        if (1 === $(".left_search").length && "1" === $(".left_search").attr("date-search")) {
+            var keyword = $(".left_search").attr("data-keyword");
+            fbq("track", "Search", {
+                search_string: keyword,
+                content_ids: GetProductIdSearch(),
+                content_type: "product"
+            })
+        } else if (1 === $("#wrap_cart").length && "undefined" != typeof cart) {
+            console.log($("#wrap_cart").length);
+            for (var total = 0, listId = [], i = 0; i < cart.length; i++) listId.push(cart[i].ProductId), total += cart[i].ProductPrice * cart[i].Quantity;
+            fbq("track", "AddToCart", {
+                content_ids: listId,
+                content_type: "product",
+                value: total,
+                currency: "VND"
+            })
+        } else if (1 === $("#pixel-cate").length) {
+            var content_name = $("#pixel-cate").attr("data-cateName"),
+                content_category = content_name;
+            0 < $("#pixel-cate").data("manuid") && (content_category += " \x3e " + $("#pixel-cate").attr("data-manuName"));
+            fbq("trackCustom", "ViewCategory", {
+                content_name: content_name,
+                content_category: content_category,
+                content_ids: GetProductIdCate(),
+                content_type: "product"
+            })
+        } else "undefined" != typeof productID && fbq("track", "ViewContent", {
+            content_ids: [product.identifier],
+            content_type: "product",
+            value: parseFloat(product.price),
+            currency: "VND"
+        });
+
+        function GetProductIdSearch() {
+            var b = [];
+            $(".left_search ul.listsearch li").each(function () {
+                b.push($(this).attr("data-product-search"))
+            });
+            return b
+        }
+
+        function GetProductIdCate() {
+            var b = [];
+            $("ul.homeproduct li").each(function () {
+                b.push($(this).attr("data-productid"))
+            });
+            return b
+        };
+    </script>
+    <noscript></noscript>
+</div>
+<div style="display: none; visibility: hidden;">
+    <script type="text/javascript">
+        document.isproduction = "www.thegioididong.com" === window.location.hostname ? 1 : 0;
+        var isChatNew = !1,
+            today = new Date,
+            fromOff = new Date(2022, 1, 30, 17, 0, 0),
+            toOff = new Date(2022, 2, 4, 8, 0, 0),
+            time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        0 === document.isproduction && (7 < today.getHours() || 7 == today.getHours() && 30 <= today.getMinutes()) && 22 > today.getHours() && (isChatNew = !0);
+        1 === document.isproduction && (7 < today.getHours() || 7 == today.getHours() && 30 <= today.getMinutes()) && 22 > today.getHours() && (isChatNew = !0);
+        if (-1 < window.location.href.indexOf("/tin-tuc") || -1 < window.location.href.indexOf("/hoi-dap") || -1 < window.location.href.indexOf("/game-app")) isChatNew = !1;
+        if (isChatNew) {
+            document.siteid = 1;
+            document.sitename = "Th\u1ebf gi\u1edbi di \u0111\u1ed9ng";
+            document.address = "";
+            1 === $(".header__address span").length && (document.address = $(".header__address span").text());
+            var departmentId = 36;
+            "42" == document.cateID ? departmentId = 33 : "44" == document.cateID ? departmentId = 34 : "522" == document.cateID && (departmentId = 35);
+            "undefined" === typeof additional_data && (window.additional_data = {});
+            additional_data.siteid = document.siteid;
+            additional_data.cateid = void 0 == document.cateID ? -1 : document.cateID;
+            additional_data.sitename = document.sitename;
+            additional_data.address = document.address;
+            var department = [];
+            department.push(1 === document.isproduction ? departmentId : 47);
+            var LHC_API = LHC_API || {};
+            LHC_API.args = {
+                mode: "widget",
+                lhc_base_url: "//livehelp.tgdd.vn/",
+                wheight: 450,
+                wwidth: 350,
+                pheight: 520,
+                pwidth: 500,
+                domain: window.location.hostname,
+                department: department,
+                theme: 2,
+                survey: 1,
+                check_messages: !1,
+                lang: "vnm/"
+            };
+            setTimeout(function () {
+                var b = document.createElement("script");
+                b.type = "text/javascript";
+                b.setAttribute("crossorigin",
+                    "anonymous");
+                b.async = !0;
+                var a = new Date;
+                b.src = "//livehelp.tgdd.vn/design/defaulttheme/js/widgetv2/index.js?" + ("" + a.getFullYear() + a.getMonth() + a.getDate());
+                a = document.getElementsByTagName("script")[0];
+                a.parentNode.insertBefore(b, a)
+            }, 3E3);
+            console.log("GET SCRIPT CHAT NEW: DONE")
+        } else {
+            var gl_fLoadChat = !1;
+            if (!gl_fLoadChat && (7 < today.getHours() || 7 == today.getHours() && 30 <= today.getMinutes()) && 22 > today.getHours()) {
+                gl_fLoadChat = !0;
+                var strUserNameChat = getCookie("chat.username");
+                if ("" == strUserNameChat || "" != strUserNameChat &&
+                    0 > strUserNameChat.indexOf("@@"))
+                    if ("undefined" != typeof g_version) {
+                        var lnkChat = "https://cdn.tgdd.vn/dmxchat/chatclienttgddmobile.min.v" + g_version + ".js";
+                        $.getScript(lnkChat).done(function (b, a) {
+                            console.log("GET SCRIPT CHAT: DONE")
+                        })
+                    } else lnkChat = "https://cdn.tgdd.vn/dmxchat/chatclienttgddmobile.min.js", $.getScript(lnkChat).done(function (b, a) {
+                        console.log("GET SCRIPT CHAT: DONE")
+                    })
+            }
+        }
+        ;
+    </script>
+</div>
+<script type="text/javascript" id="" src="../static/Giao%20diện/Home/firebase.js.download"
+        th:src="@{/Giao%20diện/Home/firebase.js.download}"></script>
+<script type="text/javascript" id="">
+    !function (d, g, e) {
+        d.TiktokAnalyticsObject = e;
+        var a = d[e] = d[e] || [];
+        a.methods = "page track identify instances debug on off once ready alias group enableCookie disableCookie".split(" ");
+        a.setAndDefer = function (b, c) {
+            b[c] = function () {
+                b.push([c].concat(Array.prototype.slice.call(arguments, 0)))
+            }
+        };
+        for (d = 0; d < a.methods.length; d++) a.setAndDefer(a, a.methods[d]);
+        a.instance = function (b) {
+            b = a._i[b] || [];
+            for (var c = 0; c < a.methods.length; c++) a.setAndDefer(b, a.methods[c]);
+            return b
+        };
+        a.load = function (b, c) {
+            var f = "https://analytics.tiktok.com/i18n/pixel/events.js";
+            a._i = a._i || {};
+            a._i[b] = [];
+            a._i[b]._u = f;
+            a._t = a._t || {};
+            a._t[b] = +new Date;
+            a._o = a._o || {};
+            a._o[b] = c || {};
+            c = document.createElement("script");
+            c.type = "text/javascript";
+            c.async = !0;
+            c.src = f + "?sdkid\x3d" + b + "\x26lib\x3d" + e;
+            b = document.getElementsByTagName("script")[0];
+            b.parentNode.insertBefore(c, b)
+        };
+        a.load("CANVQ2RC77UFDAKT9FD0");
+        a.page()
+    }(window, document, "ttq");
+</script>
+<script src="../static/Giao%20diện/Home/f(1).txt" th:src="@{/Giao%20diện/Home/f(1).txt}"></script>
+<script type="text/javascript" id="" src="../static/Giao%20diện/Home/firebase-messaging.js.download"
+        th:src="@{/Giao%20diện/Home/firebase-messaging.js.download}"></script>
+<script type="text/javascript" id="">
+    var config = {
+        apiKey: "AIzaSyB-Wdu8SrRJshESlRPSeDSECFma0YQKZ6s",
+        authDomain: "vuivuilocal.firebaseapp.com",
+        databaseURL: "https://vuivuilocal.firebaseio.com",
+        projectId: "vuivuilocal",
+        storageBucket: "",
+        messagingSenderId: "851337506445"
+    };
+    firebase.initializeApp(config);
+    var messaging = firebase.messaging();
+    messaging.requestPermission().then(function () {
+        console.log("Notification permission granted.")
+    })["catch"](function (a) {
+        console.log("Unable to get permission to notify.", a)
+    });
+    messaging.getToken().then(function (a) {
+        console.log("Token: " + a)
+    })["catch"](function (a) {
+        console.log("Unable to retrieve token ", a)
+    });
+    messaging.onTokenRefresh(function () {
+        messaging.getToken().then(function (a) {
+            console.log("Token refreshed: " + a)
+        })["catch"](function (a) {
+            console.log("Unable to retrieve refreshed token ", a)
+        })
+    });
+    messaging.onMessage(function (a) {
+        "function" == typeof showFirebaseMsg && showFirebaseMsg(a)
+    });
+
+    function showFirebaseMsg(a) {
+        if (void 0 != a && void 0 != a.data)
+            if ("Notification" in window) {
+                var b = new Notification(a.data.title, a.data);
+                b.onclick = function (c) {
+                    c.preventDefault();
+                    b.close();
+                    if ("" !== a.data.tag) {
+                        if (getPathFromUrl(document.location.href) === getPathFromUrl(a.data.tag)) return !0;
+                        window.open(a.data.tag, "_blank")
+                    }
+                    return !0
+                }
+            } else console.log("This browser does not support desktop notification")
+    }
+
+    function getPathFromUrl(a) {
+        return a.split(/[?#]/)[0]
+    };
+</script>
+<div id="lhc_container_v2" class=""
+     style="border: 0px none !important; padding: 0px !important; margin: 0px !important; z-index: 999999999 !important; overflow: visible !important; min-width: 0px !important; min-height: 0px !important; max-width: none !important; max-height: none !important; width: auto !important; height: auto !important; display: block !important;">
+    <iframe id="lhc_status_widget_v2" class="lhc-desktop"
+            style="box-shadow: none; overflow: visible; inset: auto 10px 60px auto; min-height: 95px; min-width: 95px; max-height: 95px; max-width: 95px; width: 95px; height: 95px; z-index: 2147483640; border-radius: unset; outline: none !important; visibility: visible !important; resize: none !important; background: none transparent !important; opacity: 1 !important; position: fixed !important; border: 0px !important; padding: 0px !important; margin: 0px !important; transition-property: none !important; transform: none !important; cursor: auto !important; float: none !important; display: block !important;"
+            src="../static/Giao%20diện/Home/saved_resource.html"
+            th:src="@{/Giao%20diện/Home/saved_resource.html}"></iframe>
+    <iframe id="lhc_widget_v2" class="lhc-desktop lhc-mode-widget"
+            style="box-shadow: none; overflow: visible; inset: auto 30px 30px auto; z-index: 2147483640; border-radius: unset; height: 450px; min-height: 450px; max-height: 450px; width: 350px; min-width: 350px; max-width: 350px; outline: none !important; visibility: visible !important; resize: none !important; background: none transparent !important; opacity: 1 !important; position: fixed !important; border: 0px !important; padding: 0px !important; margin: 0px !important; transition-property: none !important; transform: none !important; cursor: auto !important; float: none !important; display: none !important;"
+            src="../static/Giao%20diện/Home/saved_resource(1).html"
+            th:src="@{/Giao%20diện/Home/saved_resource(1).html}"></iframe>
+</div>
+</body>
+<iframe id="__JSBridgeIframe_1.0__" style="display: none;" src="../static/Giao%20diện/Home/saved_resource(2).html"
+        th:src="@{/Giao%20diện/Home/saved_resource(2).html}"></iframe>
+<iframe id="__JSBridgeIframe_SetResult_1.0__" style="display: none;"
+        src="../static/Giao%20diện/Home/saved_resource(3).html"
+        th:src="@{/Giao%20diện/Home/saved_resource(3).html}"></iframe>
+<iframe id="__JSBridgeIframe__" style="display: none;"
+        src="./Home/saved_resource(4).html"></iframe>
+<iframe id="__JSBridgeIframe_SetResult__" style="display: none;" src="../static/Giao%20diện/Home/saved_resource(5).html"
+        th:src="@{/Giao diện/Home/saved_resource(5).html}"></iframe>
+
+</html>
