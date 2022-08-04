@@ -45,18 +45,20 @@
 </head>
 
 <body>
-<header class="header  " data-sub="0">
+<header class="header" data-sub="0">
     <div class="header__top">
         <div>
-            <a href="https://www.thegioididong.com/" class="header__logo">
+            <a th:href="@{/Home}" class="header__logo">
                 <i class="iconnewglobal-logo"></i>
             </a>
             <a href="javascript:void(0)" class="header__address" onclick="OpenLocation()">
                 Xem giá, tồn kho tại:
                 <span data-province="3" data-district="0" data-ward="0">Hồ Chí Minh</span>
             </a>
-            <form action="https://www.thegioididong.com/tim-kiem" onsubmit="return suggestSearch(event);" class="header__search">
-                <input id="skw" type="text" class="input-search" onkeyup="suggestSearch(event);" placeholder="Bạn tìm gì..." name="key" autocomplete="off" maxlength="100">
+            <form action="https://www.thegioididong.com/tim-kiem" onsubmit="return suggestSearch(event);"
+                  class="header__search">
+                <input id="skw" type="text" class="input-search" onkeyup="suggestSearch(event);"
+                       placeholder="Bạn tìm gì..." name="key" autocomplete="off" maxlength="100">
                 <button type="submit">
                     <i class="icon-search"></i>
                 </button>
@@ -90,34 +92,38 @@
     <div class="header__main">
         <div>
             <ul class="main-menu">
-                <li class="active">
-                    <a href="https://www.thegioididong.com/dtdd">
+                <li class="">
+                    <a th:href="@{/Phone/show}">
                         <i>
-                            <img src="./Phone_files/icon-phone-96x96-2.png">
+                            <img src="../static/Giao%20diện/Tablet_files/icon-phone-96x96-2.png"
+                                 th:src="@{/Giao%20diện/Tablet_files/icon-phone-96x96-2.png}">
                         </i>
                         <span class="">Điện thoại</span>
                     </a>
                 </li>
                 <li class="">
-                    <a href="https://www.thegioididong.com/laptop-ldp">
+                    <a href="">
                         <i>
-                            <img src="./Phone_files/icon-laptop-96x96-1.png">
+                            <img src="../static/Giao%20diện/Tablet_files/icon-laptop-96x96-1.png"
+                                 th:src="@{/Giao%20diện/Tablet_files/icon-laptop-96x96-1.png}">
                         </i>
                         <span class="">Laptop</span>
                     </a>
                 </li>
-                <li class="">
-                    <a href="https://www.thegioididong.com/may-tinh-bang">
+                <li class="active">
+                    <a th:href="@{/Tablet/show}">
                         <i>
-                            <img src="./Phone_files/icon-tablet-96x96-1.png">
+                            <img src="../static/Giao%20diện/Tablet_files/icon-Tablet-96x96-1.png"
+                                 th:src="@{/Giao%20diện/Tablet_files/icon-Tablet-96x96-1.png}">
                         </i>
                         <span class="">Tablet</span>
                     </a>
                 </li>
                 <li class="has-list">
-                    <a href="https://www.thegioididong.com/phu-kien">
+                    <a th:href="@{/Phu_kien/show}">
                         <i>
-                            <img src="./Phone_files/icon-phu-kien-96x96-1.png">
+                            <img src="../static/Giao%20diện/Tablet_files/icon-phu-kien-96x96-1.png"
+                                 th:src="@{/Giao%20diện/Tablet_files/icon-phu-kien-96x96-1.png}">
                         </i>
                         <span class="has-child">Phụ kiện</span>
                     </a>
@@ -271,25 +277,28 @@
                     </div>
                 </li>
                 <li class="">
-                    <a href="https://www.thegioididong.com/dong-ho-thong-minh-ldp">
+                    <a th:href="@{/SmartWatch/show}">
                         <i>
-                            <img src="./Phone_files/icon-smartwatch-96x96-1.png">
+                            <img src="../static/Giao%20diện/Tablet_files/icon-smartwatch-96x96-1.png"
+                                 th:src="@{/Giao%20diện/Tablet_files/icon-smartwatch-96x96-1.png}">
                         </i>
                         <span class="">Smartwatch</span>
                     </a>
                 </li>
                 <li class="">
-                    <a href="https://www.thegioididong.com/dong-ho">
+                    <a href="#">
                         <i>
-                            <img src="./Phone_files/watch-icon-96x96.png">
+                            <img src="../static/Giao%20diện/Tablet_files/watch-icon-96x96.png"
+                                 th:src="@{/Giao%20diện/Tablet_files/watch-icon-96x96.png}">
                         </i>
                         <span class="">Đồng hồ</span>
                     </a>
                 </li>
                 <li class="has-list">
-                    <a href="https://www.thegioididong.com/pc-may-in">
+                    <a href="#">
                         <i>
-                            <img src="./Phone_files/icon-pc-96x96.png">
+                            <img src="../static/Giao%20diện/Tablet_files/icon-pc-96x96.png"
+                                 th:src="@{/Giao%20diện/Tablet_files/icon-pc-96x96.png}">
                         </i>
                         <span class="has-child">PC, Máy in</span>
                     </a>
@@ -394,8 +403,7 @@
                 </li>
             </ul>
         </div>
-    </div>
-</header>
+    </div></header>
 <div class="bg-ellipse"></div>
 <div class="locationbox__overlay"></div>
 <div class="locationbox-v2">
