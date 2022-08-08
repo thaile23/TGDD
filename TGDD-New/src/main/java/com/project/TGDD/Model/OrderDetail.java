@@ -3,7 +3,7 @@ package com.project.TGDD.Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "OrderDetail")
+@Table(name = "Order_detail")
 public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

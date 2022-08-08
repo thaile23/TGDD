@@ -11,7 +11,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,6 +45,10 @@ public class ProductServiceImpl implements ProductService {
     private PhoneRepository phoneRepository;
     @Autowired
     PhoneFilterHSXRepository phoneFilterHSXRepository;
+    @Autowired
+    LaptopRepository laptopRepository;
+    @Autowired
+    LaptopFilterHSXRepository laptopFilterHSXRepository;
 
     public Page<Product> listAll(int pageNum, String sortField, String sortDir, String keyword) {
 
@@ -98,17 +101,17 @@ public class ProductServiceImpl implements ProductService {
         colProRepo.save(colPro);
         romProRepo.save(romPro);
     }
-
-    @Override
-    public void addLaptop(Product product, LaptopDetail laptopDetail, ColorProduct colPro, RomProduct romPro) {
-        productRepository.save(product);
-        laptopDetail.setProductId(product.getProductId());
-        colPro.setProductId(product.getProductId());
-        romPro.setProductId(product.getProductId());
-        laptopRepo.save(laptopDetail);
-        colProRepo.save(colPro);
-        romProRepo.save(romPro);
-    }
+//
+//    @Override
+//    public void addLaptop(Product product, LaptopDetail laptopDetail, ColorProduct colPro, RomProduct romPro) {
+//        productRepository.save(product);
+//        laptopDetail.setProductId(product.getProductId());
+//        colPro.setProductId(product.getProductId());
+//        romPro.setProductId(product.getProductId());
+//        laptopRepo.save(laptopDetail);
+//        colProRepo.save(colPro);
+//        romProRepo.save(romPro);
+//    }
 
     @Override
     public void addSmartWatch(Product product, smartWatchDetail smartWatch, ColorProduct colPro) {
@@ -196,5 +199,19 @@ public class ProductServiceImpl implements ProductService {
         smartWatchDetail smartWatchDetail = productRepository.FindSmartWatchByProId(productId);
         return smartWatchDetail;
     }
+
+    //show Laptop
+    public List<Product> listAll4(String keyword) {
+        if (keyword != null) {
+            return laptopRepository.search(keyword);
+        }
+        return laptopRepository.findAll();
+    }
+
+    //show hsx Laptop
+    public List<Product> listAll4(Integer categoryId, Integer manufacturerId) {
+        return (List<Product>) laptopFilterHSXRepository.findByCateAndManu(categoryId, manufacturerId);
+    }
+
 
 }

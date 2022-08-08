@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Quản trị Admin</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="../static/doc/css/main.css" th:href="@{/doc/css/main.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!-- or -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <style>
+    </style>
+</head>
+<body onload="time()" class="app sidebar-mini rtl">
+<!-- Navbar-->
+<header class="app-header">
+    <!-- Sidebar toggle button-->
+    <!-- Navbar Right Menu-->
+    <ul class="app-nav">
+        <!-- User Menu-->
+        <li><a class="app-nav__item" th:href="@{/Home}"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+        </li>
+    </ul>
+</header>
+<!--<form th:action="@{/Order/Create}" method="post" th:object="${OrderDetail}">-->
+    <main class="app app-ban-hang">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="app-title">
+                    <ul class="app-breadcrumb breadcrumb">
+                        <li class="breadcrumb-item"><a href="#"><b>POS bán hàng</b></a></li>
+                    </ul>
+                    <div id="clock"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="tile">
+                    <h3 class="tile-title">Phần mềm bán hàng</h3>
+                    <!-- Modal -->
+                    <div style="text-align: right">
+                        <button type="button" class="btn btn-secondary" data-toggle="modal"
+                                data-target=".bd-example-modal-lg">Thêm sản phẩm vào đơn hàng
+                        </button>
+                    </div>
+
+                    <!--End-->
+                    <div class="du--lieu-san-pham">
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                            <tr>
+                                <th class="so--luong">ID</th>
+                                <th class="so--luong">Ảnh</th>
+                                <th class="so--luong">Tên sản phẩm</th>
+                                <th class="so--luong">Giá bán</th>
+                                <th class="so--luong" style="width: 30px">Số lượng</th>
+                                <th class="so--luong text-center"
+                                    style="text-align: center; vertical-align: middle;"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <th:block th:each="addpro : ${ListAddPro}">
+                                <tr>
+                                    <td>[[${addpro.productId}]]</td>
+<!--                                    <input type="text" hidden>-->
+<!--                                           th:field="*{productId}" -->
+
+                                    <td><img th:src="@{${addpro.picture1}}" th:alt="${addpro.name}" width="50px;"></td>
+                                    <td>[[${addpro.name}]]</td>
+                                    <td>[[${#numbers.formatCurrency(addpro.price)}]]</td>
+                                    <td><input class="so--luong1" type="number" id="quantityPro" value="1" min="1"
+                                               onchange="myCalPrice()"></td>
+<!--                                               th:field="*{quantity}"-->
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
+                                                class="fas fa-trash-alt"></i></button>
+                                    </td>
+                                </tr>
+                            </th:block>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div th:if="${messageNull}" style="text-align: center">
+                        <h1>[[${messageNull}]]</h1>
+                    </div>
+                    <div class="alert">
+                        <i class="fas fa-exclamation-triangle"></i> Bấm vào nút trên và gõ mã hoặc tên sản phẩm vào
+                        thanh
+                        tìm kiếm để thêm hàng
+                        vào đơn hàng
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="tile">
+                    <h3 class="tile-title">Thông tin thanh toán</h3>
+                    <div class="row">
+                        <div class="form-group  col-md-10">
+                            <form th:action="@{/User/search}" method="post">
+                                <label class="control-label">Số điện thoại khách hàng</label>
+                                <!--                            <input class="form-control" name="numberPhone" type="number" placeholder="Tìm kiếm số điện thoại khách hàng">-->
+                                <input class="form-control" type="tel" name="numberPhone"
+                                       pattern="^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$"
+                                       placeholder="Tìm kiếm số điện thoại khách hàng">
+                                <button class="btn btn-save" type="submit" value="submit">Submit</button>
+                            </form>
+                        </div>
+                        <div class="form-group  col-md-2">
+                            <label style="text-align: center;" class="control-label">Tạo mới</label>
+                            <button class="btn btn-primary btn-them" data-toggle="modal"
+                                    data-target="#exampleModalCenter">
+                                <i class="fas fa-user-plus"></i>
+                            </button>
+                        </div>
+                        <div class="form-group  col-md-12">
+                            <label class="control-label">Họ tên khách hàng</label>
+                            <input class="form-control" th:value="${username}" name="username" readonly>
+                        </div>
+                        <div class="form-group  col-md-12">
+                            <label class="control-label">Địa chỉ khách hàng</label>
+                            <input class="form-control" rows="4" th:value="${address}" name="address"
+                                   placeholder="Địa chỉ khách hàng"
+                                   readonly></input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group  col-md-12">
+                            <label class="control-label">Hình thức thanh toán</label>
+                            <select class="form-control" id="exampleSelect2" required>
+                                <option>Thanh toán chuyển khoản</option>
+                                <option>Trả tiền mặt tại quầy</option>
+                            </select>
+                        </div>
+                        <div class="form-group  col-md-6">
+                            <label class="control-label">Tổng cộng thanh toán: </label>
+                            <p class="control-all-money-total">[[${#numbers.formatCurrency(totalPrice)}]]</p>
+                            <input type="number" th:value="${totalPrice}" name="moneyTotal" id="moneyTotal"
+                                   onchange="myCalcu()" hidden>
+                        </div>
+                        <div class="form-group  col-md-6">
+                            <label class="control-label">Khách hàng đưa tiền (F8): </label>
+                            <input class="form-control" type="number" value="" name="MoneyUser" id="MoneyUser" min="0"
+                                   onchange="myCalcu()">
+                        </div>
+                        <div class="form-group  col-md-12">
+                            <label class="control-label">Trả lại khách hàng </label>
+                            <p class="control-all-money" id="moneyThua"></p>
+                        </div>
+                        <div class="tile-footer col-md-12">
+                            <!--              <button class="btn btn-primary luu-san-pham" type="button"> Lưu đơn hàng (F9)</button>-->
+                            <button class="btn btn-primary luu-va-in" type="submit">Lưu đơn hàng</button>
+                            <a class="btn btn-secondary luu-va-in" th:href="@{/Product/Admin}">Quay về</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+<!--</form>-->
+<!--
+MODAL
+-->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group  col-md-12">
+          <span class="thong-tin-thanh-toan">
+            <h5>Tạo mới khách hàng</h5>
+          </span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label class="control-label">Họ và tên</label>
+                        <input class="form-control" type="text" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Địa chỉ</label>
+                        <input class="form-control" type="text" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Email</label>
+                        <input class="form-control" type="text" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Ngày sinh</label>
+                        <input class="form-control" type="date" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Số điện thoại</label>
+                        <input class="form-control" type="number" required>
+                    </div>
+                </div>
+                <BR>
+                <button class="btn btn-save" type="button">Lưu lại</button>
+                <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+                <BR>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+MODAL
+-->
+<!--Modal-->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="width: 1000px">
+        <div class="modal-content" style="padding: 10px 10px">
+            <form th:action="@{/Product/AddPos}" method="post">
+                <br>
+                <table class="table table-hover table-bordered" id="sampleTable">
+                    <thead>
+                    <tr>
+                        <th>Chọn</th>
+                        <th>Ảnh</th>
+                        <th>Mã sản phẩm</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Tình trạng</th>
+                        <th>Giá tiền</th>
+                        <th>Danh mục</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <th:block th:each="pro : ${listPro}">
+                        <tr>
+                            <td><input type="checkbox" name="checkPro" th:value="${pro.productId}">
+                            </td>
+                            <td class="proPic"><img th:src="@{${pro.picture1}}" th:alt="${pro.name}"
+                                                    width="100px;"></td>
+                            <td class="proId">[[${pro.productId}]]</td>
+                            <td class="proName">[[${pro.name}]]</td>
+                            <th:block th:if="${pro.productStatusId == 1}">
+                                <td><span class="badge bg-success">Còn hàng</span></td>
+                            </th:block>
+                            <th:block th:if="${pro.productStatusId == 2}">
+                                <td><span class="badge bg-success">Hết hàng</span></td>
+                            </th:block>
+                            <td class="proPrice">[[${#numbers.formatCurrency(pro.price)}]]</td>
+                            <td class="proCate">[[${pro.categoryId}]]</td>
+                        </tr>
+                    </th:block>
+                    </tbody>
+                </table>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                    </button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--End-->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">X</span>
+        </div>
+
+
+    </div>
+
+</div>
+<!-- Essential javascripts for application to work-->
+<script src="../static/doc/js/jquery-3.2.1.min.js" th:src="@{/doc/js/jquery-3.2.1.min.js}"></script>
+<script src="../static/doc/js/popper.min.js" th:src="@{/doc/js/popper.min.js}"></script>
+<script src="../static/doc/js/bootstrap.min.js" th:src="@{/doc/js/bootstrap.min.js}"></script>
+<script src="../static/doc/js/main.js" th:src="@{/doc/js/main.js}"></script>
+<!-- The javascript plugin to display page loading on top-->
+<script src="../static/doc/js/plugins/pace.min.js" th:src="@{/doc/js/plugins/pace.min.js}"></script>
+<!-- Page specific javascripts-->
+<!-- Data table plugin-->
+<script type="text/javascript" src="../static/doc/js/plugins/jquery.dataTables.min.js"
+        th:src="@{/doc/js/plugins/jquery.dataTables.min.js}"></script>
+<script type="text/javascript" src="../static/doc/js/plugins/dataTables.bootstrap.min.js"
+        th:src="@{/doc/js/plugins/dataTables.bootstrap.min.js}"></script>
+<script type="text/javascript">$('#sampleTable').DataTable();</script>
+<script type="text/javascript">
+    function myCalcu() {
+        var MoneyUser = document.getElementById("MoneyUser").value;
+        var moneyTotal = document.getElementById("moneyTotal").value;
+        var quantityPro = document.getElementById("quantityPro").value;
+        document.getElementById("moneyThua").innerHTML = new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND'
+        }).format((MoneyUser - moneyTotal) * quantityPro);
+    }
+</script>
+<script>
+    function deleteRow(r) {
+        var i = r.parentNode.parentNode.rowIndex;
+        document.getElementById("myTable").deleteRow(i);
+    }
+
+    //Thời Gian
+    function time() {
+        var today = new Date();
+        var weekday = new Array(7);
+        weekday[0] = "Chủ Nhật";
+        weekday[1] = "Thứ Hai";
+        weekday[2] = "Thứ Ba";
+        weekday[3] = "Thứ Tư";
+        weekday[4] = "Thứ Năm";
+        weekday[5] = "Thứ Sáu";
+        weekday[6] = "Thứ Bảy";
+        var day = weekday[today.getDay()];
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1;
+        var yyyy = today.getFullYear();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        nowTime = h + " giờ " + m + " phút " + s + " giây";
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+        today = day + ', ' + dd + '/' + mm + '/' + yyyy;
+        tmp = '<span class="date"> <i class="bx bxs-calendar" ></i> ' + today + ' | <i class="fa fa-clock-o" aria-hidden="true"></i>  : ' + nowTime +
+            '</span>';
+        document.getElementById("clock").innerHTML = tmp;
+        clocktime = setTimeout("time()", "1000", "Javascript");
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+    }
+</script>
+<script>
+    function deleteRow(r) {
+        var i = r.parentNode.parentNode.rowIndex;
+        document.getElementById("myTable").deleteRow(i);
+    }
+
+    jQuery(function () {
+        jQuery(".trash").click(function () {
+            swal({
+                title: "Cảnh báo",
+                text: "Bạn có chắc chắn là muốn xóa?",
+                buttons: ["Đóng", "Đồng ý"],
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal("Đã xóa thành công.!", {});
+                    }
+                });
+        });
+    });
+</script>
+<script>
+    // Modal popup 
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("myBtn");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+</body>
+
+</html>

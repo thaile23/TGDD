@@ -40,8 +40,12 @@
 <!-- Sidebar menu-->
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar">
-    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="" width="50px"
-                                        alt="User Image">
+    <div class="app-sidebar__user">
+<!--        <img class="app-sidebar__user-avatar" src="" width="50px"-->
+<!--                                        alt="User Image">-->
+        <a th:href="@{/Home}" class="header__logo">
+            <i class="iconnewglobal-logo"></i>
+        </a>
         <div>
             <p class="app-sidebar__user-name"><b>Admin</b></p>
             <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
@@ -111,19 +115,19 @@
                                     class="fas fa-copy"></i>Sao chép</a>
                         </div>
 
-                        <div class="col-sm-2">
-                            <a class="btn btn-excel btn-sm" href="" title="In"><i class="fas fa-file-excel"></i> Xuất
-                                Excel</a>
-                        </div>
-                        <div class="col-sm-2">
-                            <a class="btn btn-delete btn-sm pdf-file" type="button" title="In"
-                               onclick="myFunction(this)"><i
-                                    class="fas fa-file-pdf"></i> Xuất PDF</a>
-                        </div>
-                        <div class="col-sm-2">
-                            <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
-                                    class="fas fa-trash-alt"></i> Xóa tất cả </a>
-                        </div>
+<!--                        <div class="col-sm-2">-->
+<!--                            <a class="btn btn-excel btn-sm" href="" title="In"><i class="fas fa-file-excel"></i> Xuất-->
+<!--                                Excel</a>-->
+<!--                        </div>-->
+<!--                        <div class="col-sm-2">-->
+<!--                            <a class="btn btn-delete btn-sm pdf-file" type="button" title="In"-->
+<!--                               onclick="myFunction(this)"><i-->
+<!--                                    class="fas fa-file-pdf"></i> Xuất PDF</a>-->
+<!--                        </div>-->
+<!--                        <div class="col-sm-2">-->
+<!--                            <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i-->
+<!--                                    class="fas fa-trash-alt"></i> Xóa tất cả </a>-->
+<!--                        </div>-->
                     </div>
 
                     <form th:action="@{/page/1}" class="positionform">

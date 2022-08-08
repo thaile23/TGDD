@@ -1,6 +1,7 @@
 package com.project.TGDD.Controller;
 
 import com.project.TGDD.Model.*;
+import com.project.TGDD.Repository.UserRepository;
 import com.project.TGDD.Service.ColorService;
 import com.project.TGDD.Service.ProductService;
 import com.project.TGDD.Service.ServiceImpl.PhoneTabletDetailServiceImpl;
@@ -15,17 +16,19 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 
+import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.List;
-import java.util.Objects;
+import java.security.Principal;
+import java.util.*;
 
 @Controller
 public class ProductController {
@@ -39,25 +42,28 @@ public class ProductController {
 
     @Autowired
     PhoneTabletDetailServiceImpl phoneTabletDetailService;
-
+    @Autowired
+    UserRepository userRepository;
 
     @GetMapping("/Home")
-    public String Home(Model model){
-        List<Product> ListPro =productService.getAllProduct();
-        model.addAttribute("ListPro",ListPro);
+    public String Home(Model model) {
+        List<Product> ListPro = productService.getAllProduct();
+        model.addAttribute("ListPro", ListPro);
         return "Home";
     }
+
     //show tablet
     @GetMapping("/Tablet/show")
-    public String showProduct(Model model, HttpSession httpSession){
+    public String showProduct(Model model, HttpSession httpSession) {
         String keyword = "3";
         List<Product> listProducts = service.listAll(keyword);
-        model.addAttribute("listProducts",listProducts);
+        model.addAttribute("listProducts", listProducts);
         return "Tablet";
     }
-//Loc theo hang Tablet
+
+    //Loc theo hang Tablet
     @GetMapping("/Tablet/show/")
-    public String showHSXTablet(Model model, @Param("categoryId") Integer categoryId, @Param("manufacturerId") Integer manufacturerId){
+    public String showHSXTablet(Model model, @Param("categoryId") Integer categoryId, @Param("manufacturerId") Integer manufacturerId) {
         List<Product> listProducts = service.listAll1(categoryId, manufacturerId);
         model.addAttribute("listProducts", listProducts);
         model.addAttribute("categoryId", categoryId);
@@ -65,18 +71,18 @@ public class ProductController {
         return "Tablet";
     }
 
-//show dien thoai
+    //show dien thoai
     @GetMapping("/Phone/show")
-    public String showDienthoai(Model model, HttpSession httpSession){
+    public String showDienthoai(Model model, HttpSession httpSession) {
         String keyword = "1";
         List<Product> listProducts = service.listAll3(keyword);
-        model.addAttribute("listProducts",listProducts);
+        model.addAttribute("listProducts", listProducts);
         return "Phone";
     }
 
     //Loc theo hang Tablet
     @GetMapping("/Phone/show/")
-    public String showHSXPhone(Model model, @Param("categoryId") Integer categoryId, @Param("manufacturerId") Integer manufacturerId){
+    public String showHSXPhone(Model model, @Param("categoryId") Integer categoryId, @Param("manufacturerId") Integer manufacturerId) {
         List<Product> listProducts = service.listAll3(categoryId, manufacturerId);
         model.addAttribute("listProducts", listProducts);
         model.addAttribute("categoryId", categoryId);
@@ -86,23 +92,23 @@ public class ProductController {
 
     //show phu kien
     @GetMapping("/Phu_kien/show")
-    public String showPhukien(Model model, HttpSession httpSession){
+    public String showPhukien(Model model, HttpSession httpSession) {
         String keyword = "5";
         List<Product> listProducts = service.listAll2(keyword);
-        model.addAttribute("listProducts",listProducts);
+        model.addAttribute("listProducts", listProducts);
         return "Accessory";
     }
 
     //Show chi tiet sp
     @GetMapping("/Tablet/show/{id}")
-    public String showDetail(@PathVariable("id") int id, Model model, HttpSession session, RedirectAttributes ra){
+    public String showDetail(@PathVariable("id") int id, Model model, HttpSession session, RedirectAttributes ra) {
         try {
             Product product = service.get(id);
             model.addAttribute("product", product);
             PhoneTabletDetail phoneTabletDetail = phoneTabletDetailService.getbyID(id);
             model.addAttribute("phoneTabletDetail", phoneTabletDetail);
             return "ProductDetail";
-        }catch (ProductNotFoundException e){
+        } catch (ProductNotFoundException e) {
             e.printStackTrace();
         }
         return "";
@@ -266,70 +272,70 @@ public class ProductController {
         }
         return "redirect:/Product/Add";
     }
-
-    @PostMapping("/Product/AddNewLaptop")
-    public String AddNewLaptop(Product pro, @RequestParam("ImageUploadLaptop") MultipartFile multipartFile, RedirectAttributes re, HttpServletRequest request) throws IOException {
-        //Add phone detail
-        String core = request.getParameter("LaptopCore");
-        String thread = request.getParameter("LaptopThread");
-        String cpu = request.getParameter("LaptopCPU");
-        String cpuSpeed = request.getParameter("LaptopCPUSpeed");
-        String ram = request.getParameter("LaptopRam");
-        String ramUpdate = request.getParameter("LaptopRamUpdate");
-        String screen = request.getParameter("LaptopScreen");
-        String graphicCard = request.getParameter("LaptopGraphicCard");
-        String connector = request.getParameter("LaptopConnector");
-        String especially = request.getParameter("LaptopEspecially");
-        String design = request.getParameter("LaptopDesign");
-        String pin = request.getParameter("LaptopPin");
-        String sizeWeight = request.getParameter("LaptopSizeWeight");
-        String release = request.getParameter("LaptopRelease");
-
-        LaptopDetail laptop = new LaptopDetail();
-        laptop.setCore(core);
-        laptop.setThread(thread);
-        laptop.setCpu(cpu);
-        laptop.setCpuSpeed(cpuSpeed);
-        laptop.setRam(ram);
-        laptop.setRamUpdate(ramUpdate);
-        laptop.setScreen(screen);
-        laptop.setGraphicCard(graphicCard);
-        laptop.setConnector(connector);
-        laptop.setEspecially(especially);
-        laptop.setDesign(design);
-        laptop.setPin(pin);
-        laptop.setSizeWeight(sizeWeight);
-        laptop.setRelease(release);
-        //add color product
-        ColorProduct colPro = new ColorProduct();
-        int corlorId = Integer.parseInt(request.getParameter("LaptopColor"));
-        colPro.setColorId(corlorId);
-
-        //add rom product
-        RomProduct romPro = new RomProduct();
-        int romId = Integer.parseInt(request.getParameter("LaptopRom"));
-        romPro.setRomId(romId);
-        pro.setCategoryId(2);
-        pro.setStar((float) 0);
-
-        //Upload anh
-        String fileName = StringUtils.cleanPath(Objects.requireNonNull(multipartFile.getOriginalFilename()));
-        pro.setPicture1(fileName);
-        productService.addLaptop(pro, laptop, colPro, romPro);
-        String uploadDir = "./TGDD-New/src/main/resources/static/img-sanpham";
-        Path uploadPath = Paths.get(uploadDir);
-        re.addFlashAttribute("message", "Create product successfully!!!");
-        if (!Files.exists(uploadPath)) {
-            Files.createDirectories(uploadPath);
-        }
-        try (InputStream inputStream = multipartFile.getInputStream()) {
-            Path filePath = uploadPath.resolve(fileName);
-            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException ioe) {
-            throw new IOException("Could not save image file: " + fileName, ioe);
-        }
-        return "redirect:/Product/Add";
-    }
+//
+//    @PostMapping("/Product/AddNewLaptop")
+//    public String AddNewLaptop(Product pro, @RequestParam("ImageUploadLaptop") MultipartFile multipartFile, RedirectAttributes re, HttpServletRequest request) throws IOException {
+//        //Add phone detail
+//        String core = request.getParameter("LaptopCore");
+//        String thread = request.getParameter("LaptopThread");
+//        String cpu = request.getParameter("LaptopCPU");
+//        String cpuSpeed = request.getParameter("LaptopCPUSpeed");
+//        String ram = request.getParameter("LaptopRam");
+//        String ramUpdate = request.getParameter("LaptopRamUpdate");
+//        String screen = request.getParameter("LaptopScreen");
+//        String graphicCard = request.getParameter("LaptopGraphicCard");
+//        String connector = request.getParameter("LaptopConnector");
+//        String especially = request.getParameter("LaptopEspecially");
+//        String design = request.getParameter("LaptopDesign");
+//        String pin = request.getParameter("LaptopPin");
+//        String sizeWeight = request.getParameter("LaptopSizeWeight");
+//        String release = request.getParameter("LaptopRelease");
+//
+//        LaptopDetail laptop = new LaptopDetail();
+//        laptop.setCore(core);
+//        laptop.setThread(thread);
+//        laptop.setCpu(cpu);
+//        laptop.setCpuSpeed(cpuSpeed);
+//        laptop.setRam(ram);
+//        laptop.setRamUpdate(ramUpdate);
+//        laptop.setScreen(screen);
+//        laptop.setGraphicCard(graphicCard);
+//        laptop.setConnector(connector);
+//        laptop.setEspecially(especially);
+//        laptop.setDesign(design);
+//        laptop.setPin(pin);
+//        laptop.setSizeWeight(sizeWeight);
+//        laptop.setRelease(release);
+//        //add color product
+//        ColorProduct colPro = new ColorProduct();
+//        int corlorId = Integer.parseInt(request.getParameter("LaptopColor"));
+//        colPro.setColorId(corlorId);
+//
+//        //add rom product
+//        RomProduct romPro = new RomProduct();
+//        int romId = Integer.parseInt(request.getParameter("LaptopRom"));
+//        romPro.setRomId(romId);
+//        pro.setCategoryId(2);
+//        pro.setStar((float) 0);
+//
+//        //Upload anh
+//        String fileName = StringUtils.cleanPath(Objects.requireNonNull(multipartFile.getOriginalFilename()));
+//        pro.setPicture1(fileName);
+//        productService.addLaptop(pro, laptop, colPro, romPro);
+//        String uploadDir = "./TGDD-New/src/main/resources/static/img-sanpham";
+//        Path uploadPath = Paths.get(uploadDir);
+//        re.addFlashAttribute("message", "Create product successfully!!!");
+//        if (!Files.exists(uploadPath)) {
+//            Files.createDirectories(uploadPath);
+//        }
+//        try (InputStream inputStream = multipartFile.getInputStream()) {
+//            Path filePath = uploadPath.resolve(fileName);
+//            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+//        } catch (IOException ioe) {
+//            throw new IOException("Could not save image file: " + fileName, ioe);
+//        }
+//        return "redirect:/Product/Add";
+//    }
 
     @PostMapping("/Product/AddNewTablet")
     public String AddNewTablet(Product pro, @RequestParam("ImageUploadTablet") MultipartFile multipartFile, HttpServletRequest request, RedirectAttributes re) throws IOException {
@@ -473,6 +479,7 @@ public class ProductController {
         }
         return "redirect:/Product/Add";
     }
+
     @GetMapping("/SmartWatch/show")
     public String ShowAllSmartWatch(Model model) {
         List<Product> listSmartWatch = productService.getAllProductByCategoryId(4);
@@ -491,5 +498,432 @@ public class ProductController {
         model.addAttribute("swDetail", swDetail);
         return "SmartWatchDetail";
     }
+    //show Laptop
+    @GetMapping("/Laptop/show")
+    public String showLaptop(Model model, HttpSession httpSession){
+        String keyword = "2";
+        List<Product> listProducts = service.listAll4(keyword);
+        model.addAttribute("listProducts",listProducts);
+        return "Laptop";
+    }
+    @GetMapping("/Laptop/show/")
+    public String showHSXLaptop(Model model, @Param("categoryId") Integer categoryId, @Param("manufacturerId") Integer manufacturerId){
+        List<Product> listProducts = service.listAll4(categoryId, manufacturerId);
+        model.addAttribute("listProducts", listProducts);
+        model.addAttribute("categoryId", categoryId);
+        model.addAttribute("manufacturerId", manufacturerId);
+        return "Laptop";
+    }
 
+
+
+    @GetMapping("/Product/Pos")
+    public String PosBanHang(Model model,HttpSession session) {
+        HttpServletRequest request = new HttpServletRequest() {
+            @Override
+            public Object getAttribute(String name) {
+                return null;
+            }
+
+            @Override
+            public Enumeration<String> getAttributeNames() {
+                return null;
+            }
+
+            @Override
+            public String getCharacterEncoding() {
+                return null;
+            }
+
+            @Override
+            public void setCharacterEncoding(String env) throws UnsupportedEncodingException {
+
+            }
+
+            @Override
+            public int getContentLength() {
+                return 0;
+            }
+
+            @Override
+            public long getContentLengthLong() {
+                return 0;
+            }
+
+            @Override
+            public String getContentType() {
+                return null;
+            }
+
+            @Override
+            public ServletInputStream getInputStream() throws IOException {
+                return null;
+            }
+
+            @Override
+            public String getParameter(String name) {
+                return null;
+            }
+
+            @Override
+            public Enumeration<String> getParameterNames() {
+                return null;
+            }
+
+            @Override
+            public String[] getParameterValues(String name) {
+                return new String[0];
+            }
+
+            @Override
+            public Map<String, String[]> getParameterMap() {
+                return null;
+            }
+
+            @Override
+            public String getProtocol() {
+                return null;
+            }
+
+            @Override
+            public String getScheme() {
+                return null;
+            }
+
+            @Override
+            public String getServerName() {
+                return null;
+            }
+
+            @Override
+            public int getServerPort() {
+                return 0;
+            }
+
+            @Override
+            public BufferedReader getReader() throws IOException {
+                return null;
+            }
+
+            @Override
+            public String getRemoteAddr() {
+                return null;
+            }
+
+            @Override
+            public String getRemoteHost() {
+                return null;
+            }
+
+            @Override
+            public void setAttribute(String name, Object o) {
+
+            }
+
+            @Override
+            public void removeAttribute(String name) {
+
+            }
+
+            @Override
+            public Locale getLocale() {
+                return null;
+            }
+
+            @Override
+            public Enumeration<Locale> getLocales() {
+                return null;
+            }
+
+            @Override
+            public boolean isSecure() {
+                return false;
+            }
+
+            @Override
+            public RequestDispatcher getRequestDispatcher(String path) {
+                return null;
+            }
+
+            @Override
+            public String getRealPath(String path) {
+                return null;
+            }
+
+            @Override
+            public int getRemotePort() {
+                return 0;
+            }
+
+            @Override
+            public String getLocalName() {
+                return null;
+            }
+
+            @Override
+            public String getLocalAddr() {
+                return null;
+            }
+
+            @Override
+            public int getLocalPort() {
+                return 0;
+            }
+
+            @Override
+            public ServletContext getServletContext() {
+                return null;
+            }
+
+            @Override
+            public AsyncContext startAsync() throws IllegalStateException {
+                return null;
+            }
+
+            @Override
+            public AsyncContext startAsync(ServletRequest servletRequest, ServletResponse servletResponse) throws IllegalStateException {
+                return null;
+            }
+
+            @Override
+            public boolean isAsyncStarted() {
+                return false;
+            }
+
+            @Override
+            public boolean isAsyncSupported() {
+                return false;
+            }
+
+            @Override
+            public AsyncContext getAsyncContext() {
+                return null;
+            }
+
+            @Override
+            public DispatcherType getDispatcherType() {
+                return null;
+            }
+
+            @Override
+            public String getAuthType() {
+                return null;
+            }
+
+            @Override
+            public Cookie[] getCookies() {
+                return new Cookie[0];
+            }
+
+            @Override
+            public long getDateHeader(String name) {
+                return 0;
+            }
+
+            @Override
+            public String getHeader(String name) {
+                return null;
+            }
+
+            @Override
+            public Enumeration<String> getHeaders(String name) {
+                return null;
+            }
+
+            @Override
+            public Enumeration<String> getHeaderNames() {
+                return null;
+            }
+
+            @Override
+            public int getIntHeader(String name) {
+                return 0;
+            }
+
+            @Override
+            public String getMethod() {
+                return null;
+            }
+
+            @Override
+            public String getPathInfo() {
+                return null;
+            }
+
+            @Override
+            public String getPathTranslated() {
+                return null;
+            }
+
+            @Override
+            public String getContextPath() {
+                return null;
+            }
+
+            @Override
+            public String getQueryString() {
+                return null;
+            }
+
+            @Override
+            public String getRemoteUser() {
+                return null;
+            }
+
+            @Override
+            public boolean isUserInRole(String role) {
+                return false;
+            }
+
+            @Override
+            public Principal getUserPrincipal() {
+                return null;
+            }
+
+            @Override
+            public String getRequestedSessionId() {
+                return null;
+            }
+
+            @Override
+            public String getRequestURI() {
+                return null;
+            }
+
+            @Override
+            public StringBuffer getRequestURL() {
+                return null;
+            }
+
+            @Override
+            public String getServletPath() {
+                return null;
+            }
+
+            @Override
+            public HttpSession getSession(boolean create) {
+                return null;
+            }
+
+            @Override
+            public HttpSession getSession() {
+                return null;
+            }
+
+            @Override
+            public String changeSessionId() {
+                return null;
+            }
+
+            @Override
+            public boolean isRequestedSessionIdValid() {
+                return false;
+            }
+
+            @Override
+            public boolean isRequestedSessionIdFromCookie() {
+                return false;
+            }
+
+            @Override
+            public boolean isRequestedSessionIdFromURL() {
+                return false;
+            }
+
+            @Override
+            public boolean isRequestedSessionIdFromUrl() {
+                return false;
+            }
+
+            @Override
+            public boolean authenticate(HttpServletResponse response) throws IOException, ServletException {
+                return false;
+            }
+
+            @Override
+            public void login(String username, String password) throws ServletException {
+
+            }
+
+            @Override
+            public void logout() throws ServletException {
+
+            }
+
+            @Override
+            public Collection<Part> getParts() throws IOException, ServletException {
+                return null;
+            }
+
+            @Override
+            public Part getPart(String name) throws IOException, ServletException {
+                return null;
+            }
+
+            @Override
+            public <T extends HttpUpgradeHandler> T upgrade(Class<T> httpUpgradeHandlerClass) throws IOException, ServletException {
+                return null;
+            }
+        };
+        List<Product> listPro = productService.getAllProduct();
+        model.addAttribute("listPro", listPro);
+        Integer sum = (Integer) session.getAttribute("totalPrice");
+        if (session.getAttribute("listproduct") == null) {
+            model.addAttribute("messageNull", "Không có sản phẩm");
+        } else {
+            List<Product> listproduct = (List<Product>) session.getAttribute("listproduct");
+            model.addAttribute("totalPrice", sum);
+            model.addAttribute("ListAddPro", listproduct);
+        }
+        model.addAttribute("OrderDetail", new OrderDetail());
+        return AddProPos(model, request, session);
+    }
+    @PostMapping("/Product/AddPos")
+    public String AddProPos(Model model, HttpServletRequest request, HttpSession session) {
+        List<String> idpro = List.of(request.getParameterValues("checkPro"));
+        List<Product> listproduct = new ArrayList<>();
+        int sum = 0;
+        boolean check = false;
+        if (session.getAttribute("listproduct") == null) {
+            for (int q = 0; q < idpro.size(); q++) {
+                Product pro = productService.findProductById(Integer.parseInt(idpro.get(q)));
+                System.out.println(pro.getProductId() + "prodIDnull");
+                listproduct.add(pro);
+            }
+        } else {
+            listproduct = (List<Product>) session.getAttribute("listproduct");
+            for (int n = 0; n < idpro.size(); n++) {
+                for (int v = 0; v < listproduct.size(); v++) {
+                    if (listproduct.get(v).getProductId().equals(Integer.parseInt(idpro.get(n)))) {
+                        check = true;
+                        break;
+                    }
+                }
+            }
+            if (check == false) {
+                for (int c = 0; c < idpro.size(); c++) {
+                    Product pro = productService.findProductById(Integer.parseInt(idpro.get(c)));
+                    listproduct.add(pro);
+                }
+            }
+        }
+        for (int i = 0; i < listproduct.size(); i++) {
+            sum += listproduct.get(i).getPrice();
+        }
+        model.addAttribute("OrderDetail", new OrderDetail());
+        model.addAttribute("totalPrice", sum);
+        model.addAttribute("ListAddPro", listproduct);
+        session.setAttribute("totalPrice", sum);
+        session.setAttribute("listproduct", listproduct);
+        List<Product> listPro = productService.getAllProduct();
+        model.addAttribute("listPro", listPro);
+        if(session.getAttribute("username") ==null){
+            model.addAttribute("username", "   ");
+            model.addAttribute("address", "     ");
+        }else {
+            model.addAttribute("username", session.getAttribute("username").toString());
+            model.addAttribute("address", session.getAttribute("address").toString());
+        }
+        return "Pos-ban-hang";
+    }
 }

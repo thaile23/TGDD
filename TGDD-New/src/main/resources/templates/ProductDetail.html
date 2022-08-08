@@ -98,32 +98,31 @@
 
 
 <body>
-<header class="header" data-sub="0">
+<header class="header  " data-sub="0">
     <div class="header__top">
         <div>
-            <a th:href="@{/Home}" class="header__logo">
+            <a href="https://www.thegioididong.com/" class="header__logo">
                 <i class="iconnewglobal-logo"></i>
             </a>
+
             <a href="javascript:void(0)" class="header__address" onclick="OpenLocation()">
                 Xem giá, tồn kho tại:
                 <span data-province="3" data-district="0" data-ward="0">Hồ Chí Minh</span>
             </a>
-            <form action="https://www.thegioididong.com/tim-kiem" onsubmit="return suggestSearch(event);"
-                  class="header__search">
-                <input id="skw" type="text" class="input-search" onkeyup="suggestSearch(event);"
-                       placeholder="Bạn tìm gì..." name="key" autocomplete="off" maxlength="100">
+            <form action="https://www.thegioididong.com/tim-kiem" onsubmit="return suggestSearch(event);" class="header__search">
+                <input id="skw" type="text" class="input-search" onkeyup="suggestSearch(event);" placeholder="Bạn tìm gì..." name="key" autocomplete="off" maxlength="100">
                 <button type="submit">
                     <i class="icon-search"></i>
                 </button>
-                <div id="search-result" style="display: none;"></div>
+                <div id="search-result"></div>
             </form>
             <a href="https://www.thegioididong.com/lich-su-mua-hang" class="name-order">
                 Lịch sử đơn hàng
             </a>
-            <a href="https://www.thegioididong.com/cart" class="header__cart menu-info">
+            <a href="https://www.thegioididong.com/cart" class="header__cart menu-info active">
                 <div class="box-cart">
                     <i class="iconnewglobal-cart"></i>
-                    <span class="cart-number"></span>
+                    <span class="cart-number has-cart">1</span>
                 </div>
                 <span>Giỏ hàng</span>
             </a>
@@ -140,43 +139,42 @@
                     <a href="https://www.thegioididong.com/game-app">Game App</a>
                 </div>
             </div>
+
+
+
         </div>
     </div>
     <div class="header__main">
         <div>
             <ul class="main-menu">
                 <li class="">
-                    <a th:href="@{/Phone/show}">
+                    <a href="https://www.thegioididong.com/dtdd">
                         <i>
-                            <img src="../static/Giao%20diện/Tablet_files/icon-phone-96x96-2.png"
-                                 th:src="@{/Giao%20diện/Tablet_files/icon-phone-96x96-2.png}">
+                            <img src="https://cdn.tgdd.vn//content/icon-phone-96x96-2.png">
                         </i>
                         <span class="">Điện thoại</span>
                     </a>
                 </li>
-                <li class="">
-                    <a href="">
+                <li class="active">
+                    <a href="https://www.thegioididong.com/laptop-ldp">
                         <i>
-                            <img src="../static/Giao%20diện/Tablet_files/icon-laptop-96x96-1.png"
-                                 th:src="@{/Giao%20diện/Tablet_files/icon-laptop-96x96-1.png}">
+                            <img src="https://cdn.tgdd.vn//content/icon-laptop-96x96-1.png">
                         </i>
                         <span class="">Laptop</span>
                     </a>
                 </li>
-                <li class="active">
-                    <a th:href="@{/Tablet/show}">
+                <li class="">
+                    <a href="https://www.thegioididong.com/may-tinh-bang">
                         <i>
-                            <img src="../static/Giao%20diện/Tablet_files/icon-Tablet-96x96-1.png"
-                                 th:src="@{/Giao%20diện/Tablet_files/icon-Tablet-96x96-1.png}">
+                            <img src="https://cdn.tgdd.vn//content/icon-tablet-96x96-1.png">
                         </i>
                         <span class="">Tablet</span>
                     </a>
                 </li>
                 <li class="has-list">
-                    <a th:href="@{/Phu_kien/show}">
+                    <a href="https://www.thegioididong.com/phu-kien">
                         <i>
-                            <img src="../static/Giao%20diện/Tablet_files/icon-phu-kien-96x96-1.png"
-                                 th:src="@{/Giao%20diện/Tablet_files/icon-phu-kien-96x96-1.png}">
+                            <img src="https://cdn.tgdd.vn//content/icon-phu-kien-96x96-1.png">
                         </i>
                         <span class="has-child">Phụ kiện</span>
                     </a>
@@ -330,28 +328,25 @@
                     </div>
                 </li>
                 <li class="">
-                    <a th:href="@{/SmartWatch/show}">
+                    <a href="https://www.thegioididong.com/dong-ho-thong-minh-ldp">
                         <i>
-                            <img src="../static/Giao%20diện/Tablet_files/icon-smartwatch-96x96-1.png"
-                                 th:src="@{/Giao%20diện/Tablet_files/icon-smartwatch-96x96-1.png}">
+                            <img src="https://cdn.tgdd.vn//content/watch-icon-96x96.png">
                         </i>
                         <span class="">Smartwatch</span>
                     </a>
                 </li>
                 <li class="">
-                    <a href="#">
+                    <a href="https://www.thegioididong.com/dong-ho">
                         <i>
-                            <img src="../static/Giao%20diện/Tablet_files/watch-icon-96x96.png"
-                                 th:src="@{/Giao%20diện/Tablet_files/watch-icon-96x96.png}">
+                            <img src="https://cdn.tgdd.vn//content/watch-icon-96x96.png">
                         </i>
                         <span class="">Đồng hồ</span>
                     </a>
                 </li>
                 <li class="has-list">
-                    <a href="#">
+                    <a href="https://www.thegioididong.com/pc-may-in">
                         <i>
-                            <img src="../static/Giao%20diện/Tablet_files/icon-pc-96x96.png"
-                                 th:src="@{/Giao%20diện/Tablet_files/icon-pc-96x96.png}">
+                            <img src="https://cdn.tgdd.vn//content/icon-pc-96x96.png">
                         </i>
                         <span class="has-child">PC, Máy in</span>
                     </a>
@@ -456,7 +451,8 @@
                 </li>
             </ul>
         </div>
-    </div></header>
+    </div>
+</header>
 <div class="bg-ellipse"></div>
 <div class="locationbox__overlay"></div>
 <div class="locationbox-v2">
@@ -487,347 +483,13 @@
             <i class="icon-search"></i>
             <input class="" onkeyup="suggestLocation(event);" id="locationSearch" name="locationSearch" placeholder="Tìm nhanh tỉnh thành, quận huyện, phường xã">
             <a href="javascript:;" class="clear-searchbox" onclick="clearSearchBox()">
-                    <span class="box-relative">
-                    <i class="close-symbol"></i>
-                </span>
+                   <span class="box-relative">
+                   <i class="close-symbol"></i>
+               </span>
             </a>
         </div>
     </div>
-    <strong class="choose-province">Hoặc chọn tỉnh, thành phố</strong>
-    <div class="listing-location">
-        <div id="suggest-location"></div>
-        <div id="lst-prov">
 
-            <div class="listing-locale">
-                <ul>
-                    <li>
-                        <a class="" data-value="3" href="javascript:void(0)" onclick="changePoupProvinceV2(3, this)">
-                            Hồ Chí Minh
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="5" href="javascript:void(0)" onclick="changePoupProvinceV2(5, this)">
-                            Hà Nội
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="9" href="javascript:void(0)" onclick="changePoupProvinceV2(9, this)">
-                            Đà Nẵng
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="82" href="javascript:void(0)" onclick="changePoupProvinceV2(82, this)">
-                            An Giang
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="102" href="javascript:void(0)" onclick="changePoupProvinceV2(102, this)">
-                            Bà Rịa - Vũng Tàu
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="103" href="javascript:void(0)" onclick="changePoupProvinceV2(103, this)">
-                            Bắc Giang
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="104" href="javascript:void(0)" onclick="changePoupProvinceV2(104, this)">
-                            Bắc Kạn
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="105" href="javascript:void(0)" onclick="changePoupProvinceV2(105, this)">
-                            Bạc Liêu
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="106" href="javascript:void(0)" onclick="changePoupProvinceV2(106, this)">
-                            Bắc Ninh
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="107" href="javascript:void(0)" onclick="changePoupProvinceV2(107, this)">
-                            Bến Tre
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="108" href="javascript:void(0)" onclick="changePoupProvinceV2(108, this)">
-                            Bình Định
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="109" href="javascript:void(0)" onclick="changePoupProvinceV2(109, this)">
-                            Bình Dương
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="110" href="javascript:void(0)" onclick="changePoupProvinceV2(110, this)">
-                            Bình Phước
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="111" href="javascript:void(0)" onclick="changePoupProvinceV2(111, this)">
-                            Bình Thuận
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="81" href="javascript:void(0)" onclick="changePoupProvinceV2(81, this)">
-                            Cà Mau
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="7" href="javascript:void(0)" onclick="changePoupProvinceV2(7, this)">
-                            Cần Thơ
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="112" href="javascript:void(0)" onclick="changePoupProvinceV2(112, this)">
-                            Cao Bằng
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="6" href="javascript:void(0)" onclick="changePoupProvinceV2(6, this)">
-                            Đắk Lắk
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="113" href="javascript:void(0)" onclick="changePoupProvinceV2(113, this)">
-                            Đắk Nông
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="114" href="javascript:void(0)" onclick="changePoupProvinceV2(114, this)">
-                            Điện Biên
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="8" href="javascript:void(0)" onclick="changePoupProvinceV2(8, this)">
-                            Đồng Nai
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="115" href="javascript:void(0)" onclick="changePoupProvinceV2(115, this)">
-                            Đồng Tháp
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="116" href="javascript:void(0)" onclick="changePoupProvinceV2(116, this)">
-                            Gia Lai
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="117" href="javascript:void(0)" onclick="changePoupProvinceV2(117, this)">
-                            Hà Giang
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="118" href="javascript:void(0)" onclick="changePoupProvinceV2(118, this)">
-                            Hà Nam
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="120" href="javascript:void(0)" onclick="changePoupProvinceV2(120, this)">
-                            Hà Tĩnh
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="121" href="javascript:void(0)" onclick="changePoupProvinceV2(121, this)">
-                            Hải Dương
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="101" href="javascript:void(0)" onclick="changePoupProvinceV2(101, this)">
-                            Hải Phòng
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="122" href="javascript:void(0)" onclick="changePoupProvinceV2(122, this)">
-                            Hậu Giang
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="123" href="javascript:void(0)" onclick="changePoupProvinceV2(123, this)">
-                            Hòa Bình
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="124" href="javascript:void(0)" onclick="changePoupProvinceV2(124, this)">
-                            Hưng Yên
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="125" href="javascript:void(0)" onclick="changePoupProvinceV2(125, this)">
-                            Khánh Hòa
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="126" href="javascript:void(0)" onclick="changePoupProvinceV2(126, this)">
-                            Kiên Giang
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="127" href="javascript:void(0)" onclick="changePoupProvinceV2(127, this)">
-                            Kon Tum
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="128" href="javascript:void(0)" onclick="changePoupProvinceV2(128, this)">
-                            Lai Châu
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="129" href="javascript:void(0)" onclick="changePoupProvinceV2(129, this)">
-                            Lâm Đồng
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="130" href="javascript:void(0)" onclick="changePoupProvinceV2(130, this)">
-                            Lạng Sơn
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="131" href="javascript:void(0)" onclick="changePoupProvinceV2(131, this)">
-                            Lào Cai
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="132" href="javascript:void(0)" onclick="changePoupProvinceV2(132, this)">
-                            Long An
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="133" href="javascript:void(0)" onclick="changePoupProvinceV2(133, this)">
-                            Nam Định
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="134" href="javascript:void(0)" onclick="changePoupProvinceV2(134, this)">
-                            Nghệ An
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="135" href="javascript:void(0)" onclick="changePoupProvinceV2(135, this)">
-                            Ninh Bình
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="136" href="javascript:void(0)" onclick="changePoupProvinceV2(136, this)">
-                            Ninh Thuận
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="137" href="javascript:void(0)" onclick="changePoupProvinceV2(137, this)">
-                            Phú Thọ
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="138" href="javascript:void(0)" onclick="changePoupProvinceV2(138, this)">
-                            Phú Yên
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="139" href="javascript:void(0)" onclick="changePoupProvinceV2(139, this)">
-                            Quảng Bình
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="140" href="javascript:void(0)" onclick="changePoupProvinceV2(140, this)">
-                            Quảng Nam
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="141" href="javascript:void(0)" onclick="changePoupProvinceV2(141, this)">
-                            Quảng Ngãi
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="142" href="javascript:void(0)" onclick="changePoupProvinceV2(142, this)">
-                            Quảng Ninh
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="143" href="javascript:void(0)" onclick="changePoupProvinceV2(143, this)">
-                            Quảng Trị
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="144" href="javascript:void(0)" onclick="changePoupProvinceV2(144, this)">
-                            Sóc Trăng
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="145" href="javascript:void(0)" onclick="changePoupProvinceV2(145, this)">
-                            Sơn La
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="146" href="javascript:void(0)" onclick="changePoupProvinceV2(146, this)">
-                            Tây Ninh
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="147" href="javascript:void(0)" onclick="changePoupProvinceV2(147, this)">
-                            Thái Bình
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="148" href="javascript:void(0)" onclick="changePoupProvinceV2(148, this)">
-                            Thái Nguyên
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="149" href="javascript:void(0)" onclick="changePoupProvinceV2(149, this)">
-                            Thanh Hóa
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="150" href="javascript:void(0)" onclick="changePoupProvinceV2(150, this)">
-                            Thừa Thiên Huế
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="151" href="javascript:void(0)" onclick="changePoupProvinceV2(151, this)">
-                            Tiền Giang
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="152" href="javascript:void(0)" onclick="changePoupProvinceV2(152, this)">
-                            Trà Vinh
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="153" href="javascript:void(0)" onclick="changePoupProvinceV2(153, this)">
-                            Tuyên Quang
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="154" href="javascript:void(0)" onclick="changePoupProvinceV2(154, this)">
-                            Vĩnh Long
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="155" href="javascript:void(0)" onclick="changePoupProvinceV2(155, this)">
-                            Vĩnh Phúc
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" data-value="156" href="javascript:void(0)" onclick="changePoupProvinceV2(156, this)">
-                            Yên Bái
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div id="lst-dis" class="hide">
-        </div>
-        <div id="lst-ward" class="hide">
-        </div>
-    </div>
-    <input type="hidden" id="hdLocationProvinceId" value="0">
-    <input type="hidden" id="hdLocationDisId" value="0">
-    <input type="hidden" id="hdLocationWardId" value="0">
-    <input type="hidden" id="hdLocationAddress" value="">
-    <b id="h-provincename" style="display:none!important" data-provinceid="0"></b>
 </div>
 <div class="locationbox__popup new-popup hide" id="lc_pop--sugg">
     <div class="locationbox__popup--cnt locationbox__popup--suggestion new-locale">
@@ -841,6 +503,18 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <section data-id="235838" data-cate-id="42" class="detail ">
     <ul class="breadcrumb">
@@ -966,28 +640,11 @@
                         </div>
                         <div id="thumb-color-images-gallery-2" class="item itemTab  " data-gallery-id="color-images-gallery" data-color-id="2" data-is-full-spec="False" data-color-order-id="0" data-isfeatureimage="True">
                             <div class="item-border">
-                                <img data-src="https://cdn.tgdd.vn/Products/Images/42/235838/Galaxy-S22-Ultra-Burgundy-200x200.jpg" alt="Đỏ" width="41" height="41" loading="lazy" class=" lazyloaded" src="./ProductDetail_files/Galaxy-S22-Ultra-Burgundy-200x200.jpg">
+                                <img th:src="@{${product.picture3}}" alt="" width="41" height="41" loading="lazy" class=" lazyloaded" src="">
                             </div>
-                            <p>Đỏ</p>
+                            <p></p>
                         </div>
-                        <div id="thumb-color-images-gallery-12" class="item itemTab  " data-gallery-id="color-images-gallery" data-color-id="12" data-is-full-spec="False" data-color-order-id="1" data-isfeatureimage="True">
-                            <div class="item-border">
-                                <img data-src="https://cdn.tgdd.vn/Products/Images/42/235838/Galaxy-S22-Ultra-White-200x200.jpg" alt="Trắng" width="41" height="41" loading="lazy" class=" lazyloaded" src="./ProductDetail_files/Galaxy-S22-Ultra-White-200x200.jpg">
-                            </div>
-                            <p>Trắng</p>
-                        </div>
-                        <div id="thumb-color-images-gallery-11" class="item itemTab  " data-gallery-id="color-images-gallery" data-color-id="11" data-is-full-spec="False" data-color-order-id="3" data-isfeatureimage="True">
-                            <div class="item-border">
-                                <img data-src="https://cdn.tgdd.vn/Products/Images/42/235838/Galaxy-S22-Ultra-Black-200x200.jpg" alt="Đen" width="41" height="41" loading="lazy" class=" lazyloaded" src="./ProductDetail_files/Galaxy-S22-Ultra-Black-200x200.jpg">
-                            </div>
-                            <p>Đen</p>
-                        </div>
-                        <div id="thumb-color-images-gallery-7" class="item itemTab  " data-gallery-id="color-images-gallery" data-color-id="7" data-is-full-spec="False" data-color-order-id="4" data-isfeatureimage="True">
-                            <div class="item-border">
-                                <img data-src="https://cdn.tgdd.vn/Products/Images/42/235838/Galaxy-S22-Ultra-Green-200x200.jpg" alt="Xanh lá" width="41" height="41" loading="lazy" class=" lazyloaded" src="./ProductDetail_files/Galaxy-S22-Ultra-Green-200x200.jpg">
-                            </div>
-                            <p>Xanh lá</p>
-                        </div>
+
                         <div id="thumb-unbox-gallery-0" class="item itemTab  is-show-popup" data-gallery-id="unbox-gallery" data-color-id="0" data-is-full-spec="False" data-color-order-id="0" data-isfeatureimage="True">
                             <div class="item-border">
                                 <i class="icondetail-box"></i>
@@ -1144,8 +801,8 @@
                         <div class="warranty-box">
                             <h2 class="title">BẢO HÀNH CHÍNH HÃNG</h2>
                             <span>
-                            Thân máy 1 năm, pin 1 năm, sạc 6 tháng
-                        </span>
+                           Thân máy 1 năm, pin 1 năm, sạc 6 tháng
+                       </span>
                             <p><a target="_blank" href="https://www.thegioididong.com/bao-hanh/samsung">Xem điểm bảo hành Samsung</a></p>
                         </div>
                         <div class="change-box">
@@ -1252,63 +909,13 @@
                             nhất trong bộ 3 Galaxy S22 series mà <a href="https://www.thegioididong.com/samsung" target="_blank" title="Tham khảo sản phẩm Samsung kinh doanh tại Thegioididong.com">Samsung</a> đã cho ra mắt. Tích hợp bút S Pen hoàn
                             hảo trong thân máy, trang bị vi xử lý mạnh mẽ cho các tác vụ sử dụng vô cùng mượt mà và nổi bật hơn với cụm camera không viền độc đáo mang đậm dấu ấn riêng.</h3>
                         <h3 style="text-align: justify;">Sở hữu một diện mạo đầy nổi bật</h3>
-                        <p style="text-align: justify;">Galaxy S22 Ultra 5G được kế thừa form thiết kế từ những dòng Note trước đây của hãng đem đến cho bạn có cảm giác vừa mới lạ vừa hoài niệm. Trọng lượng của máy khoảng 228 g cho cảm giác cầm nắm đầm tay, khi cầm máy trần thì
-                            hơi có cảm giác dễ trượt.</p>
+
                         <p style="text-align: justify;">
                             <a class="preventdefault" href="./ProductDetail_files/samsung-galaxy-s22-ultra-10-2.jpg" onclick="return false;"><img alt="Galaxy S22 Ultra 5G - Thiết kế" data-src="https://cdn.tgdd.vn/Products/Images/42/235838/samsung-galaxy-s22-ultra-10-2.jpg" class=" lazyloaded" title="Galaxy S22 Ultra 5G - Thiết kế" src="./ProductDetail_files/samsung-galaxy-s22-ultra-10-2.jpg"></a>
                         </p>
-                        <p style="text-align: justify;">Phần mặt lưng <a href="https://www.thegioididong.com/dtdd" target="_blank">điện thoại</a> được làm nhám nên hạn chế tốt việc bám dấu vân tay, có thiết kế cũng khá đơn giản nhưng vẫn toát lên vẻ sang trọng và cao cấp của chiếc
-                            máy. Cụm camera sau trên Galaxy S22 Ultra 5G được thiết kế trần tạo cảm giác gọn gàng và cũng tạo nên một điểm nhấn độc đáo cho chiếc máy.</p>
-                        <p style="text-align: justify;">
-                            <a class="preventdefault" href="./ProductDetail_files/samsung-galaxy-s22-ultra-11-2.jpg" onclick="return false;"><img alt="Galaxy S22 Ultra 5G - Mặt lưng" data-src="https://cdn.tgdd.vn/Products/Images/42/235838/samsung-galaxy-s22-ultra-11-2.jpg" class=" lazyloaded" title="Galaxy S22 Ultra 5G - Mặt lưng" src="./ProductDetail_files/samsung-galaxy-s22-ultra-11-2.jpg"></a>
-                        </p>
-                        <p style="text-align: justify;">Có thể nói Galaxy S22 Ultra 5G chính là chiếc máy đầu tiên được tích hợp bút S Pen hoàn hảo trong một thân máy của <a href="https://www.thegioididong.com/dtdd-samsung-galaxy-s" target="_blank" title="Tham khảo một số mẫu điện thoại Samsung Galaxy S đang kinh doanh tại Thế Giới Di Động ">dòng Galaxy S</a>.
-                            Giờ đây, bạn có thể dễ dàng phác thảo, ghi chú lại những ý tưởng vô cùng nhanh chóng với độ trễ đã được cải thiện cho cảm giác viết vẽ vô cùng chân thật.</p>
-                        <p style="text-align: justify;">
-                            <a class="preventdefault" href="https://cdn.tgdd.vn/Products/Images/42/235838/samsung-galaxy-s22-ultra-7-2.jpg" onclick="return false;"><img alt="Galaxy S22 Ultra 5G - Thao tác viết bằng bút S Pen" data-src="https://cdn.tgdd.vn/Products/Images/42/235838/samsung-galaxy-s22-ultra-7-2.jpg" class="lazyload" title="Galaxy S22 Ultra 5G - Thao tác viết bằng bút S Pen"></a>
-                        </p>
-                        <h3 style="text-align: justify;">Cấu hình mạnh mẽ với Snapdragon 8 Gen 1</h3>
-                        <p style="text-align: justify;">Hiệu năng trên Galaxy S22 Ultra 5G là điều khỏi bàn cãi khi máy sử dụng chip Snapdragon 8 Gen 1 vô cùng mạnh mẽ với tiến trình sản xuất 4 nm. Khi máy chơi game cũng chỉ ấm lên một chút ở vị trí cụm camera chứ không hoàn toàn
-                            quá nóng như những sản phẩm khác khi dùng cùng con chip này.</p>
-                        <p style="text-align: justify;">Máy dễ dàng vượt qua được các tựa game Liên Quân, PUBG Mobile, cài đặt cấu hình tối đa thì biểu đồ FPS trên Galaxy S22 Ultra 5G vẫn khá ổn định, không bị drop quá nhiều. Kể cả tựa game Genshin Impact ở mức đồ họa mặc định thì
-                            máy chơi vẫn mượt mà, đồ họa hiển thị đẹp mắt.</p>
-                        <p style="text-align: justify;">
-                            <a class="preventdefault" href="https://cdn.tgdd.vn/Products/Images/42/235838/samsung-galaxy-s22-ultra-1-2.jpg" onclick="return false;"><img alt="Galaxy S22 Ultra 5G - Trải nghiệm chơi game" data-src="https://cdn.tgdd.vn/Products/Images/42/235838/samsung-galaxy-s22-ultra-1-2.jpg" class="lazyload" title="Galaxy S22 Ultra 5G - Trải nghiệm chơi game"></a>
-                        </p>
-                        <p style="text-align: justify;">Còn nói về các tác vụ cơ bản như lướt web, đọc báo, xem YouTube,... thì máy hoàn thành một cách dễ dàng, sử dụng mượt mà, khả năng đa nhiệm thoải mái với <a href="https://www.thegioididong.com/dtdd-ram-8gb" target="_blank"
-                                                                                                                                                                                                                     title="Tham khảo điện thoại có RAM 8 GB kinh doanh tại Thegioididong.com">RAM 8 GB</a>.</p>
-                        <p style="text-align: justify;">
-                            <a class="preventdefault" href="https://cdn.tgdd.vn/Products/Images/42/235838/samsung-galaxy-s22-ultra-3-2.jpg" onclick="return false;"><img alt="Galaxy S22 Ultra 5G - Trải nghiệm lướt web" data-src="https://cdn.tgdd.vn/Products/Images/42/235838/samsung-galaxy-s22-ultra-3-2.jpg" class="lazyload" title="Galaxy S22 Ultra 5G - Trải nghiệm lướt web"></a>
-                        </p>
-                        <h3 style="text-align: justify;">Mang đến những bức ảnh đầy chất lượng</h3>
-                        <div style="text-align: justify;">Máy trang bị 4 camera với camera chính lên đến 108 MP, <a href="https://www.thegioididong.com/dtdd-camera-goc-rong" target="_blank" title="Tham khảo điện thoại có camera góc rộng tại Thegioididong.com">camera góc siêu rộng</a>                                12 MP, 2 <a href="https://www.thegioididong.com/dtdd-camera-zoom" target="_blank" title="Tham khảo điện thoại có camera tele kinh doanh tại Thegioididong.com">camera tele</a> 10 MP hỗ trợ thu phóng quang học 10x. Nổi bật
-                            nhất là camera chính với khả năng chụp đêm vô cùng ấn tượng như câu mà hãng đã đưa ra "Nightography Camera - Mắt thần bóng đêm". Sở hữu cảm biến điểm ảnh lớn nên thu được nhiều ánh sáng hơn, khi chụp đêm những bức ảnh cực
-                            kỳ sáng, hiện tượng nhiễu hạt được cải thiện đáng kể.</div>
-                        <div style="text-align: justify;">
-                            <a class="preventdefault" href="https://cdn.tgdd.vn/Products/Images/42/235838/samsung-galaxy-s22-ultra-8-2.jpg" onclick="return false;"><img alt="Galaxy S22 Ultra 5G - Ảnh chụp trên camera" data-src="https://cdn.tgdd.vn/Products/Images/42/235838/samsung-galaxy-s22-ultra-8-2.jpg" class="lazyload" title="Galaxy S22 Ultra 5G - Ảnh chụp trên camera"></a>
-                        </div>
-                        <div style="text-align: justify;">Chế độ zoom 100x hoạt động khá là ổn định, khả năng zoom xa và bắt nét ảnh nhanh. Tất nhiên khi bạn zoom tới 100x thì ảnh khá mờ, khoảng cách zoom để cho ra chất lượng ảnh tốt là khoảng 30-40x.</div>
-                        <div style="text-align: justify;">
-                            <a class="preventdefault" href="https://cdn.tgdd.vn/Products/Images/42/235838/samsung-galaxy-s22-ultra-6-2.jpg" onclick="return false;"><img alt="Galaxy S22 Ultra 5G - Chế độ zoom 30x trên máy" data-src="https://cdn.tgdd.vn/Products/Images/42/235838/samsung-galaxy-s22-ultra-6-2.jpg" class="lazyload" title="Galaxy S22 Ultra 5G - Chế độ zoom 30x trên máy"></a>
-                        </div>
-                        <div style="text-align: justify;">Chế độ chụp chân dung cũng đã được hãng cải thiện khá nhiều so với thế hệ trước.&nbsp;Ảnh chụp xóa phông sâu, ít bị lẹm kể cả phần khó như tóc, độ chi tiết cao, ảnh tươi sáng và màu sắc khá chân thật. Bạn muốn chụp ảnh phong
-                            cảnh, khu phố hay đơn giản là chụp nhóm thì trên Galaxy S22 Ultra 5G hoàn toàn làm được với camera góc siêu rộng.</div>
-                        <div style="text-align: justify;">
-                            <a class="preventdefault" href="https://cdn.tgdd.vn/Products/Images/42/235838/samsung-galaxy-s22-ultra-9-2.jpg" onclick="return false;"><img alt="Galaxy S22 Ultra 5G - Ảnh chụp trên camera" data-src="https://cdn.tgdd.vn/Products/Images/42/235838/samsung-galaxy-s22-ultra-9-2.jpg" class="lazyload" title="Galaxy S22 Ultra 5G - Ảnh chụp trên camera"></a>
-                        </div>
-                        <div>
-                            <div style="text-align: justify;">Galaxy S22 Ultra 5G hỗ trợ quay video 8K tuy nhiên không đi kèm chống rung, nếu như bật chế độ Siêu ổn định lên thì độ phân giải sẽ bị giới hạn xuống Full HD 60 FPS. Bao nhiêu đó cũng khá đủ rồi, khung hình ổn định, ít
-                                bị giật, độ chi tiết cao và màu sắc cũng khá chân thật để chúng ta dễ dàng chỉnh sửa.</div>
-                            <div style="text-align: justify;">Camera trước lên đến 40 MP cho nên hình sống ảo của chúng ta sẽ chân thật hơn bao giờ hết, da vẫn được làm mịn nhẹ nhưng các chi tiết trên da đều sẽ được tái tạo rất rõ nét. Màu sắc khá rực rỡ nên không cần áp dụng thêm
-                                bộ lọc màu nữa.</div>
-                        </div>
-                        <h3 style="text-align: justify;">Trải nghiệm xem nhìn hoàn hảo</h3>
-                        <div style="text-align: justify;">Galaxy S22 Ultra 5G&nbsp;trang bị một màn hình khá xuất sắc với độ phần 2K+, rộng 6.8 inch cùng với đó là tấm nền&nbsp;<a href="https://www.thegioididong.com/hoi-dap/tim-hieu-man-hinh-dynamic-amoled-2x-tren-smartphone-1245213"
-                                                                                                                                                                                    target="_blank" title="Tìm hiểu màn hình Dynamic AMOLED 2X tại Thegioididong.com">Dynamic AMOLED 2X</a> đem đến một màu sắc hiển thị rực rỡ, màu đen sâu cho cảm giác xem nhìn chân thật. Hỗ trợ tần số quét 120 Hz nên khả
-                            năng vuốt chạm mượt mà, nhanh chóng. Màn hình có độ sáng cao 1750 nits nên việc khi dùng ngoài trời chất lượng hiển thị vẫn rất rõ ràng.</div>
-                        <div style="text-align: justify;">
-                            <a class="preventdefault" href="https://cdn.tgdd.vn/Products/Images/42/235838/samsung-galaxy-s22-ultra-5-2.jpg" onclick="return false;"><img alt="Galaxy S22 Ultra 5G - Màn hình cong tràn sang 2 cạnh" data-src="https://cdn.tgdd.vn/Products/Images/42/235838/samsung-galaxy-s22-ultra-5-2.jpg" class="lazyload" title="Galaxy S22 Ultra 5G - Màn hình cong tràn sang 2 cạnh"></a>
-                        </div>
+
+
+
                         <div style="text-align: justify;">Mặt kính cong tràn sang 2 cạnh khá sang trọng và cũng là đặc trưng của dòng Note, được trang bị kính cường lực Corning Gorilla Glass Victus+ gia tăng khả năng chống trầy xước rất tốt, cho bạn yên tâm hơn khi sử dụng máy.</div>
                         <h3 style="text-align: justify;">Thời lượng sử dụng cả ngày với viên pin 5000 mAh</h3>
                         <div>
@@ -1329,9 +936,7 @@
 
                 </div>
                 <div class="bg-article"></div>
-                <a href="javascript:void(0)" onclick="$(&#39;#thumb-article-gallery&#39;).trigger(&#39;click&#39;);" class="btn-detail jsArticle">
-                    <span>Xem thêm</span>
-                </a>
+
             </div>
             <div class="border7"></div>
 
@@ -1678,10 +1283,6 @@
                             <div class="comment__item" data-id="288003">
                                 <div class="item-top">
                                     <p class="txtname">Nguyễn Ngọc Minh</p>
-
-
-
-
                                 </div>
                                 <div class="item-rate">
                                     <div class="comment-star">
@@ -1698,9 +1299,6 @@
                                 <div class="comment-content noimg crtipu-51795299" data-id="51795299">
                                     <p class="cmt-txt">Máy đẹp , cầm rất chắc tay , màn hình đẹp đúng ý mình . Samsung ra mắt sản phẩm nào cũng tốt . Nhân viên tgdd phục vụ nhiệt tình . Sẽ tiếp tục ủng hộ tgdd</p>
                                 </div>
-
-
-
                             </div>
 
                         </div>
@@ -1734,35 +1332,16 @@
 
                     </ul>
                 </div>
-
-
-
-
-
-
             </div>
-
-
-
-
-
             <script src="./ProductDetail_files/f(1).txt"></script>
         </div>
         <div class="box_right">
-
-
             <div class="scrolling_inner scroll-right">
                 <div class="box03 group desk">
                     <a href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra" data-index="0" class="box03__item item act">[[${phoneTabletDetail.ram}]]Gb</a>
-
                 </div>
             </div>
-
-
-
-
             <div class="scrolling_inner scroll-right">
-
                 <div class="box03 color group desk">
                     <a href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra?code=0131491002959" data-color="2" data-code="0131491002959" class="box03__item item act">Đỏ</a>
                     <a href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra?code=0131491002976" data-color="12" data-code="0131491002976" class="box03__item item ">Trắng</a>
@@ -1770,44 +1349,18 @@
                     <a href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra?code=0131491002978" data-color="7" data-code="0131491002978" class="box03__item item ">Xanh lá</a>
                 </div>
             </div>
-
-
             <div class="box04 box_normal">
-
                 <div class="box04__txt">
                     Giá tại <a href="javascript:;" onclick="OpenLocation()">Hồ Chí Minh</a>
                 </div>
-
-
                 <div class="price-one">
                     <div class="box-price">
-                        <p class="box-price-present">27.990.000₫ </p>
-                        <p class="box-price-old">30.990.000₫</p>
-                        <p class="box-price-percent">-9%</p>
-
-
+                        <p class="box-price-present" >[[${product.price}]]</p>
+                        <!--                        <p class="box-price-old">30.990.000₫</p>-->
+                        <!--                        <p class="box-price-percent">-9%</p>-->
                         <span class="label label--black">Trả góp 0%</span>
                     </div>
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 <div class="block block-price1">
 
                     <script>
@@ -1876,7 +1429,7 @@
                             <div class="campaign-option" data-siteid="1" data-campaignname="JCB" onclick="ActiveOption($(this), &#39;/cart/single?productId=235838&amp;productCode=0131491002959&amp;gtype=promotiongw&amp;transtype=31&#39;, 5000000, 0)">
                                 <figure class="onepayjcb">
                                     <i></i>
-                                    <img src="./ProductDetail_files/jcb.png">
+                                    <img src="https://cdn.tgdd.vn/mwgcart/mwgcore/ContentMwg/images/logo/vnpay.png">
                                 </figure>
                                 <b>Giảm <b>500.000₫</b></b>
                                 <span>Sản phẩm từ 5Tr</span>
@@ -1898,27 +1451,12 @@
                             <div class="campaign-option" data-siteid="1" data-campaignname="TPBank" onclick="ActiveOption($(this), &#39;/cart/single?productId=235838&amp;productCode=0131491002959&amp;gtype=promotiongw&amp;transtype=48&#39;, 8000000, 0)">
                                 <figure class="tpbank">
                                     <i></i>
-                                    <img src="./ProductDetail_files/tpbank.png">
+                                    <img src="https://cdn.tgdd.vn/mwgcart/mwgcore/ContentMwg/images/logo/eximbank.jpg">
                                 </figure>
                                 <b>Giảm <b>500.000₫</b></b>
                                 <span>Sản phẩm từ 8Tr</span>
 
-                                <div>
-                                    <i onmouseover="ShowRuleCampaign($(this), &#39;tpbank&#39;, 0)" onmouseout="HideRuleCampaign($(this), 0)">?</i>
 
-                                    <div id="tpbank0">
-                                        <p dir="ltr" role="presentation" style="font-variant-numeric: normal; font-variant-east-asian: normal; list-style-type: disc; font-size: 10pt; font-family: Roboto, sans-serif; color: rgb(36, 36, 36); background-color: transparent; vertical-align: baseline; white-space: pre; line-height: 1.848; margin-top: 6pt; margin-bottom: 0pt;"><span id="docs-internal-guid-de1a29cb-7fff-aa62-5a1b-eeb503c645dd"><span style="font-size: 10pt; background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">- Giảm <strong>500.000đ </strong>cho sản phẩm có giá thanh toán cuối cùng từ <strong>8.000.000đ </strong>trở lên khi thanh toán qua Thẻ tín dụng TPBANK.</span></span>
-                                        </p>
-                                        <p dir="ltr" role="presentation" style="font-variant-numeric: normal; font-variant-east-asian: normal; list-style-type: disc; font-size: 10pt; font-family: Roboto, sans-serif; color: rgb(36, 36, 36); background-color: transparent; vertical-align: baseline; white-space: pre; line-height: 1.848; margin-top: 0pt; margin-bottom: 0pt;"><span id="docs-internal-guid-de1a29cb-7fff-aa62-5a1b-eeb503c645dd"><span style="font-size: 10pt; background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">- Thời gian diễn ra chương trình: Từ ngày 15/4/2022&nbsp; - 31/7/2022 (Có thể kết thúc sớm nếu hết ngân sách)<br>- Áp dụng cho thẻ tín dụng TPBANK với các đầu BIN: </span></span>466582,
-                                            466583, 470970, 536287, 356586, 498796, 401286<br>- Số suất khuyến mãi: <strong>500 </strong>suất (Nếu hết suất thanh toán sẽ báo lỗi)</p>
-                                        <p dir="ltr" role="presentation" style="font-variant-numeric: normal; font-variant-east-asian: normal; list-style-type: disc; font-size: 10pt; font-family: Roboto, sans-serif; color: rgb(36, 36, 36); background-color: transparent; vertical-align: baseline; white-space: pre; line-height: 1.848; margin-top: 0pt; margin-bottom: 0pt;"><span id="docs-internal-guid-de1a29cb-7fff-aa62-5a1b-eeb503c645dd"><span style="font-size: 10pt; background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">- Mỗi chủ thẻ được sử dụng ưu đãi 1 lần/chương trình</span></span><br>
-                                            <span style="background-color: transparent; font-size: 10pt; white-space: pre-wrap;">- Không áp dụng trả góp qua thẻ tín dụng TPBANK</span>
-                                        </p>
-                                        <p dir="ltr" role="presentation" style="font-variant-numeric: normal; font-variant-east-asian: normal; list-style-type: disc; font-size: 10pt; font-family: Roboto, sans-serif; color: rgb(36, 36, 36); background-color: transparent; vertical-align: baseline; white-space: pre; line-height: 1.848; margin-top: 0pt; margin-bottom: 0pt;"><span id="docs-internal-guid-de1a29cb-7fff-aa62-5a1b-eeb503c645dd"><span style="font-size: 10pt; background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">- Không áp dụng kèm các khuyến mãi qua ngân hàng hoặc cổng thanh toán khác.</span></span><br>
-                                            <span style="color: rgb(36, 36, 36); font-family: Roboto, sans-serif; font-size: 13.3333px; white-space: pre-wrap;">- Không áp dụng mã giảm giá, coupon.</span>
-                                        </p>
-                                    </div>
-                                </div>
                                 <div class="cpopup hide tpbank" onclick="$(this).addClass(&#39;hide&#39;)">
                                     <div>
                                         Chương trình giảm thêm 500.000₫ khi thanh toán qua TPBANK chỉ áp dụng cho đơn hàng <b>từ 8.000.000₫ trở lên</b>
@@ -1928,7 +1466,7 @@
                             <div class="campaign-option" data-siteid="1" data-campaignname="EXIMBANK" onclick="ActiveOption($(this), &#39;/cart/single?productId=235838&amp;productCode=0131491002959&amp;gtype=promotiongw&amp;transtype=78&#39;, 3000000, 0)">
                                 <figure class="eximbank">
                                     <i></i>
-                                    <img src="./ProductDetail_files/eximbank.jpg">
+                                    <img src="">
                                 </figure>
                                 <b>Giảm <b>500.000₫</b></b>
                                 <span>Sản phẩm từ 3Tr</span>
@@ -2857,883 +2395,33 @@
                     </li>
                 </ul>
                 <span class="btn-detail btn-short-spec not-have-instruction">
-                    <span>Xem thêm cấu hình chi tiết</span>
-                    </span>
+                   <span>Xem thêm cấu hình chi tiết</span>
+                   </span>
             </div>
 
         </div>
 
-        <div class="related sameproduct">
-            <p class="related__ttl">Xem thêm điện thoại khác</p>
+    </div>
 
-            <div class="scrolling_inner scroll-right">
-                <div class="box03 box03--nopadd scrolling">
-                    <a href="https://www.thegioididong.com/dtdd-samsung" class="box03__item addradius">
-                        <img class="lazyload" data-src="//cdn.tgdd.vn/Brand/1/samsungnew-220x48-1.png">
-                    </a>
-                    <a href="https://www.thegioididong.com/dtdd-galaxy-s" class="box03__item addradius">
-                        Galaxy S                        </a>
-                    <a href="https://www.thegioididong.com/dtdd?g=android" class="box03__item addradius">
-                        Android                        </a>
-                    <a href="https://www.thegioididong.com/dtdd-ram-8gb" class="box03__item addradius">
-                        8 GB                        </a>
-                    <a href="https://www.thegioididong.com/dtdd-choi-game" class="box03__item addradius">
-                        Chơi game / Cấu hình cao                        </a>
-                    <a href="https://www.thegioididong.com/dtdd-sac-pin-nhanh" class="box03__item addradius">
-                        Sạc pin nhanh                        </a>
-                    <a href="https://www.thegioididong.com/dtdd-rom-128gb" class="box03__item addradius">
-                        128 GB                        </a>
-                    <a href="https://www.thegioididong.com/dtdd-camera-goc-rong" class="box03__item addradius">
-                        Chụp góc rộng                        </a>
-                    <a href="https://www.thegioididong.com/dtdd-camera-xoa-phong" class="box03__item addradius">
-                        Chụp xoá phông                        </a>
-                    <a href="https://www.thegioididong.com/dtdd-camera-zoom" class="box03__item addradius">
-                        Chụp zoom xa                        </a>
-                    <a href="https://www.thegioididong.com/dtdd-5g" class="box03__item addradius">
-                        Hỗ trợ 5G                        </a>
-                    <a href="https://www.thegioididong.com/dtdd-sac-khong-day" class="box03__item addradius">
-                        Sạc không dây                        </a>
-                    <a href="https://www.thegioididong.com/dtdd-chong-nuoc-bui" class="box03__item addradius">
-                        Kháng nước, bụi                        </a>
-                    <a href="https://www.thegioididong.com/dtdd-man-hinh-tran-vien" class="box03__item addradius">
-                        Tràn viền                        </a>
-                    <a href="https://www.thegioididong.com/dtdd-mong-nhe" class="box03__item addradius">
-                        Mỏng nhẹ                        </a>
-                    <a href="https://www.thegioididong.com/dtdd-mat-lung-kinh" class="box03__item addradius">
-                        Mặt lưng kính                        </a>
-                    <a href="https://www.thegioididong.com/dtdd-tu-6-inch-tro-len" class="box03__item addradius">
-                        Từ 6 inch trở lên                        </a>
-                </div>
+
+    <div class="wrap_comment" title="Bình luận sản phẩm" id="comment" cmtcategoryid="2" siteid="1" detailid="235838" cateid="" urlpage="" pagesize="5" data-js="https://cdn.tgdd.vn/comment/Scripts/CommentDesktop.min.v202105111612.js" data-ismobile="False"
+         data-jsovrcmt="/js/Comment/overrideScript.min.js?v=202105110200">
+        <div class="tltCmt"> <textarea id="txtEditor" name="" cols="" rows="" class="parent_input txtEditor" placeholder="Mời bạn để lại bình luận..." onclick="cmtaddcommentclick();" onkeyup="cmtaddcommentclick();"></textarea>
+            <div class="sortcomment">
+                <div class="statistical hide" id="notifycmtmsg">Bình luận mới vừa được thêm vào. <a href="javascript:void(0)">Click để xem</a></div>
             </div>
-
-
-            <div class="box-scroll p-slide">
-                <div class="listproduct owl-carousel owl-loaded owl-drag" data-item="5">
-
-
-
-
-
-
-
-
-                    <div class="owl-stage-outer">
-                        <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1920px;">
-                            <div class="owl-item active" style="width: 240px;">
-                                <div class="item" data-id="235838" data-pos="1">
-                                    <a class="box-product" href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra?src=osp&amp;itm_source=detail&amp;itm_medium=product_card&amp;itm_campaign=viewed" data-s="Nomal" data-site="1" data-pro="3" data-cache="True" data-name="Điện thoại Samsung Galaxy S22 Ultra 5G 128GB"
-                                       data-id="235838" data-price="27990000.0" data-brand="Samsung" data-cate="Điện thoại" s="">
-                                        <div class="item-label">
-                                            <span class="lb-tragop">Trả góp 0%</span>
-                                        </div>
-                                        <div class="item-img 12321312312">
-                                            <img class="lazyload" data-src="https://cdn.tgdd.vn/Products/Images/42/235838/Galaxy-S22-Ultra-Burgundy-600x600.jpg" alt="Điện thoại Samsung Galaxy S22 Ultra 5G 128GB">
-                                        </div>
-                                        <p class="txt01">Bạn đang xem:</p>
-                                        <h3 title="Điện thoại Samsung Galaxy S22 Ultra 5G 128GB">
-                                            Samsung Galaxy S22 Ultra 5G 128GB
-                                        </h3>
-                                        <div class="box-p">
-                                            <p class="price-old black">30.990.000₫</p>
-                                            <span class="percent">-9%</span>
-                                        </div>
-                                        <strong class="price">27.990.000₫</strong>
-                                        <div class="item-rating">
-                                            <p>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star-dark"></i>
-                                                <i class="icon-star-dark"></i>
-                                            </p>
-                                            <p class="item-rating-total">40</p>
-                                        </div>
-
-                                    </a>
-                                    <div class="item-bottom">
-                                        <a href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra?src=osp#" class="shiping"></a>
-                                    </div>
-
-
-                                    <a href="javascript:void(0)" class="item-ss">
-                                        <i></i> So sánh
-                                    </a>
-
-
-                                </div>
-                            </div>
-                            <div class="owl-item active" style="width: 240px;">
-                                <div class="item" data-id="271697" data-pos="2">
-                                    <a class="box-product" href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra-256gb?src=osp&amp;itm_source=detail&amp;itm_medium=product_card&amp;itm_campaign=viewed" data-s="Nomal" data-site="1" data-pro="3" data-cache="True" data-name="Điện thoại Samsung Galaxy S22 Ultra 5G 256GB"
-                                       data-id="271697" data-price="30990000.0" data-brand="Samsung" data-cate="Điện thoại" s="">
-                                        <div class="item-label">
-                                            <span class="lb-tragop">Trả góp 0%</span>
-                                        </div>
-                                        <div class="item-img 12321312312">
-                                            <img class="lazyload" data-src="https://cdn.tgdd.vn/Products/Images/42/271697/Galaxy-S22-Ultra-Green-600x600.jpg" alt="Điện thoại Samsung Galaxy S22 Ultra 5G 256GB">
-                                        </div>
-                                        <h3 title="Điện thoại Samsung Galaxy S22 Ultra 5G 256GB">
-                                            Samsung Galaxy S22 Ultra 5G 256GB
-                                        </h3>
-                                        <div class="box-p">
-                                            <p class="price-old black">33.990.000₫</p>
-                                            <span class="percent">-8%</span>
-                                        </div>
-                                        <strong class="price">30.990.000₫</strong>
-                                        <div class="item-rating">
-                                            <p>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star-dark"></i>
-                                            </p>
-                                            <p class="item-rating-total">30</p>
-                                        </div>
-
-                                    </a>
-                                    <div class="item-bottom">
-                                        <a href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra?src=osp#" class="shiping"></a>
-                                    </div>
-
-
-                                    <a href="javascript:void(0)" class="item-ss">
-                                        <i></i> So sánh
-                                    </a>
-
-
-                                </div>
-                            </div>
-                            <div class="owl-item active" style="width: 240px;">
-                                <div class="item" data-id="271696" data-pos="3">
-                                    <a class="box-product" href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-plus-256gb?src=osp&amp;itm_source=detail&amp;itm_medium=product_card&amp;itm_campaign=viewed" data-s="Nomal" data-site="1" data-pro="3" data-cache="True" data-name="Điện thoại Samsung Galaxy S22+ 5G 256GB"
-                                       data-id="271696" data-price="24490000.0" data-brand="Samsung" data-cate="Điện thoại" s="">
-                                        <div class="item-label">
-                                            <span class="lb-tragop">Trả góp 0%</span>
-                                        </div>
-                                        <div class="item-img 12321312312">
-                                            <img class="lazyload" data-src="https://cdn.tgdd.vn/Products/Images/42/271696/Galaxy-S22-Plus-Pink-600x600.jpg" alt="Điện thoại Samsung Galaxy S22+ 5G 256GB">
-                                        </div>
-                                        <h3 title="Điện thoại Samsung Galaxy S22+ 5G 256GB">
-                                            Samsung Galaxy S22+ 5G 256GB
-                                        </h3>
-                                        <div class="box-p">
-                                            <p class="price-old black">27.490.000₫</p>
-                                            <span class="percent">-10%</span>
-                                        </div>
-                                        <strong class="price">24.490.000₫</strong>
-
-                                    </a>
-                                    <div class="item-bottom">
-                                        <a href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra?src=osp#" class="shiping"></a>
-                                    </div>
-
-
-                                    <a href="javascript:void(0)" class="item-ss">
-                                        <i></i> So sánh
-                                    </a>
-
-
-                                </div>
-                            </div>
-                            <div class="owl-item active" style="width: 240px;">
-                                <div class="item" data-id="248283" data-pos="4">
-                                    <a class="box-product" href="https://www.thegioididong.com/dtdd/samsung-galaxy-z-flip3-5g-256gb?src=osp&amp;itm_source=detail&amp;itm_medium=product_card&amp;itm_campaign=viewed" data-s="Nomal" data-site="1" data-pro="3" data-cache="True" data-name="Điện thoại Samsung Galaxy Z Flip3 5G 256GB"
-                                       data-id="248283" data-price="19990000.0" data-brand="Samsung" data-cate="Điện thoại" s="">
-                                        <div class="item-label">
-                                            <span class="lb-tragop">Trả góp 0%</span>
-                                        </div>
-                                        <div class="item-img 12321312312">
-                                            <img class="lazyload" data-src="https://cdn.tgdd.vn/Products/Images/42/248283/TimerThumb/samsung-galaxy-z-flip3-5g-256gb-(6).jpg" alt="Điện thoại Samsung Galaxy Z Flip3 5G 256GB">
-                                        </div>
-                                        <p class="result-label temp1"><img width="20" height="20" class="lazyload" alt="Xả kho - Giảm Sốc" data-src="https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png"><span>Xả kho - Giảm Sốc</span></p>
-                                        <h3 title="Điện thoại Samsung Galaxy Z Flip3 5G 256GB">
-                                            Samsung Galaxy Z Flip3 5G 256GB
-                                        </h3>
-                                        <div class="box-p">
-                                            <p class="price-old black">26.990.000₫</p>
-                                            <span class="percent">-25%</span>
-                                        </div>
-                                        <strong class="price">19.990.000₫</strong>
-                                        <div class="item-rating">
-                                            <p>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star-dark"></i>
-                                            </p>
-                                            <p class="item-rating-total">25</p>
-                                        </div>
-
-                                    </a>
-                                    <div class="item-bottom">
-                                        <a href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra?src=osp#" class="shiping"></a>
-                                    </div>
-
-
-                                    <a href="javascript:void(0)" class="item-ss">
-                                        <i></i> So sánh
-                                    </a>
-
-
-                                </div>
-                            </div>
-                            <div class="owl-item active" style="width: 240px;">
-                                <div class="item" data-id="242439" data-pos="5">
-                                    <a class="box-product" href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-plus?src=osp&amp;itm_source=detail&amp;itm_medium=product_card&amp;itm_campaign=viewed" data-s="Nomal" data-site="1" data-pro="3" data-cache="True" data-name="Điện thoại Samsung Galaxy S22+ 5G 128GB"
-                                       data-id="242439" data-price="22990000.0" data-brand="Samsung" data-cate="Điện thoại" s="">
-                                        <div class="item-label">
-                                            <span class="lb-tragop">Trả góp 0%</span>
-                                        </div>
-                                        <div class="item-img 12321312312">
-                                            <img class="lazyload" data-src="https://cdn.tgdd.vn/Products/Images/42/242439/Galaxy-S22-Plus-White-600x600.jpg" alt="Điện thoại Samsung Galaxy S22+ 5G 128GB">
-                                        </div>
-                                        <h3 title="Điện thoại Samsung Galaxy S22+ 5G 128GB">
-                                            Samsung Galaxy S22+ 5G 128GB
-                                        </h3>
-                                        <div class="box-p">
-                                            <p class="price-old black">25.990.000₫</p>
-                                            <span class="percent">-11%</span>
-                                        </div>
-                                        <strong class="price">22.990.000₫</strong>
-                                        <div class="item-rating">
-                                            <p>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star-dark"></i>
-                                            </p>
-                                            <p class="item-rating-total">11</p>
-                                        </div>
-
-                                    </a>
-                                    <div class="item-bottom">
-                                        <a href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra?src=osp#" class="shiping"></a>
-                                    </div>
-
-
-                                    <a href="javascript:void(0)" class="item-ss">
-                                        <i></i> So sánh
-                                    </a>
-
-
-                                </div>
-                            </div>
-                            <div class="owl-item" style="width: 240px;">
-                                <div class="item" data-id="229949" data-pos="6">
-                                    <a class="box-product" href="https://www.thegioididong.com/dtdd/samsung-galaxy-z-flip-3?src=osp&amp;itm_source=detail&amp;itm_medium=product_card&amp;itm_campaign=viewed" data-s="Nomal" data-site="1" data-pro="3" data-cache="True" data-name="Điện thoại Samsung Galaxy Z Flip3 5G 128GB"
-                                       data-id="229949" data-price="17990000.0" data-brand="Samsung" data-cate="Điện thoại" s="">
-                                        <div class="item-label">
-                                            <span class="lb-tragop">Trả góp 0%</span>
-                                        </div>
-                                        <div class="item-img 12321312312">
-                                            <img class="lazyload" data-src="https://cdn.tgdd.vn/Products/Images/42/229949/TimerThumb/samsung-galaxy-z-flip-3-(6).jpg" alt="Điện thoại Samsung Galaxy Z Flip3 5G 128GB">
-                                        </div>
-                                        <p class="result-label temp1"><img width="20" height="20" class="lazyload" alt="Xả kho - Giảm Sốc" data-src="https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png"><span>Xả kho - Giảm Sốc</span></p>
-                                        <h3 title="Điện thoại Samsung Galaxy Z Flip3 5G 128GB">
-                                            Samsung Galaxy Z Flip3 5G 128GB
-                                        </h3>
-                                        <div class="box-p">
-                                            <p class="price-old black">24.990.000₫</p>
-                                            <span class="percent">-28%</span>
-                                        </div>
-                                        <strong class="price">17.990.000₫</strong>
-                                        <div class="item-rating">
-                                            <p>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star-dark"></i>
-                                            </p>
-                                            <p class="item-rating-total">37</p>
-                                        </div>
-
-                                    </a>
-                                    <div class="item-bottom">
-                                        <a href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra?src=osp#" class="shiping"></a>
-                                    </div>
-
-
-                                    <a href="javascript:void(0)" class="item-ss">
-                                        <i></i> So sánh
-                                    </a>
-
-
-                                </div>
-                            </div>
-                            <div class="owl-item" style="width: 240px;">
-                                <div class="item" data-id="281366" data-pos="7">
-                                    <a class="box-product" href="https://www.thegioididong.com/dtdd/samsung-galaxy-z-flip3-5g-128gb-flex-your-way?src=osp&amp;itm_source=detail&amp;itm_medium=product_card&amp;itm_campaign=viewed" data-s="Nomal" data-site="1" data-pro="3" data-cache="True"
-                                       data-name="Điện thoại Samsung Galaxy Z Flip3 5G 128GB Flex Your Way" data-id="281366" data-price="17990000.0" data-brand="Samsung" data-cate="Điện thoại" s="">
-                                        <div class="item-label">
-                                            <span class="lb-tragop">Trả góp 0%</span>
-                                        </div>
-                                        <div class="item-img 12321312312">
-                                            <img class="lazyload" data-src="https://cdn.tgdd.vn/Products/Images/42/281366/Samsung-Galaxy-Z-Flip-3-600x600.jpg" alt="Điện thoại Samsung Galaxy Z Flip3 5G 128GB Flex Your Way">
-                                        </div>
-                                        <p class="result-label temp1"><img width="20" height="20" class="lazyload" alt="Xả kho - Giảm Sốc" data-src="https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png"><span>Xả kho - Giảm Sốc</span></p>
-                                        <h3 title="Điện thoại Samsung Galaxy Z Flip3 5G 128GB Flex Your Way">
-                                            Samsung Galaxy Z Flip3 5G 128GB Flex Your Way
-                                        </h3>
-                                        <div class="box-p">
-                                            <p class="price-old black">24.990.000₫</p>
-                                            <span class="percent">-28%</span>
-                                        </div>
-                                        <strong class="price">17.990.000₫</strong>
-                                        <p class="item-gift">Quà <b>500.000₫</b></p>
-
-                                    </a>
-                                    <div class="item-bottom">
-                                        <a href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra?src=osp#" class="shiping"></a>
-                                    </div>
-
-
-                                    <a href="javascript:void(0)" class="item-ss">
-                                        <i></i> So sánh
-                                    </a>
-
-
-                                </div>
-                            </div>
-                            <div class="owl-item" style="width: 240px;">
-                                <div class="item" data-id="271698" data-pos="8">
-                                    <a class="box-product" href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra-512gb?src=osp&amp;itm_source=detail&amp;itm_medium=product_card&amp;itm_campaign=viewed" data-s="Nomal" data-site="1" data-pro="3" data-cache="True" data-name="Điện thoại Samsung Galaxy S22 Ultra 5G 512GB"
-                                       data-id="271698" data-price="33990000.0" data-brand="Samsung" data-cate="Điện thoại" s="">
-                                        <div class="item-label">
-                                            <span class="lb-tragop">Trả góp 0%</span>
-                                        </div>
-                                        <div class="item-img 12321312312">
-                                            <img class="lazyload" data-src="https://cdn.tgdd.vn/Products/Images/42/271698/Galaxy-S22-Ultra-Burgundy-600x600.jpg" alt="Điện thoại Samsung Galaxy S22 Ultra 5G 512GB">
-                                        </div>
-                                        <h3 title="Điện thoại Samsung Galaxy S22 Ultra 5G 512GB">
-                                            Samsung Galaxy S22 Ultra 5G 512GB
-                                        </h3>
-                                        <div class="box-p">
-                                            <p class="price-old black">36.990.000₫</p>
-                                            <span class="percent">-8%</span>
-                                        </div>
-                                        <strong class="price">33.990.000₫</strong>
-
-                                    </a>
-                                    <div class="item-bottom">
-                                        <a href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra?src=osp#" class="shiping"></a>
-                                    </div>
-
-
-                                    <a href="javascript:void(0)" class="item-ss active"><i></i> Đã thêm so sánh</a>
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="owl-nav"><button type="button" role="presentation" class="owl-prev disabled"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div>
-                    <div class="owl-dots disabled"></div>
+            <div class="clr"></div>
+            <div class="midcmt"> <span class="totalcomment"><span class="tech" onclick="showCmtTech();"><i class="iconcom-uncheck"></i></span> </span>
+                <div class="s_comment">
+                    <form method="post" onsubmit="return false;"> <input class="cmtKey" type="text" placeholder="Tìm theo nội dung, người gửi..." onkeyup="cmtSearch(event);"> <i class="iconcom-search"></i> </form>
                 </div>
+                <div class="fts_comment" data-val="0"> <span class="c_lbl">Sắp xếp theo</span> <span class="c_ods c_ods_d" onclick="cmt_selOdSeach(0)"><i class="iconcom-radcheck"></i>&nbsp;Độ chính xác</span> <span class="c_ods c_ods_m" onclick="cmt_selOdSeach(1)"><i class="iconcom-raduncheck"></i>&nbsp;Mới nhất</span>                            </div>
             </div>
         </div>
-        <div class="border7"></div>
-
-
-        <div class="watched">
-
+        <div class="ajaxcomment hide">
+            <div id="loadcomment"></div>
         </div>
-
-
-        <div class="wrap_comment" title="Bình luận sản phẩm" id="comment" cmtcategoryid="2" siteid="1" detailid="235838" cateid="" urlpage="" pagesize="5" data-js="https://cdn.tgdd.vn/comment/Scripts/CommentDesktop.min.v202105111612.js" data-ismobile="False"
-             data-jsovrcmt="/js/Comment/overrideScript.min.js?v=202105110200">
-            <div class="tltCmt"> <textarea id="txtEditor" name="" cols="" rows="" class="parent_input txtEditor" placeholder="Mời bạn để lại bình luận..." onclick="cmtaddcommentclick();" onkeyup="cmtaddcommentclick();"></textarea>
-                <div class="sortcomment">
-                    <div class="statistical hide" id="notifycmtmsg">Bình luận mới vừa được thêm vào. <a href="javascript:void(0)">Click để xem</a></div>
-                </div>
-                <div class="clr"></div>
-                <div class="midcmt"> <span class="totalcomment">490 bình luận                <span class="tech" onclick="showCmtTech();"><i class="iconcom-uncheck"></i>Xem bình luận kỹ thuật</span> </span>
-                    <div class="s_comment">
-                        <form method="post" onsubmit="return false;"> <input class="cmtKey" type="text" placeholder="Tìm theo nội dung, người gửi..." onkeyup="cmtSearch(event);"> <i class="iconcom-search"></i> </form>
-                    </div>
-                    <div class="fts_comment" data-val="0"> <span class="c_lbl">Sắp xếp theo</span> <span class="c_ods c_ods_d" onclick="cmt_selOdSeach(0)"><i class="iconcom-radcheck"></i>&nbsp;Độ chính xác</span> <span class="c_ods c_ods_m" onclick="cmt_selOdSeach(1)"><i class="iconcom-raduncheck"></i>&nbsp;Mới nhất</span>                            </div>
-                </div>
-            </div>
-            <ul class="listcomment">
-                <li class="comment_ask" id="51798545">
-                    <div class="rowuser">
-                        <a href="javascript:void(0)">
-                            <div>L</div><strong onclick="selCmt(51798545)">Linh</strong></a>
-                    </div>
-                    <div class="question"> Manh hình hiện tại đag ở chế độ full hd+ phải k ạ. Nếu bật sang WQHD+ nó là màn hình 2k đúng k ạ và sẽ tốn pin hơn đúng k ạ
-                        <div class="imgCmt"><img class="lazyload" data-src="https://cdn.tgdd.vn/comment/51798545/Screenshot_20220622-141050_SettingsRTQAO.jpg" onclick="openCmtSlide(51798545,0)"></div>
-                    </div>
-                    <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtaddreplyclick(51798545)">Trả lời</a><a href="javascript:void(0)" class="time" onclick="cmtReport(51798545)">54 phút trước </a></div>
-                    <div class="listreply" id="r51798545">
-                        <div class="reply " id="51798580" data-parent="51798545">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div class="c"><i class="iconcom-avactv"></i></div><strong onclick="selCmt(51798580)">Công Huy</strong><b class="qtv">Quản trị viên</b></a>
-                            </div>
-                            <div class="cont">Chào chị <br>Dạ nếu bật sang WQHD nó là màn hình 2K , việc thay đổi tỉ lệ độ phân giải sẽ khiến mức pin sử dụng cao hơn đó ạ<br>Thông tin đến chị</div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51798580,51798545)">Trả lời</a><a href="javascript:satisfiedCmt(51798580);" class="favor satis cmthl"><i class="iconcom-like"></i>Hài lòng<span></span></a>
-                                <a href="javascript:unsatisfiedCmt(51798580);" class="favor satis cmtkhl"><i class="iconcom-unlike"></i>Không hài lòng<span></span></a><a href="javascript:void(0)" class="time" onclick="cmtReport(51798580)">49 phút trước </a>
-                                <div id="wrs51798580" class="wrapsatis" style="display: none;">
-                                    <div class="wrsct"><i class="iconcom-close" onclick="closeSatis();"></i><span>Thegioididong.com rất tiếc đã làm bạn chưa hài lòng. Mời bạn góp ý để <b>QTV Công Huy</b> phục vụ tốt hơn:</span><textarea placeholder="Nhập nội dung góp ý"
-                                                                                                                                                                                                                                             type="text" class="ustCt"></textarea><span>Hãy để lại thông tin để được hỗ trợ khi cần thiết (không bắt buộc):</span><input placeholder="Họ tên" type="text" class="ustName"><input placeholder="Số điện thoại"
-                                                                                                                                                                                                                                                                                                                                                                                                                                 type="text" class="ustPhone"><a href="javascript:sendUnSatisfied(51798580)">GỬI</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="reply " id="51798738" data-parent="51798545">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div>L</div><strong onclick="selCmt(51798738)">Linh</strong></a>
-                            </div>
-                            <div class="cont"> @Công Huy: s trên thôg tin dt ghi là màn 2k ạ. Thế là sao ạ</div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51798738,51798545)">Trả lời</a><a href="javascript:void(0)" class="time" onclick="cmtReport(51798738)">27 phút trước </a></div>
-                        </div>
-                        <div class="reply " id="51798769" data-parent="51798545">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div class="c"><i class="iconcom-avactv"></i></div><strong onclick="selCmt(51798769)">Tải Nguyên</strong><b class="qtv">Quản trị viên</b></a>
-                            </div>
-                            <div class="cont">Dạ mong chị thông cảm vì có sự nhầm lẫn ạ , nếu bật sang WQHD là màn hình 2K nhé nhưng sẽ tốn PIN nhiều hơn ạ&nbsp;<br>Thông tin đến chị<br><br></div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51798769,51798545)">Trả lời</a><a href="javascript:satisfiedCmt(51798769);" class="favor satis cmthl"><i class="iconcom-like"></i>Hài lòng<span></span></a>
-                                <a href="javascript:unsatisfiedCmt(51798769);" class="favor satis cmtkhl"><i class="iconcom-unlike"></i>Không hài lòng<span></span></a><a href="javascript:void(0)" class="time" onclick="cmtReport(51798769)">22 phút trước </a>
-                                <div id="wrs51798769" class="wrapsatis" style="display: none;">
-                                    <div class="wrsct"><i class="iconcom-close" onclick="closeSatis();"></i><span>Thegioididong.com rất tiếc đã làm bạn chưa hài lòng. Mời bạn góp ý để <b>QTV Tải Nguyên</b> phục vụ tốt hơn:</span><textarea placeholder="Nhập nội dung góp ý"
-                                                                                                                                                                                                                                               type="text" class="ustCt"></textarea><span>Hãy để lại thông tin để được hỗ trợ khi cần thiết (không bắt buộc):</span><input placeholder="Họ tên" type="text" class="ustName"><input placeholder="Số điện thoại"
-                                                                                                                                                                                                                                                                                                                                                                                                                                   type="text" class="ustPhone"><a href="javascript:sendUnSatisfied(51798769)">GỬI</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="inputreply hide"></div>
-                </li>
-                <li class="comment_ask" id="51795427">
-                    <div class="rowuser">
-                        <a href="javascript:void(0)">
-                            <div>V</div><strong onclick="selCmt(51795427)">Vinh</strong></a>
-                    </div>
-                    <div class="question"> Hiện tại mình có 1 hợp đồng trả góp bên HC bây giờ tất toán có mất thêm phí gì không ạ</div>
-                    <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtaddreplyclick(51795427)">Trả lời</a><a href="javascript:void(0)" class="time" onclick="cmtReport(51795427)">4 giờ trước </a></div>
-                    <div class="listreply" id="r51795427">
-                        <div class="reply " id="51795622" data-parent="51795427">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div class="c"><i class="iconcom-avactv"></i></div><strong onclick="selCmt(51795622)">Đình Thắng</strong><b class="qtv">Quản trị viên</b></a>
-                            </div>
-                            <div class="cont">Chào anh.<br>Dạ trường hợp này anh thanh lý hợp đồng sớm sẽ có phí thanh lý đó ạ. Mong anh thông cảm&nbsp;<br>Thông tin đến anh&nbsp;</div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51795622,51795427)">Trả lời</a><a href="javascript:satisfiedCmt(51795622);" class="favor satis cmthl"><i class="iconcom-like"></i>Hài lòng<span></span></a>
-                                <a href="javascript:unsatisfiedCmt(51795622);" class="favor satis cmtkhl"><i class="iconcom-unlike"></i>Không hài lòng<span></span></a><a href="javascript:void(0)" class="time" onclick="cmtReport(51795622)">4 giờ trước </a>
-                                <div id="wrs51795622" class="wrapsatis" style="display: none;">
-                                    <div class="wrsct"><i class="iconcom-close" onclick="closeSatis();"></i><span>Thegioididong.com rất tiếc đã làm bạn chưa hài lòng. Mời bạn góp ý để <b>QTV Đình Thắng</b> phục vụ tốt hơn:</span><textarea placeholder="Nhập nội dung góp ý"
-                                                                                                                                                                                                                                               type="text" class="ustCt"></textarea><span>Hãy để lại thông tin để được hỗ trợ khi cần thiết (không bắt buộc):</span><input placeholder="Họ tên" type="text" class="ustName"><input placeholder="Số điện thoại"
-                                                                                                                                                                                                                                                                                                                                                                                                                                   type="text" class="ustPhone"><a href="javascript:sendUnSatisfied(51795622)">GỬI</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="reply " id="51795852" data-parent="51795427">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div>V</div><strong onclick="selCmt(51795852)">Vinh</strong></a>
-                            </div>
-                            <div class="cont"> @Đình Thắng: phí là bao nhiêu % ạ</div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51795852,51795427)">Trả lời</a><a href="javascript:void(0)" class="time" onclick="cmtReport(51795852)">4 giờ trước </a></div>
-                        </div>
-                        <div class="fullcomment" onclick="showFullCmt(51795427)"><i class="iconcom-comblue"></i> Xem tiếp 5 trả lời khác ▾</div>
-                        <div class="reply hide" id="51795866" data-parent="51795427">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div>V</div><strong onclick="selCmt(51795866)">Vinh</strong></a>
-                            </div>
-                            <div class="cont">Tất toán hợp đồng xong mình bạn máy lại TGDD luôn ạ @Đình Thắng:</div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51795866,51795427)">Trả lời</a><a href="javascript:void(0)" class="time" onclick="cmtReport(51795866)">4 giờ trước </a></div>
-                        </div>
-                        <div class="reply hide" id="51795895" data-parent="51795427">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div class="c"><i class="iconcom-avactv"></i></div><strong onclick="selCmt(51795895)">Ánh Tuyết</strong><b class="qtv">Quản trị viên</b></a>
-                            </div>
-                            <div class="cont">Dạ phí thanh lý hợp đồng trả góp tùy công ty tài chính sẽ khác nhau anh nha, mình có thể liên hệ qua số điện thoại sau để hỗ trợ giúp anh nhé.<br>ACS : (028). 5445 3800 <br>Home Credit : (028).38.999.666 <br>Fe Credit:
-                                1900.234.588
-                                <br>Mcredit 1900.636.769 <br>Thông tin đến anh.&nbsp;</div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51795895,51795427)">Trả lời</a><a href="javascript:satisfiedCmt(51795895);" class="favor satis cmthl"><i class="iconcom-like"></i>Hài lòng<span></span></a>
-                                <a href="javascript:unsatisfiedCmt(51795895);" class="favor satis cmtkhl"><i class="iconcom-unlike"></i>Không hài lòng<span></span></a><a href="javascript:void(0)" class="time" onclick="cmtReport(51795895)">4 giờ trước </a>
-                                <div id="wrs51795895" class="wrapsatis" style="display: none;">
-                                    <div class="wrsct"><i class="iconcom-close" onclick="closeSatis();"></i><span>Thegioididong.com rất tiếc đã làm bạn chưa hài lòng. Mời bạn góp ý để <b>QTV Ánh Tuyết</b> phục vụ tốt hơn:</span><textarea placeholder="Nhập nội dung góp ý"
-                                                                                                                                                                                                                                              type="text" class="ustCt"></textarea><span>Hãy để lại thông tin để được hỗ trợ khi cần thiết (không bắt buộc):</span><input placeholder="Họ tên" type="text" class="ustName"><input placeholder="Số điện thoại"
-                                                                                                                                                                                                                                                                                                                                                                                                                                  type="text" class="ustPhone"><a href="javascript:sendUnSatisfied(51795895)">GỬI</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="reply hide" id="51795905" data-parent="51795427">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div>V</div><strong onclick="selCmt(51795905)">Vinh</strong></a>
-                            </div>
-                            <div class="cont"> Tất toán taị TGDD có cần gọi lên tổng đài không</div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51795905,51795427)">Trả lời</a><a href="javascript:void(0)" class="time" onclick="cmtReport(51795905)">4 giờ trước </a></div>
-                        </div>
-                        <div class="reply hide" id="51795928" data-parent="51795427">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div class="c"><i class="iconcom-avactv"></i></div><strong onclick="selCmt(51795928)">Ánh Tuyết</strong><b class="qtv">Quản trị viên</b></a>
-                            </div>
-                            <div class="cont">Dạ nếu mình muốn trả máy thì sau khi hủy/thanh lý hợp đồng trả góp bên em sẽ hỗ trợ thu lại theo chính sách đổi trả ạ <br>Thông tin đến anh.&nbsp;</div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51795928,51795427)">Trả lời</a><a href="javascript:satisfiedCmt(51795928);" class="favor satis cmthl"><i class="iconcom-like"></i>Hài lòng<span></span></a>
-                                <a href="javascript:unsatisfiedCmt(51795928);" class="favor satis cmtkhl"><i class="iconcom-unlike"></i>Không hài lòng<span></span></a><a href="javascript:void(0)" class="time" onclick="cmtReport(51795928)">4 giờ trước </a>
-                                <div id="wrs51795928" class="wrapsatis" style="display: none;">
-                                    <div class="wrsct"><i class="iconcom-close" onclick="closeSatis();"></i><span>Thegioididong.com rất tiếc đã làm bạn chưa hài lòng. Mời bạn góp ý để <b>QTV Ánh Tuyết</b> phục vụ tốt hơn:</span><textarea placeholder="Nhập nội dung góp ý"
-                                                                                                                                                                                                                                              type="text" class="ustCt"></textarea><span>Hãy để lại thông tin để được hỗ trợ khi cần thiết (không bắt buộc):</span><input placeholder="Họ tên" type="text" class="ustName"><input placeholder="Số điện thoại"
-                                                                                                                                                                                                                                                                                                                                                                                                                                  type="text" class="ustPhone"><a href="javascript:sendUnSatisfied(51795928)">GỬI</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="reply hide" id="51796395" data-parent="51795427">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div class="c"><i class="iconcom-avactv"></i></div><strong onclick="selCmt(51796395)">Đình Thắng</strong><b class="qtv">Quản trị viên</b></a>
-                            </div>
-                            <div class="cont">Dạ trường hợp này anh có thể tới siêu thị nhân viên hỗ trợ mình ạ, không phải liên hệ tổng đài trước vẫn được ạ<br>Thông tin đến anh</div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51796395,51795427)">Trả lời</a><a href="javascript:satisfiedCmt(51796395);" class="favor satis cmthl"><i class="iconcom-like"></i>Hài lòng<span></span></a>
-                                <a href="javascript:unsatisfiedCmt(51796395);" class="favor satis cmtkhl"><i class="iconcom-unlike"></i>Không hài lòng<span></span></a><a href="javascript:void(0)" class="time" onclick="cmtReport(51796395)">3 giờ trước </a>
-                                <div id="wrs51796395" class="wrapsatis" style="display: none;">
-                                    <div class="wrsct"><i class="iconcom-close" onclick="closeSatis();"></i><span>Thegioididong.com rất tiếc đã làm bạn chưa hài lòng. Mời bạn góp ý để <b>QTV Đình Thắng</b> phục vụ tốt hơn:</span><textarea placeholder="Nhập nội dung góp ý"
-                                                                                                                                                                                                                                               type="text" class="ustCt"></textarea><span>Hãy để lại thông tin để được hỗ trợ khi cần thiết (không bắt buộc):</span><input placeholder="Họ tên" type="text" class="ustName"><input placeholder="Số điện thoại"
-                                                                                                                                                                                                                                                                                                                                                                                                                                   type="text" class="ustPhone"><a href="javascript:sendUnSatisfied(51796395)">GỬI</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="inputreply hide"></div>
-                </li>
-                <li class="comment_ask" id="51794949">
-                    <div class="rowuser">
-                        <a href="javascript:void(0)">
-                            <div>H</div><strong onclick="selCmt(51794949)">Huấn</strong></a>
-                    </div>
-                    <div class="question"> Cũng tại ông MB Bank mình vào chuyển khoản bắt yêu cầu xác thực, khi xác thực xong đt mình lại hiện mẫu hình khóa, giờ mình muốn bỏ mẫu hình khóa trên đt samsung galaxy 30s thì làm thế nào?</div>
-                    <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtaddreplyclick(51794949)">Trả lời</a><a href="javascript:void(0)" class="time" onclick="cmtReport(51794949)">6 giờ trước </a></div>
-                    <div class="listreply" id="r51794949">
-                        <div class="reply " id="51794950" data-parent="51794949">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div class="c"><i class="iconcom-avactv"></i></div><strong onclick="selCmt(51794950)">Hoàng Quý</strong><b class="qtv">Quản trị viên</b></a>
-                            </div>
-                            <div class="cont">Chào anh!<br>Dạ trường hợp này anh vào cài đặt -&gt; bảo mật -&gt; tắt bảo mật đi là được ạ<br>Thông tin đến anh!&nbsp;</div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51794950,51794949)">Trả lời</a><a href="javascript:satisfiedCmt(51794950);" class="favor satis cmthl"><i class="iconcom-like"></i>Hài lòng<span></span></a>
-                                <a href="javascript:unsatisfiedCmt(51794950);" class="favor satis cmtkhl"><i class="iconcom-unlike"></i>Không hài lòng<span></span></a><a href="javascript:void(0)" class="time" onclick="cmtReport(51794950)">6 giờ trước </a>
-                                <div id="wrs51794950" class="wrapsatis" style="display: none;">
-                                    <div class="wrsct"><i class="iconcom-close" onclick="closeSatis();"></i><span>Thegioididong.com rất tiếc đã làm bạn chưa hài lòng. Mời bạn góp ý để <b>QTV Hoàng Quý</b> phục vụ tốt hơn:</span><textarea placeholder="Nhập nội dung góp ý"
-                                                                                                                                                                                                                                              type="text" class="ustCt"></textarea><span>Hãy để lại thông tin để được hỗ trợ khi cần thiết (không bắt buộc):</span><input placeholder="Họ tên" type="text" class="ustName"><input placeholder="Số điện thoại"
-                                                                                                                                                                                                                                                                                                                                                                                                                                  type="text" class="ustPhone"><a href="javascript:sendUnSatisfied(51794950)">GỬI</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="inputreply hide"></div>
-                </li>
-                <li class="comment_ask" id="51791234">
-                    <div class="rowuser">
-                        <a href="javascript:void(0)">
-                            <div>L</div><strong onclick="selCmt(51791234)">Long</strong></a>
-                    </div>
-                    <div class="question"> Dt này tắt nguồn s vậy ạ. E ấn nút ngồn mãi k lên chữ tắt nguồn</div>
-                    <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtaddreplyclick(51791234)">Trả lời</a><a href="javascript:void(0)" class="time" onclick="cmtReport(51791234)">20 giờ trước </a></div>
-                    <div class="listreply" id="r51791234">
-                        <div class="reply " id="51791267" data-parent="51791234">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div class="c"><i class="iconcom-avactv"></i></div><strong onclick="selCmt(51791267)">Thanh Thủy</strong><b class="qtv">Quản trị viên</b></a>
-                            </div>
-                            <div class="cont">Dạ chào anh&nbsp;<br>Dạ trường hợp này anh giúp em nhấn giữ nguồn 3s xem có lên không ạ&nbsp;<br>Xin thông tin đến anh ạ!&nbsp;</div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51791267,51791234)">Trả lời</a><a href="javascript:satisfiedCmt(51791267);" class="favor satis cmthl"><i class="iconcom-like"></i>Hài lòng<span></span></a>
-                                <a href="javascript:unsatisfiedCmt(51791267);" class="favor satis cmtkhl"><i class="iconcom-unlike"></i>Không hài lòng<span></span></a><a href="javascript:void(0)" class="time" onclick="cmtReport(51791267)">20 giờ trước </a>
-                                <div id="wrs51791267" class="wrapsatis" style="display: none;">
-                                    <div class="wrsct"><i class="iconcom-close" onclick="closeSatis();"></i><span>Thegioididong.com rất tiếc đã làm bạn chưa hài lòng. Mời bạn góp ý để <b>QTV Thanh Thủy</b> phục vụ tốt hơn:</span><textarea placeholder="Nhập nội dung góp ý"
-                                                                                                                                                                                                                                               type="text" class="ustCt"></textarea><span>Hãy để lại thông tin để được hỗ trợ khi cần thiết (không bắt buộc):</span><input placeholder="Họ tên" type="text" class="ustName"><input placeholder="Số điện thoại"
-                                                                                                                                                                                                                                                                                                                                                                                                                                   type="text" class="ustPhone"><a href="javascript:sendUnSatisfied(51791267)">GỬI</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="inputreply hide"></div>
-                </li>
-                <li class="comment_ask" id="51787739">
-                    <div class="rowuser">
-                        <a href="javascript:void(0)">
-                            <div>L</div><strong onclick="selCmt(51787739)">Lin</strong></a>
-                    </div>
-                    <div class="question"> Máy này ko bỏ dc thẻ nhớ ngoài hả ad</div>
-                    <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtaddreplyclick(51787739)">Trả lời</a><a href="javascript:void(0)" class="time" onclick="cmtReport(51787739)">1 ngày trước </a></div>
-                    <div class="listreply" id="r51787739">
-                        <div class="reply " id="51787762" data-parent="51787739">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div class="c"><i class="iconcom-avactv"></i></div><strong onclick="selCmt(51787762)">Trần Luân</strong><b class="qtv">Quản trị viên</b></a>
-                            </div>
-                            <div class="cont">Chào anh !<br>Dạ máy này không hỗ trợ thẻ nhớ ngoài anh nha.<br>Thông tin đến anh</div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51787762,51787739)">Trả lời</a><a href="javascript:satisfiedCmt(51787762);" class="favor satis cmthl"><i class="iconcom-like"></i>Hài lòng<span></span></a>
-                                <a href="javascript:unsatisfiedCmt(51787762);" class="favor satis cmtkhl"><i class="iconcom-unlike"></i>Không hài lòng<span></span></a><a href="javascript:void(0)" class="time" onclick="cmtReport(51787762)">1 ngày trước </a>
-                                <div id="wrs51787762" class="wrapsatis" style="display: none;">
-                                    <div class="wrsct"><i class="iconcom-close" onclick="closeSatis();"></i><span>Thegioididong.com rất tiếc đã làm bạn chưa hài lòng. Mời bạn góp ý để <b>QTV Trần Luân</b> phục vụ tốt hơn:</span><textarea placeholder="Nhập nội dung góp ý"
-                                                                                                                                                                                                                                              type="text" class="ustCt"></textarea><span>Hãy để lại thông tin để được hỗ trợ khi cần thiết (không bắt buộc):</span><input placeholder="Họ tên" type="text" class="ustName"><input placeholder="Số điện thoại"
-                                                                                                                                                                                                                                                                                                                                                                                                                                  type="text" class="ustPhone"><a href="javascript:sendUnSatisfied(51787762)">GỬI</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="inputreply hide"></div>
-                </li>
-                <li class="comment_ask" id="51787097">
-                    <div class="rowuser">
-                        <a href="javascript:void(0)">
-                            <div>n</div><strong onclick="selCmt(51787097)">Phạm Hoài Nam</strong></a>
-                    </div>
-                    <div class="question"> Mình thấy nó lag kinh khủng pin mau hết.với nó nóng sài vô ứng dụng gì phải đợi 1 hồi nó mới vô..đem ra thì ngta bảo phải đem ra hảng 1đến 15 ngày..trong tháng đầu tiên luôn mặc dù họ phát hiện ra lỗi..haizz bỏ ra 31tr mà cứ phải
-                        đợi chờ gửi hảng thật sự quá thất vọng...vậy mà lúc mới mua họ bảo có lỗi sẽ đổi mới trong tháng đầu..đem ra cứ bấm bấm xong kêu về sài tiếp đi..mình thấy có thay đổi được cái gì đâu 😂</div>
-                    <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtaddreplyclick(51787097)">Trả lời</a><a href="javascript:void(0)" class="time" onclick="cmtReport(51787097)">1 ngày trước </a></div>
-                    <div class="listreply" id="r51787097">
-                        <div class="reply " id="51787182" data-parent="51787097">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div class="c"><i class="iconcom-avactv"></i></div><strong onclick="selCmt(51787182)">Đình Thắng</strong><b class="qtv">Quản trị viên</b></a>
-                            </div>
-                            <div class="cont">Chào anh.<br>Dạ trường hợp này chân thành xin lỗi vì đã không làm mình hài lòng ạ, mình có thể cung cấp số điện thoại để bên em chuyển thông tin tới bộ phận CSKH hỗ trợ mình tốt nhất ạ.&nbsp; &nbsp;<br>Thông tin đến anh&nbsp;</div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51787182,51787097)">Trả lời</a><a href="javascript:satisfiedCmt(51787182);" class="favor satis cmthl"><i class="iconcom-like"></i>Hài lòng<span></span></a>
-                                <a href="javascript:unsatisfiedCmt(51787182);" class="favor satis cmtkhl"><i class="iconcom-unlike"></i>Không hài lòng<span></span></a><a href="javascript:void(0)" class="time" onclick="cmtReport(51787182)">1 ngày trước </a>
-                                <div id="wrs51787182" class="wrapsatis" style="display: none;">
-                                    <div class="wrsct"><i class="iconcom-close" onclick="closeSatis();"></i><span>Thegioididong.com rất tiếc đã làm bạn chưa hài lòng. Mời bạn góp ý để <b>QTV Đình Thắng</b> phục vụ tốt hơn:</span><textarea placeholder="Nhập nội dung góp ý"
-                                                                                                                                                                                                                                               type="text" class="ustCt"></textarea><span>Hãy để lại thông tin để được hỗ trợ khi cần thiết (không bắt buộc):</span><input placeholder="Họ tên" type="text" class="ustName"><input placeholder="Số điện thoại"
-                                                                                                                                                                                                                                                                                                                                                                                                                                   type="text" class="ustPhone"><a href="javascript:sendUnSatisfied(51787182)">GỬI</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="reply " id="51792726" data-parent="51787097">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div>n</div><strong onclick="selCmt(51792726)">Phạm hoài nam</strong></a>
-                            </div>
-                            <div class="cont"> @Đình Thắng: xxxx154220 khỏi che</div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51792726,51787097)">Trả lời</a><a href="javascript:void(0)" class="time" onclick="cmtReport(51792726)">17 giờ trước </a></div>
-                        </div>
-                        <div class="reply " id="51792924" data-parent="51787097">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div class="c"><i class="iconcom-avactv"></i></div><strong onclick="selCmt(51792924)">Kim Thy</strong><b class="qtv">Quản trị viên</b></a>
-                            </div>
-                            <div class="cont">Dạ bên em tiếp nhận thông tin và liên hệ trong thời gian sớm nhất vào sáng mai ạ.<br>Thông tin đến anh.&nbsp;<br><br></div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51792924,51787097)">Trả lời</a><a href="javascript:satisfiedCmt(51792924);" class="favor satis cmthl"><i class="iconcom-like"></i>Hài lòng<span></span></a>
-                                <a href="javascript:unsatisfiedCmt(51792924);" class="favor satis cmtkhl"><i class="iconcom-unlike"></i>Không hài lòng<span></span></a><a href="javascript:void(0)" class="time" onclick="cmtReport(51792924)">17 giờ trước </a>
-                                <div id="wrs51792924" class="wrapsatis" style="display: none;">
-                                    <div class="wrsct"><i class="iconcom-close" onclick="closeSatis();"></i><span>Thegioididong.com rất tiếc đã làm bạn chưa hài lòng. Mời bạn góp ý để <b>QTV Kim Thy</b> phục vụ tốt hơn:</span><textarea placeholder="Nhập nội dung góp ý"
-                                                                                                                                                                                                                                            type="text" class="ustCt"></textarea><span>Hãy để lại thông tin để được hỗ trợ khi cần thiết (không bắt buộc):</span><input placeholder="Họ tên" type="text" class="ustName"><input placeholder="Số điện thoại"
-                                                                                                                                                                                                                                                                                                                                                                                                                                type="text" class="ustPhone"><a href="javascript:sendUnSatisfied(51792924)">GỬI</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="inputreply hide"></div>
-                </li>
-                <li class="comment_ask" id="51786474">
-                    <div class="rowuser">
-                        <a href="javascript:void(0)">
-                            <div>n</div><strong onclick="selCmt(51786474)">H&amp;#224; V&amp;#259;N</strong></a>
-                    </div>
-                    <div class="question"> Em mới lấy máy xiaomi redmi note 11. Vừa lấy xong thì em vào đặt mật khẩu nhưng không mở đc em có cho khởi động lại máy và máy bắt nhập mã pin em có nhập đúng với lúc em đặt nhưng không đc mong anh chị tư vấn giúp em ạ</div>
-                    <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtaddreplyclick(51786474)">Trả lời</a><a href="javascript:void(0)" class="time" onclick="cmtReport(51786474)">1 ngày trước </a></div>
-                    <div class="listreply" id="r51786474">
-                        <div class="reply " id="51786508" data-parent="51786474">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div class="c"><i class="iconcom-avactv"></i></div><strong onclick="selCmt(51786508)">Trần Luân</strong><b class="qtv">Quản trị viên</b></a>
-                            </div>
-                            <div class="cont">Chào anh !<br>Dạ trường hợp này thì anh kiểm tra lại kỹ chữ hoa trên phím xem có ấn nhầm không ạ."<br>Thông tin đến anh</div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51786508,51786474)">Trả lời</a><a href="javascript:satisfiedCmt(51786508);" class="favor satis cmthl"><i class="iconcom-like"></i>Hài lòng<span></span></a>
-                                <a href="javascript:unsatisfiedCmt(51786508);" class="favor satis cmtkhl"><i class="iconcom-unlike"></i>Không hài lòng<span></span></a><a href="javascript:void(0)" class="time" onclick="cmtReport(51786508)">1 ngày trước </a>
-                                <div id="wrs51786508" class="wrapsatis" style="display: none;">
-                                    <div class="wrsct"><i class="iconcom-close" onclick="closeSatis();"></i><span>Thegioididong.com rất tiếc đã làm bạn chưa hài lòng. Mời bạn góp ý để <b>QTV Trần Luân</b> phục vụ tốt hơn:</span><textarea placeholder="Nhập nội dung góp ý"
-                                                                                                                                                                                                                                              type="text" class="ustCt"></textarea><span>Hãy để lại thông tin để được hỗ trợ khi cần thiết (không bắt buộc):</span><input placeholder="Họ tên" type="text" class="ustName"><input placeholder="Số điện thoại"
-                                                                                                                                                                                                                                                                                                                                                                                                                                  type="text" class="ustPhone">
-                                        <a href="javascript:sendUnSatisfied(51786508)">GỬI</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="inputreply hide"></div>
-                </li>
-                <li class="comment_ask" id="51785051">
-                    <div class="rowuser">
-                        <a href="javascript:void(0)">
-                            <div>T</div><strong onclick="selCmt(51785051)">Tình</strong></a>
-                    </div>
-                    <div class="question"> Chương trình thu cũ đổi mới này e có cần định giá trên web tgdd trước k? Hay cứ cầm máy qua rồi bên mình định giá</div>
-                    <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtaddreplyclick(51785051)">Trả lời</a><a href="javascript:void(0)" class="time" onclick="cmtReport(51785051)">1 ngày trước </a></div>
-                    <div class="listreply" id="r51785051">
-                        <div class="reply " id="51785059" data-parent="51785051">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div class="c"><i class="iconcom-avactv"></i></div><strong onclick="selCmt(51785059)">Ánh Tuyết</strong><b class="qtv">Quản trị viên</b></a>
-                            </div>
-                            <div class="cont">Chào anh&nbsp; <br>Dạ mình tham khảo giá thu cũ đổi mới tại <a target="_blank" href="https://www.thegioididong.com/thu-cu-doi-moi">đây </a>ạ<br>Thông tin đến anh.&nbsp;</div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51785059,51785051)">Trả lời</a><a href="javascript:satisfiedCmt(51785059);" class="favor satis cmthl"><i class="iconcom-like"></i>Hài lòng<span></span></a>
-                                <a href="javascript:unsatisfiedCmt(51785059);" class="favor satis cmtkhl"><i class="iconcom-unlike"></i>Không hài lòng<span></span></a><a href="javascript:void(0)" class="time" onclick="cmtReport(51785059)">1 ngày trước </a>
-                                <div id="wrs51785059" class="wrapsatis" style="display: none;">
-                                    <div class="wrsct"><i class="iconcom-close" onclick="closeSatis();"></i><span>Thegioididong.com rất tiếc đã làm bạn chưa hài lòng. Mời bạn góp ý để <b>QTV Ánh Tuyết</b> phục vụ tốt hơn:</span><textarea placeholder="Nhập nội dung góp ý"
-                                                                                                                                                                                                                                              type="text" class="ustCt"></textarea><span>Hãy để lại thông tin để được hỗ trợ khi cần thiết (không bắt buộc):</span><input placeholder="Họ tên" type="text" class="ustName"><input placeholder="Số điện thoại"
-                                                                                                                                                                                                                                                                                                                                                                                                                                  type="text" class="ustPhone">
-                                        <a href="javascript:sendUnSatisfied(51785059)">GỬI</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="reply " id="51785191" data-parent="51785051">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div>T</div><strong onclick="selCmt(51785191)">Tình</strong></a>
-                            </div>
-                            <div class="cont"> @Ánh Tuyết: cái này điền thôg tin vô rồi mag máy qua bên mình hay sao anh chị
-                                <div class="imgCmt"><img class="lazyload" data-src="https://cdn.tgdd.vn/comment/51785191/Screenshot_20220621-102614_UCBrowserRQAAD.jpg" onclick="openCmtSlide(51785191,0)"></div>
-                            </div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51785191,51785051)">Trả lời</a><a href="javascript:void(0)" class="time" onclick="cmtReport(51785191)">1 ngày trước </a></div>
-                        </div>
-                        <div class="reply " id="51785204" data-parent="51785051">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div class="c"><i class="iconcom-avactv"></i></div><strong onclick="selCmt(51785204)">Ánh Tuyết</strong><b class="qtv">Quản trị viên</b></a>
-                            </div>
-                            <div class="cont">Dạ mình không cần điền thông tin anh nha, mình có thể mang máy đến trực tiếp siêu thị để kiểm tra định giá chính xác cho mình anh nhé.<br>Thông tin đến anh.&nbsp;</div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51785204,51785051)">Trả lời</a><a href="javascript:satisfiedCmt(51785204);" class="favor satis cmthl"><i class="iconcom-like"></i>Hài lòng<span></span></a>
-                                <a href="javascript:unsatisfiedCmt(51785204);" class="favor satis cmtkhl"><i class="iconcom-unlike"></i>Không hài lòng<span></span></a><a href="javascript:void(0)" class="time" onclick="cmtReport(51785204)">1 ngày trước </a>
-                                <div id="wrs51785204" class="wrapsatis" style="display: none;">
-                                    <div class="wrsct"><i class="iconcom-close" onclick="closeSatis();"></i><span>Thegioididong.com rất tiếc đã làm bạn chưa hài lòng. Mời bạn góp ý để <b>QTV Ánh Tuyết</b> phục vụ tốt hơn:</span><textarea placeholder="Nhập nội dung góp ý"
-                                                                                                                                                                                                                                              type="text" class="ustCt"></textarea><span>Hãy để lại thông tin để được hỗ trợ khi cần thiết (không bắt buộc):</span><input placeholder="Họ tên" type="text" class="ustName"><input placeholder="Số điện thoại"
-                                                                                                                                                                                                                                                                                                                                                                                                                                  type="text" class="ustPhone">
-                                        <a href="javascript:sendUnSatisfied(51785204)">GỬI</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="inputreply hide"></div>
-                </li>
-                <li class="comment_ask" id="51783332">
-                    <div class="rowuser">
-                        <a href="javascript:void(0)">
-                            <div>M</div><strong onclick="selCmt(51783332)">Minh</strong></a>
-                    </div>
-                    <div class="question"> Cho mình hỏi tài khoản facebook của mình bị khóa. Giờ mình chỉ còn gmail. Nhưng sđt thì bị mất. Làm sao để mở lại tài khỏa dc ạ. Xin hướng dẫn dùm mình. Xin cảm ơn</div>
-                    <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtaddreplyclick(51783332)">Trả lời</a><a href="javascript:void(0)" class="time" onclick="cmtReport(51783332)">1 ngày trước </a></div>
-                    <div class="listreply" id="r51783332">
-                        <div class="reply " id="51783402" data-parent="51783332">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div class="c"><i class="iconcom-avactv"></i></div><strong onclick="selCmt(51783402)">Thành Luân</strong><b class="qtv">Quản trị viên</b></a>
-                            </div>
-                            <div class="cont">Chào anh !&nbsp;&nbsp;<br>Dạ anh có thể tham khảo bài viết này xem sao ạ.<br>Thông tin đến anh !&nbsp;</div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51783402,51783332)">Trả lời</a><a href="javascript:satisfiedCmt(51783402);" class="favor satis cmthl"><i class="iconcom-like"></i>Hài lòng<span></span></a>
-                                <a href="javascript:unsatisfiedCmt(51783402);" class="favor satis cmtkhl"><i class="iconcom-unlike"></i>Không hài lòng<span></span></a><a href="javascript:void(0)" class="time" onclick="cmtReport(51783402)">1 ngày trước </a>
-                                <div id="wrs51783402" class="wrapsatis" style="display: none;">
-                                    <div class="wrsct"><i class="iconcom-close" onclick="closeSatis();"></i><span>Thegioididong.com rất tiếc đã làm bạn chưa hài lòng. Mời bạn góp ý để <b>QTV Thành Luân</b> phục vụ tốt hơn:</span><textarea placeholder="Nhập nội dung góp ý"
-                                                                                                                                                                                                                                               type="text" class="ustCt"></textarea><span>Hãy để lại thông tin để được hỗ trợ khi cần thiết (không bắt buộc):</span><input placeholder="Họ tên" type="text" class="ustName"><input placeholder="Số điện thoại"
-                                                                                                                                                                                                                                                                                                                                                                                                                                   type="text" class="ustPhone">
-                                        <a href="javascript:sendUnSatisfied(51783402)">GỬI</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="reply " id="51785102" data-parent="51783332">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div>M</div><strong onclick="selCmt(51785102)">Minh</strong></a>
-                            </div>
-                            <div class="cont"> @Thành Luân: tham khảo bài viết nào ạ</div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51785102,51783332)">Trả lời</a><a href="javascript:void(0)" class="time" onclick="cmtReport(51785102)">1 ngày trước </a></div>
-                        </div>
-                        <div class="fullcomment" onclick="showFullCmt(51783332)"><i class="iconcom-comblue"></i> Xem tiếp 3 trả lời khác ▾</div>
-                        <div class="reply hide" id="51785111" data-parent="51783332">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div class="c"><i class="iconcom-avactv"></i></div><strong onclick="selCmt(51785111)">Trần Luân</strong><b class="qtv">Quản trị viên</b></a>
-                            </div>
-                            <div class="cont">Dạ anh xem cách mở khóa&nbsp;<a target="_blank" href="https://www.thegioididong.com/tin-tuc/cach-lay-lai-tai-khoan-facebook-khi-bi-hack-mat-khau-826826">TẠI ĐÂY</a>&nbsp;anh nhé.<br>Thông tin đến anh</div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51785111,51783332)">Trả lời</a><a href="javascript:satisfiedCmt(51785111);" class="favor satis cmthl"><i class="iconcom-like"></i>Hài lòng<span></span></a>
-                                <a href="javascript:unsatisfiedCmt(51785111);" class="favor satis cmtkhl"><i class="iconcom-unlike"></i>Không hài lòng<span></span></a><a href="javascript:void(0)" class="time" onclick="cmtReport(51785111)">1 ngày trước </a>
-                                <div id="wrs51785111" class="wrapsatis" style="display: none;">
-                                    <div class="wrsct"><i class="iconcom-close" onclick="closeSatis();"></i><span>Thegioididong.com rất tiếc đã làm bạn chưa hài lòng. Mời bạn góp ý để <b>QTV Trần Luân</b> phục vụ tốt hơn:</span><textarea placeholder="Nhập nội dung góp ý"
-                                                                                                                                                                                                                                              type="text" class="ustCt"></textarea><span>Hãy để lại thông tin để được hỗ trợ khi cần thiết (không bắt buộc):</span><input placeholder="Họ tên" type="text" class="ustName"><input placeholder="Số điện thoại"
-                                                                                                                                                                                                                                                                                                                                                                                                                                  type="text" class="ustPhone">
-                                        <a href="javascript:sendUnSatisfied(51785111)">GỬI</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="reply hide" id="51789238" data-parent="51783332">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div>M</div><strong onclick="selCmt(51789238)">Minh</strong></a>
-                            </div>
-                            <div class="cont"> @Trần Luân: facebook của mình yêu cầu xác định danh tính nhưng sđt mình lâu quá ko xài nữa. Nên ko thể nhận mã. Giờ mình chỉ còn nhớ gmail thôi. Có cách nào xác minh mà gmail được ko ạ. Mong chỉ giúp mình. Xin cảm ơn ạ
-                                <div class="imgCmt"><img class="lazyload" data-src="https://cdn.tgdd.vn/comment/51789238/Screenshot_20220621-132344_FacebookJEB3L.jpg" onclick="openCmtSlide(51789238,0)"></div>
-                            </div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51789238,51783332)">Trả lời</a><a href="javascript:void(0)" class="time" onclick="cmtReport(51789238)">1 ngày trước </a></div>
-                        </div>
-                        <div class="reply hide" id="51789415" data-parent="51783332">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div class="c"><i class="iconcom-avactv"></i></div><strong onclick="selCmt(51789415)">Thế Linh</strong><b class="qtv">Quản trị viên</b></a>
-                            </div>
-                            <div class="cont">Dạ trường hợp này thì trông lúc xác minh gửi mã anh kiểm tra xem Facebook có cho chọn qua gmail không nếu có anh chọn lại giúp em anh nhé&nbsp;<br>Thông tin đến anh!&nbsp;</div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51789415,51783332)">Trả lời</a><a href="javascript:satisfiedCmt(51789415);" class="favor satis cmthl"><i class="iconcom-like"></i>Hài lòng<span></span></a>
-                                <a href="javascript:unsatisfiedCmt(51789415);" class="favor satis cmtkhl"><i class="iconcom-unlike"></i>Không hài lòng<span></span></a><a href="javascript:void(0)" class="time" onclick="cmtReport(51789415)">1 ngày trước </a>
-                                <div id="wrs51789415" class="wrapsatis" style="display: none;">
-                                    <div class="wrsct"><i class="iconcom-close" onclick="closeSatis();"></i><span>Thegioididong.com rất tiếc đã làm bạn chưa hài lòng. Mời bạn góp ý để <b>QTV Thế Linh</b> phục vụ tốt hơn:</span><textarea placeholder="Nhập nội dung góp ý"
-                                                                                                                                                                                                                                             type="text" class="ustCt"></textarea><span>Hãy để lại thông tin để được hỗ trợ khi cần thiết (không bắt buộc):</span><input placeholder="Họ tên" type="text" class="ustName"><input placeholder="Số điện thoại"
-                                                                                                                                                                                                                                                                                                                                                                                                                                 type="text" class="ustPhone">
-                                        <a href="javascript:sendUnSatisfied(51789415)">GỬI</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="inputreply hide"></div>
-                </li>
-                <li class="comment_ask" id="51781388">
-                    <div class="rowuser">
-                        <a href="javascript:void(0)">
-                            <div>H</div><strong onclick="selCmt(51781388)">Huy</strong></a>
-                    </div>
-                    <div class="question"> s22 chụp chế độ chân dung 3x bằng camera tele hay là crop từ cam chính ạ ?</div>
-                    <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtaddreplyclick(51781388)">Trả lời</a><a href="javascript:void(0)" class="time" onclick="cmtReport(51781388)">1 ngày trước </a></div>
-                    <div class="listreply" id="r51781388">
-                        <div class="reply " id="51781504" data-parent="51781388">
-                            <div class="rowuser">
-                                <a href="javascript:void(0)">
-                                    <div class="c"><i class="iconcom-avactv"></i></div><strong onclick="selCmt(51781504)">Công Huy</strong><b class="qtv">Quản trị viên</b></a>
-                            </div>
-                            <div class="cont">Chào anh&nbsp;<br>Dạ&nbsp;chụp chế độ chân dung 3x là sử dụng cả 2 camera chính và camera tele luôn anh nhé<br>Thông tin đến anh&nbsp;</div>
-                            <div class="actionuser" data-cl="0"><a href="javascript:void(0)" class="respondent" onclick="cmtChildAddReplyClick(51781504,51781388)">Trả lời</a><a href="javascript:satisfiedCmt(51781504);" class="favor satis cmthl"><i class="iconcom-like"></i>Hài lòng<span></span></a>
-                                <a href="javascript:unsatisfiedCmt(51781504);" class="favor satis cmtkhl"><i class="iconcom-unlike"></i>Không hài lòng<span></span></a><a href="javascript:void(0)" class="time" onclick="cmtReport(51781504)">1 ngày trước </a>
-                                <div id="wrs51781504" class="wrapsatis" style="display: none;">
-                                    <div class="wrsct"><i class="iconcom-close" onclick="closeSatis();"></i><span>Thegioididong.com rất tiếc đã làm bạn chưa hài lòng. Mời bạn góp ý để <b>QTV Công Huy</b> phục vụ tốt hơn:</span><textarea placeholder="Nhập nội dung góp ý"
-                                                                                                                                                                                                                                             type="text" class="ustCt"></textarea><span>Hãy để lại thông tin để được hỗ trợ khi cần thiết (không bắt buộc):</span><input placeholder="Họ tên" type="text" class="ustName"><input placeholder="Số điện thoại"
-                                                                                                                                                                                                                                                                                                                                                                                                                                 type="text" class="ustPhone">
-                                        <a href="javascript:sendUnSatisfied(51781504)">GỬI</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="inputreply hide"></div>
-                </li>
-                <div class="pagcomment"><span class="active">1</span><a onclick="listcomment(2,1,2);return false;" title="trang 2">2</a><a onclick="listcomment(2,1,3);return false;" title="trang 3">3</a><a onclick="listcomment(2,1,4);return false;" title="trang 4">4</a><span>...</span>
-                    <a onclick="listcomment(2,1,49);return false;" title="trang 49">49</a><a onclick="listcomment(2,1,2);return false;" title="trang 2">»</a></div>
-            </ul><textarea id="txtEditorExt" name="" cols="" rows="" class="txtEditor" placeholder="Mời Bạn để lại bình luận..."></textarea>
-            <div class="ajaxcomment hide">
-                <div id="loadcomment"></div>
-            </div>
-        </div>
+    </div>
 
     </div>
 
@@ -3792,11 +2480,11 @@
     </form>
 
     <div class="gallery-loading">
-            <span class="gallery-loading__cswrap">
-        <span class="gallery-loading__cswrap__csdot"></span>
-            <span class="gallery-loading__cswrap__csdot"></span>
-            <span class="gallery-loading__cswrap__csdot"></span>
-            </span>
+           <span class="gallery-loading__cswrap">
+       <span class="gallery-loading__cswrap__csdot"></span>
+           <span class="gallery-loading__cswrap__csdot"></span>
+           <span class="gallery-loading__cswrap__csdot"></span>
+           </span>
     </div>
 
     <div class="popup-addsp">
@@ -3843,7 +2531,7 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "upvoteCount": 0,
-                    "text": "Dạ chào anh Dạ trường hợp này anh giúp em nhấn giữ nguồn 3s xem có lên không ạ Xin thông tin đến anh ạ! "
+                    "text": "Dạ chào anh Dạ trường hợp này anh giúp em nhấn giữ nguồn 3s xem có lên không ạ Xin thông tin đến anh ạ! "
                 }
             }, {
                 "@type": "Question",
@@ -3861,7 +2549,7 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "upvoteCount": 0,
-                    "text": "Dạ bên em tiếp nhận thông tin và liên hệ trong thời gian sớm nhất vào sáng mai ạ.Thông tin đến anh. "
+                    "text": "Dạ bên em tiếp nhận thông tin và liên hệ trong thời gian sớm nhất vào sáng mai ạ.Thông tin đến anh. "
                 }
             }, {
                 "@type": "Question",
@@ -3879,7 +2567,7 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "upvoteCount": 0,
-                    "text": "Dạ mình không cần điền thông tin anh nha, mình có thể mang máy đến trực tiếp siêu thị để kiểm tra định giá chính xác cho mình anh nhé.Thông tin đến anh. "
+                    "text": "Dạ mình không cần điền thông tin anh nha, mình có thể mang máy đến trực tiếp siêu thị để kiểm tra định giá chính xác cho mình anh nhé.Thông tin đến anh. "
                 }
             }, {
                 "@type": "Question",
@@ -3888,7 +2576,7 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "upvoteCount": 0,
-                    "text": "Dạ trường hợp này thì trông lúc xác minh gửi mã anh kiểm tra xem Facebook có cho chọn qua gmail không nếu có anh chọn lại giúp em anh nhé Thông tin đến anh! "
+                    "text": "Dạ trường hợp này thì trông lúc xác minh gửi mã anh kiểm tra xem Facebook có cho chọn qua gmail không nếu có anh chọn lại giúp em anh nhé Thông tin đến anh! "
                 }
             }, {
                 "@type": "Question",
@@ -3897,7 +2585,7 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "upvoteCount": 0,
-                    "text": "Chào anh Dạ chụp chế độ chân dung 3x là sử dụng cả 2 camera chính và camera tele luôn anh nhéThông tin đến anh "
+                    "text": "Chào anh Dạ chụp chế độ chân dung 3x là sử dụng cả 2 camera chính và camera tele luôn anh nhéThông tin đến anh "
                 }
             }, {
                 "@type": "Question",
@@ -3915,7 +2603,7 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "upvoteCount": 0,
-                    "text": "Dạ em chào anh. Bộ sản phẩm gồm: Hộp, Sách hướng dẫn, Bút cảm ứng, Cây lấy sim, Cáp Type C, không bao gồm củ sạc ạ. Dạ sản phẩm hiện hết hàng tại khu vực mình ạ. Mình có thể tham khảo chuyển hàng về bằng cách bằng vào mục Mua ngay điền thông tin đặt chuyển hàng về ạ. Thông tin đến anh. "
+                    "text": "Dạ em chào anh. Bộ sản phẩm gồm: Hộp, Sách hướng dẫn, Bút cảm ứng, Cây lấy sim, Cáp Type C, không bao gồm củ sạc ạ. Dạ sản phẩm hiện hết hàng tại khu vực mình ạ. Mình có thể tham khảo chuyển hàng về bằng cách bằng vào mục Mua ngay điền thông tin đặt chuyển hàng về ạ. Thông tin đến anh. "
                 }
             }, {
                 "@type": "Question",
@@ -3924,7 +2612,7 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "upvoteCount": 0,
-                    "text": "Dạ em chào chị. Dạ sản phẩm có màu đỏ, trắng, đen, xanh lá thôi ạ. Dạ mình tham khảo ạ. Thông tin đến chị. "
+                    "text": "Dạ em chào chị. Dạ sản phẩm có màu đỏ, trắng, đen, xanh lá thôi ạ. Dạ mình tham khảo ạ. Thông tin đến chị. "
                 }
             }]
         }
@@ -4283,11 +2971,11 @@
 
 <div class="loadingcover" id="dlding">
     <p class="csslder">
-            <span class="csswrap">
-            <span class="cssdot"></span>
-            <span class="cssdot"></span>
-            <span class="cssdot"></span>
-            </span>
+           <span class="csswrap">
+           <span class="cssdot"></span>
+           <span class="cssdot"></span>
+           <span class="cssdot"></span>
+           </span>
     </p>
 </div>
 <div class="overlay"></div>
@@ -4714,3 +3402,4 @@
 <iframe id="__JSBridgeIframe_SetResult__" data-gtm-yt-inspected-1070012_61="true" data-gtm-yt-inspected-1070012_79="true" data-gtm-yt-inspected-1070012_187="true" data-gtm-yt-inspected-10="true" style="display: none;" src="./ProductDetail_files/saved_resource(5).html"></iframe>
 
 </html>
+

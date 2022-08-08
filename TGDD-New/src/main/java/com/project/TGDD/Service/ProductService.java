@@ -17,7 +17,7 @@ public interface ProductService {
 
     void addPhoneTablet(Product product, PhoneTabletDetail Phone, ColorProduct colPro, RomProduct romPro);
 
-    void addLaptop(Product product, LaptopDetail laptopDetail, ColorProduct colPro, RomProduct romPro);
+    //void addLaptop(Product product, LaptopDetail laptopDetail, ColorProduct colPro, RomProduct romPro);
 
     void addSmartWatch(Product product, smartWatchDetail smartWatch, ColorProduct colPro);
 
